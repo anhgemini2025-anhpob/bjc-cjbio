@@ -1,5 +1,5 @@
 // ============================================================================
-// COMPACT USER-CENTRIC APPLICATION CONTROLLER (CLICK-TO-REVEAL EDITION)
+// VISUAL ICON & DIAGRAM APPLICATION CONTROLLER (ZERO-CLUTTER CLICK-TO-REVEAL)
 // BJC Specialties Vietnam (BJCS) x CJ BIO Executive Presentation
 // ============================================================================
 
@@ -47,15 +47,15 @@
   // Reactive Application State
   const state = {
     authenticated: sessionStorage.getItem("bjc_cj_unlocked") === "1",
-    lang: "vi", // Default to Vietnamese for immediate clarity, switchable to EN | VI | KO
-    theme: localStorage.getItem("bjc_cj_theme") || "dark", // 'dark' | 'light'
-    fontScaleIndex: parseInt(localStorage.getItem("bjc_cj_font_idx") || "1", 10), // 0:sm, 1:md, 2:lg, 3:xl
-    activeTab: "mod1", // Focused slide-by-slide mode by default ('mod1'..'mod6' or 'all')
+    lang: "vi",
+    theme: localStorage.getItem("bjc_cj_theme") || "dark",
+    fontScaleIndex: parseInt(localStorage.getItem("bjc_cj_font_idx") || "1", 10),
+    activeTab: "mod1",
     activeNavHighlight: "mod1",
-    productTab: "hybind", // 'hybind' | 'fgaa'
-    regionFilter: "all", // 'all' | 'south' | 'north' | 'central'
-    categoryFilter: "all", // 'all' | 'meat' | 'seafood' | 'fgaa'
-    openView: null, // Tracks exact open modal/drawer for deep-link sharing (e.g., 'synergy', 'account-masan', 'hybind-compare')
+    productTab: "hybind",
+    regionFilter: "all",
+    categoryFilter: "all",
+    openView: null,
     suppressUrlSync: false,
     calc: {
       meatCost: 4.5,
@@ -72,65 +72,88 @@
     return window.APP_DATA.i18n[state.lang] || window.APP_DATA.i18n.en;
   }
 
-  // Localized short UI labels for compact controls & sharing
   function ui() {
     const map = {
       en: {
-        clickDetail: "Click for details →",
-        prevSlide: "← Previous",
-        nextSlide: "Next Module →",
-        slideMode: "Slide Mode (Compact)",
-        allMode: "Show All 6 Modules",
-        lightMode: "Light",
-        darkMode: "Dark",
-        viewApps: "Click any segment to view applications:",
-        viewDecisionMap: "Decision Map & SPIN Question",
-        viewTrialProtocol: "3-Stage Trial Protocol (HYBIND & FGAA)",
-        viewMonthlyKpi: "5 Monthly Governance KPIs",
-        clickPhaseHint: "Click to view deliverables →",
-        shareBtn: "Share Link",
-        copyUrlBtn: "Copy Link",
-        copiedTitle: "Direct Link Copied to Clipboard!",
-        urlDirectoryTitle: "Direct Section & Popup Links Directory",
-        urlDirectorySub: "Click Copy to share any exact section or popup directly with colleagues"
+        clickDetail: "Tap to view →",
+        tapExpand: "Tap card to expand details",
+        prevSlide: "← Prev",
+        nextSlide: "Next →",
+        slideMode: "1-Slide View",
+        allMode: "All 6 Slides",
+        viewApps: "Application Segments (Tap icon):",
+        viewDecisionMap: "Buyer Map & SPIN",
+        viewTrialProtocol: "3-Step Trial Flow",
+        viewMonthlyKpi: "5 Monthly KPIs",
+        clickPhaseHint: "Tap for checklist →",
+        synergyFlowTitle: "Regional Synergy Flow (Tap to inspect)",
+        supplyFlowTitle: "End-to-End Local Supply & Technical Chain",
+        flowNodes: [
+          { icon: "🚢", title: "Import & MOH RA", sub: "In-house food & TPCN dossier" },
+          { icon: "🏢", title: "Warehouse HCM & HN", sub: "Ex-Stock VND · Door-to-Door" },
+          { icon: "🔬", title: "NPD & Lab ~350m²", sub: "21+ yrs Food & TPCN team" },
+          { icon: "🤝", title: "~90 Active Accounts", sub: "Masan, CJ Cầu Tre, Vissan..." }
+        ],
+        regVisualTags: [
+          ["🌏 One Partner TH–VN", "💎 Value Pricing", "🛡️ Zero Channel Conflict"],
+          ["⚡ Proven Recipes", "📊 Dosage Benchmarks", "🚀 Fast Onboarding"],
+          ["🌡️ Thermomix", "🥩 Mincer & Mixer", "🌭 Hand Stuffing Line"],
+          ["👥 ~90 Existing Accounts", "🏢 Warehouse HCM & HN", "🧬 21+ Yrs Food & TPCN Team"]
+        ]
       },
       vi: {
-        clickDetail: "Nhấn xem chi tiết →",
-        prevSlide: "← Phần trước",
-        nextSlide: "Phần tiếp →",
-        slideMode: "Xem từng phần (Gọn)",
-        allMode: "Xem cả 6 phần",
-        lightMode: "Nền Sáng",
-        darkMode: "Nền Tối",
-        viewApps: "Nhấn vào từng nhóm để xem ứng dụng chi tiết:",
-        viewDecisionMap: "Chân Dung Người Quyết Định & SPIN",
-        viewTrialProtocol: "Quy Trình Thử Nghiệm 3 Bước",
-        viewMonthlyKpi: "5 KPI Báo Cáo Hàng Tháng",
-        clickPhaseHint: "Nhấn xem hạng mục →",
-        shareBtn: "Chia sẻ vị trí này",
-        copyUrlBtn: "Sao chép Link",
-        copiedTitle: "Đã sao chép địa chỉ Link đúng vị trí này!",
-        urlDirectoryTitle: "Danh Mục Địa Chỉ Link Chia Sẻ Nhanh",
-        urlDirectorySub: "Sao chép link từng mục cụ thể để gửi người đọc mở ngay đúng vị trí mong muốn"
+        clickDetail: "Chạm xem →",
+        tapExpand: "Chạm vào từng ô để mở rộng chi tiết",
+        prevSlide: "← Trước",
+        nextSlide: "Tiếp →",
+        slideMode: "Xem từng trang",
+        allMode: "Xem cả 6 trang",
+        viewApps: "Nhóm ứng dụng (Chạm vào từng ô):",
+        viewDecisionMap: "Sơ Đồ Người Quyết Định",
+        viewTrialProtocol: "Sơ Đồ Thử Nghiệm 3 Bước",
+        viewMonthlyKpi: "5 KPI Hàng Tháng",
+        clickPhaseHint: "Chạm xem hạng mục →",
+        synergyFlowTitle: "Sơ Đồ Cộng Hưởng Khu Vực (Chạm để xem)",
+        supplyFlowTitle: "Chuỗi Cung Ứng, Kho Bãi & Kỹ Thuật Thực Phẩm – TPCN",
+        flowNodes: [
+          { icon: "🚢", title: "Nhập Khẩu & Pháp Lý", sub: "Tự công bố Thực phẩm & TPCN" },
+          { icon: "🏢", title: "Kho Bãi HCM & Hà Nội", sub: "Ex-Stock VNĐ · Giao tận nơi" },
+          { icon: "🔬", title: "Đội Ngũ & Lab ~350m²", sub: "21+ năm KN Thực phẩm & TPCN" },
+          { icon: "🤝", title: "~90 Khách Hàng Sẵn Có", sub: "Masan, CJ Cầu Tre, Vissan..." }
+        ],
+        regVisualTags: [
+          ["🌏 1 Đối Tác Thái – Việt", "💎 Kỷ Luật Giá Trị", "🛡️ Quản Trị Key Accounts"],
+          ["⚡ Công Thức Chuẩn", "📊 Dữ Liệu Chạy Thử", "🚀 Rút Ngắn Lead-Time"],
+          ["🌡️ Thermomix", "🥩 Máy Xay Mincer/Mixer", "🌭 Máy Nhồi Xúc Xích"],
+          ["👥 ~90 Khách Hàng Hiện Hữu", "🏢 Kho Ex-Stock HCM & HN", "🧬 Nhân Sự 21+ Năm Thực Phẩm & TPCN"]
+        ]
       },
       ko: {
-        clickDetail: "클릭하여 상세 보기 →",
+        clickDetail: "상세 보기 →",
+        tapExpand: "카드를 클릭하면 상세 내용이 펼쳐집니다",
         prevSlide: "← 이전",
-        nextSlide: "다음 모듈 →",
-        slideMode: "슬라이드 모드 (요약)",
-        allMode: "전체 모듈 보기",
-        lightMode: "라이트",
-        darkMode: "다크",
-        viewApps: "세부 어플리케이션을 보려면 클릭하세요:",
-        viewDecisionMap: "의사결정권자 맵 & SPIN 질문",
-        viewTrialProtocol: "3단계 기술 검증 프로토콜",
-        viewMonthlyKpi: "월간 보고 5대 핵심 KPI",
+        nextSlide: "다음 →",
+        slideMode: "슬라이드 보기",
+        allMode: "전체 보기",
+        viewApps: "핵심 적용 분야 (클릭):",
+        viewDecisionMap: "의사결정권자 맵",
+        viewTrialProtocol: "3단계 테스트 프로세스",
+        viewMonthlyKpi: "월간 5대 KPI",
         clickPhaseHint: "세부 과제 보기 →",
-        shareBtn: "현재 위치 공유",
-        copyUrlBtn: "링크 복사",
-        copiedTitle: "현재 위치의 직접 링크가 복사되었습니다!",
-        urlDirectoryTitle: "섹션별 직접 공유 링크 목록",
-        urlDirectorySub: "원하는 섹션이나 팝업 위치의 링크를 바로 복사하여 공유하세요"
+        synergyFlowTitle: "태국 ➔ 베트남 시너지 구조 (클릭)",
+        supplyFlowTitle: "베트남 현지 물류 · 기술 · 인허가 밸류체인",
+        flowNodes: [
+          { icon: "🚢", title: "수입 통관 & 식약청(MOH)", sub: "식품·건기식 인허가 전담" },
+          { icon: "🏢", title: "호치민 & 하노이 창고", sub: "Ex-Stock VND · 직배송" },
+          { icon: "🔬", title: "전담 조직 & 방콕 랩", sub: "21년+ 식품·건기식 전문팀" },
+          { icon: "🤝", title: "~90개 기존 거래선", sub: "Masan, CJ Cầu Tre, Vissan..." }
+        ],
+        regVisualTags: [
+          ["🌏 태국·베트남 단일 파트너", "💎 가치 기반 가격 규율", "🛡️ 핵심 고객 통합 관리"],
+          ["⚡ 검증된 배합 레시피", "📊 적용 데이터 이전", "🚀 리드타임 단축"],
+          ["🌡️ Thermomix", "🥩 육가공 민서/믹서", "🌭 소시지 충진 라인"],
+          ["👥 ~90개 기존 거래선", "🏢 호치민·하노이 창고", "🧬 21년+ 식품·건기식 전문 인력"]
+        ]
       }
     };
     return map[state.lang] || map.en;
@@ -146,48 +169,50 @@
       check: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`,
       sparkle: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>`,
       arrowRight: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>`,
-      link: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>`
+      chevronDown: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>`
     };
     return icons[name] || icons.sparkle;
   }
 
-  // ==========================================================================
-  // 0. DEEP-LINK URL ROUTING & SHARE SYSTEM (SUB-PATHS + QUERY PARAMS)
-  // ==========================================================================
-  function getRelativeDeepPath(overrides = {}) {
-    const mod = overrides.mod || (state.activeTab === "all" ? "all" : state.activeNavHighlight);
-    const prodTab = overrides.productTab || state.productTab;
-    const openKey = overrides.open !== undefined ? overrides.open : state.openView;
-    const lang = overrides.lang || state.lang;
+  // Toggleable accordion helper inside Modals/Drawers so text is never dumped all at once
+  window.toggleVisualAccordion = function (accId) {
+    const el = document.getElementById(accId);
+    const icon = document.getElementById(`${accId}-icon`);
+    if (!el) return;
+    const isHidden = el.classList.contains("hidden");
+    if (isHidden) {
+      el.classList.remove("hidden");
+      if (icon) icon.style.transform = "rotate(180deg)";
+    } else {
+      el.classList.add("hidden");
+      if (icon) icon.style.transform = "rotate(0deg)";
+    }
+  };
 
+  // ==========================================================================
+  // 0. SILENT NATIVE ADDRESS BAR ROUTING (NO EXTRA SHARE BUTTONS)
+  // ==========================================================================
+  function getRelativeDeepPath() {
+    const mod = state.activeTab === "all" ? "all" : state.activeNavHighlight;
     let basePath = MOD_SLUGS[mod] || "/01-executive-hub";
     if (mod === "mod3") {
-      basePath = `/03-portfolio/${prodTab}`;
+      basePath = `/03-portfolio/${state.productTab}`;
     }
 
     const params = new URLSearchParams();
-    if (openKey) params.set("open", openKey);
-    if (mod === "mod4" && state.regionFilter !== "all" && !openKey) {
+    if (state.openView) params.set("open", state.openView);
+    if (mod === "mod4" && state.regionFilter !== "all" && !state.openView) {
       params.set("region", state.regionFilter);
     }
-    if (mod === "mod4" && state.categoryFilter !== "all" && !openKey) {
+    if (mod === "mod4" && state.categoryFilter !== "all" && !state.openView) {
       params.set("cat", state.categoryFilter);
     }
-    if (lang && lang !== "vi") {
-      params.set("lang", lang);
+    if (state.lang && state.lang !== "vi") {
+      params.set("lang", state.lang);
     }
 
     const qs = params.toString();
     return qs ? `${basePath}?${qs}` : basePath;
-  }
-
-  function getFullShareUrl(overrides = {}) {
-    const relPath = getRelativeDeepPath(overrides);
-    if (window.location.protocol === "file:") {
-      const baseFile = window.location.href.split("#")[0];
-      return `${baseFile}#${relPath}`;
-    }
-    return `${window.location.origin}${relPath}`;
   }
 
   function syncUrlState(push = false) {
@@ -202,88 +227,9 @@
         window.history.replaceState({ relPath }, "", relPath);
       }
     } catch (err) {
-      // Fallback to hash if history pushState is restricted
       window.location.hash = relPath;
     }
-    updateUrlBadgeDisplay();
   }
-
-  function updateUrlBadgeDisplay() {
-    const relPath = getRelativeDeepPath();
-    const hostLabel = window.location.host || "bjc-cjbio.vercel.app";
-    const badgeEl = document.getElementById("live-url-badge-text");
-    if (badgeEl) {
-      badgeEl.textContent = `${hostLabel}${relPath}`;
-    }
-    const hdrShareLbl = document.getElementById("header-share-label");
-    const modShareLbl = document.getElementById("modal-share-btn-text");
-    const drwShareLbl = document.getElementById("drawer-share-btn-text");
-    if (hdrShareLbl) hdrShareLbl.textContent = ui().shareBtn;
-    if (modShareLbl) modShareLbl.textContent = ui().copyUrlBtn;
-    if (drwShareLbl) drwShareLbl.textContent = ui().copyUrlBtn;
-  }
-
-  let shareToastTimer = null;
-  function showShareToast(urlStr) {
-    const toast = document.getElementById("share-toast");
-    const titleEl = document.getElementById("share-toast-title");
-    const urlEl = document.getElementById("share-toast-url");
-    if (!toast || !titleEl || !urlEl) return;
-    titleEl.textContent = ui().copiedTitle;
-    urlEl.textContent = urlStr;
-    toast.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
-    toast.classList.add("opacity-100", "translate-y-0");
-    clearTimeout(shareToastTimer);
-    shareToastTimer = setTimeout(() => {
-      toast.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
-      toast.classList.remove("opacity-100", "translate-y-0");
-    }, 3200);
-  }
-
-  function copyTextToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
-    }
-    return Promise.resolve(fallbackCopy(text));
-  }
-
-  function fallbackCopy(text) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.setAttribute("data-allow-copy", "true");
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-      document.execCommand("copy");
-    } catch (e) {}
-    document.body.removeChild(ta);
-  }
-
-  window.shareCurrentUrl = function () {
-    const fullUrl = getFullShareUrl();
-    copyTextToClipboard(fullUrl).then(() => {
-      showShareToast(fullUrl);
-    });
-  };
-
-  window.copySpecificUrl = function (relPath) {
-    const fullUrl =
-      window.location.protocol === "file:"
-        ? `${window.location.href.split("#")[0]}#${relPath}`
-        : `${window.location.origin}${relPath}`;
-    copyTextToClipboard(fullUrl).then(() => {
-      showShareToast(fullUrl);
-    });
-  };
-
-  window.navigateToDeepPath = function (relPath) {
-    closeModal(true);
-    closeDrawer(true);
-    applyUrlString(relPath);
-    syncUrlState(true);
-  };
 
   function applyUrlString(rawUrlStr) {
     state.suppressUrlSync = true;
@@ -307,13 +253,11 @@
 
       const params = new URLSearchParams(queryPart);
 
-      // 1. Language
       const langParam = params.get("lang");
       if (langParam && ["en", "vi", "ko"].includes(langParam)) {
         state.lang = langParam;
       }
 
-      // 2. Module & Sub-tab from path segments
       if (cleanSegments.length > 0) {
         const seg0 = cleanSegments[0].toLowerCase();
         if (SLUG_TO_MOD[seg0]) {
@@ -339,7 +283,6 @@
         }
       }
 
-      // 3. Query overrides for tab / region / category
       const tabParam = params.get("tab");
       if (tabParam === "hybind" || tabParam === "fgaa") {
         state.productTab = tabParam;
@@ -353,7 +296,6 @@
         state.categoryFilter = catParam;
       }
 
-      // 4. Automatically switch to parent module if ?open=... is specified
       const openKey = params.get("open");
       if (openKey) {
         if (openKey === "synergy" || openKey.startsWith("pillar-")) {
@@ -385,11 +327,9 @@
         }
       }
 
-      // Render UI with updated state
       updateLangButtonStyles();
       renderAll();
 
-      // 5. Trigger specific open Modal / Drawer if requested in URL
       if (openKey) {
         triggerOpenViewByKey(openKey);
       }
@@ -444,15 +384,6 @@
     } else {
       raw = window.location.pathname + window.location.search;
     }
-
-    // Show destination badge on Gatekeeper if user opened a specific deep link
-    const gkBanner = document.getElementById("gk-deeplink-banner");
-    const gkPath = document.getElementById("gk-deeplink-path");
-    if (gkBanner && gkPath && raw && raw !== "/" && raw !== "/index.html") {
-      gkBanner.classList.remove("hidden");
-      gkPath.textContent = (window.location.host || "bjc-cjbio.vercel.app") + (raw.startsWith("/") ? raw : "/" + raw);
-    }
-
     applyUrlString(raw);
     syncUrlState(false);
   }
@@ -473,9 +404,7 @@
     htmlEl.setAttribute("data-font-scale", scaleKey);
 
     const iconEl = document.getElementById("theme-toggle-icon");
-    const lblEl = document.getElementById("theme-toggle-label");
     if (iconEl) iconEl.textContent = state.theme === "dark" ? "☀️" : "🌙";
-    if (lblEl) lblEl.textContent = state.theme === "dark" ? ui().lightMode : ui().darkMode;
 
     const fontInd = document.getElementById("font-scale-indicator");
     if (fontInd) fontInd.textContent = FONT_LABELS[scaleKey];
@@ -546,7 +475,6 @@
         closeDrawer();
       }
 
-      // Keyboard arrow slide navigation when modal/drawer is closed
       const modalOpen = !document.getElementById("app-modal-backdrop").classList.contains("hidden");
       const drawerOpen = !document.getElementById("app-drawer-backdrop").classList.contains("hidden");
       if (state.authenticated && !modalOpen && !drawerOpen && state.activeTab !== "all") {
@@ -724,21 +652,23 @@
     const nav = t().nav;
     const u = ui();
     const curIdx = MOD_LIST.indexOf(state.activeNavHighlight);
+    const tabIcons = ["🎯", "🏢", "🧬", "🗺️", "📈", "🚀"];
 
     // Desktop Top Tabs
     const tabsContainer = document.getElementById("nav-tabs-container");
     if (tabsContainer) {
       tabsContainer.innerHTML = nav.tabs
-        .map((tab) => {
+        .map((tab, i) => {
           const isActive = state.activeNavHighlight === tab.id;
           return `
             <button onclick="selectNavModule('${tab.id}')"
-              class="px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+              class="px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer flex items-center gap-1 ${
                 isActive
                   ? "bg-emerald-600 text-white keep-white-text shadow-sm"
                   : "text-slate-300 hover:text-white hover:bg-white/10"
               }">
-              ${tab.code}. ${tab.label}
+              <span>${tabIcons[i]}</span>
+              <span>${tab.code}. ${tab.label}</span>
             </button>
           `;
         })
@@ -751,17 +681,17 @@
       mobileNav.innerHTML = `
         <div class="grid grid-cols-6 gap-1 max-w-lg mx-auto">
           ${nav.tabs
-            .map((tab) => {
+            .map((tab, i) => {
               const isActive = state.activeNavHighlight === tab.id;
               return `
                 <button onclick="selectNavModule('${tab.id}')"
-                  class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all cursor-pointer ${
+                  class="flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all cursor-pointer ${
                     isActive
                       ? "bg-emerald-600 text-white keep-white-text font-extrabold shadow"
                       : "text-slate-400 hover:text-white"
                   }">
-                  <span class="text-[11px] font-mono font-bold">${tab.code}</span>
-                  <span class="text-[10px] truncate max-w-full">${tab.label.split(" ")[0]}</span>
+                  <span class="text-xs">${tabIcons[i]}</span>
+                  <span class="text-[10px] font-mono font-bold">${tab.code}</span>
                 </button>
               `;
             })
@@ -770,32 +700,21 @@
       `;
     }
 
-    // Top Deck Progress Bar + Live Clickable URL Address Pill
+    // Minimalist Top Progress Bar
     const deckBar = document.getElementById("deck-control-bar");
     if (deckBar) {
       const currentTabObj = nav.tabs[curIdx] || nav.tabs[0];
-      const hostLabel = window.location.host || "bjc-cjbio.vercel.app";
-      const relPath = getRelativeDeepPath();
       deckBar.innerHTML = `
-        <div class="flex flex-wrap items-center gap-2">
+        <div class="flex items-center gap-2">
           <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-mono text-xs font-bold">
             ${curIdx + 1} / 6
           </span>
-          <span class="text-xs sm:text-sm font-bold text-slate-300">${currentTabObj.label}</span>
-
-          <!-- Live Section URL Address Pill (Click to copy exact link) -->
-          <button onclick="shareCurrentUrl()" title="Click to copy direct URL to this position"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/80 hover:bg-emerald-950/70 border border-emerald-500/35 text-[11px] font-mono text-emerald-300 cursor-pointer transition-all">
-            ${getIcon("link", "w-3.5 h-3.5")}
-            <span id="live-url-badge-text" class="truncate max-w-[200px] sm:max-w-[340px]">${hostLabel}${relPath}</span>
-          </button>
+          <span class="text-xs sm:text-sm font-bold text-slate-300">${tabIcons[curIdx]} ${currentTabObj.label}</span>
         </div>
-        <div class="flex items-center gap-2">
-          <button onclick="selectNavModule('all')"
-            class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-semibold text-slate-200 cursor-pointer transition-all">
-            ${state.activeTab === "all" ? u.slideMode : u.allMode}
-          </button>
-        </div>
+        <button onclick="selectNavModule('all')"
+          class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-semibold text-slate-200 cursor-pointer transition-all">
+          ${state.activeTab === "all" ? u.slideMode : u.allMode}
+        </button>
       `;
     }
 
@@ -807,34 +726,33 @@
       } else {
         const nextTabObj = nav.tabs[(curIdx + 1) % 6];
         footerNav.innerHTML = `
-          <div class="flex items-center justify-between gap-3 glass-card rounded-2xl px-4 py-3">
+          <div class="flex items-center justify-between gap-3 glass-card rounded-2xl px-4 py-2.5">
             <button onclick="stepSlide(-1)"
-              class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer">
+              class="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer">
               ${u.prevSlide}
             </button>
-            <div class="hidden sm:flex items-center gap-1.5">
+            <div class="flex items-center gap-1.5">
               ${MOD_LIST.map(
                 (m, i) => `
                 <button onclick="selectNavModule('${m}')"
                   class="h-2 rounded-full transition-all cursor-pointer ${
-                    i === curIdx ? "w-7 bg-emerald-400" : "w-2 bg-white/25"
+                    i === curIdx ? "w-6 bg-emerald-400" : "w-2 bg-white/25"
                   }"></button>
               `
               ).join("")}
             </div>
             <button onclick="stepSlide(1)"
-              class="keep-white-text px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs sm:text-sm font-bold text-white shadow transition-all cursor-pointer">
+              class="keep-white-text px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs sm:text-sm font-bold text-white shadow transition-all cursor-pointer">
               ${u.nextSlide} (${nextTabObj.code})
             </button>
           </div>
         `;
       }
     }
-    updateUrlBadgeDisplay();
   }
 
   // ==========================================================================
-  // 5. MODULE 1: ULTRA-CONCISE EXECUTIVE HUB (CLICK TO REVEAL)
+  // 5. MODULE 1: VISUAL DIAGRAM EXECUTIVE HUB (ZERO LONG PARAGRAPHS)
   // ==========================================================================
   function renderModule1() {
     const m1 = t().mod1;
@@ -842,75 +760,86 @@
     const container = document.getElementById("section-mod1");
     if (!container) return;
 
+    const pillarEmojis = ["🤝", "👥", "🔬", "🚚"];
+
     container.innerHTML = `
-      <div class="glass-card rounded-3xl p-5 sm:p-8 relative overflow-hidden">
-        <!-- Compact Header -->
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            ${m1.eyebrow}
+      <div class="glass-card rounded-3xl p-5 sm:p-7">
+        <!-- Compact Top Badges -->
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+            🎯 ${m1.eyebrow}
           </span>
-          <div class="flex flex-wrap items-center gap-1.5 text-xs">
-            <span class="px-2.5 py-1 rounded-full bg-white/10 font-semibold text-slate-200">${m1.meetingTag}</span>
-            <span class="px-2.5 py-1 rounded-full bg-blue-500/15 text-blue-300 border border-blue-400/30 font-semibold">${m1.presenterTag}</span>
+          <span class="px-2.5 py-1 rounded-full bg-white/10 text-[11px] font-semibold text-slate-300">${m1.meetingTag}</span>
+        </div>
+
+        <h1 class="text-lg sm:text-2xl font-extrabold text-white leading-snug mb-5">
+          ${m1.headline}
+        </h1>
+
+        <!-- VISUAL FLOW DIAGRAM: THAILAND -> VIETNAM -> 2027 LAUNCH (Click to open 4 Synergy Cards) -->
+        <div onclick="openRegionalModal()"
+          class="cursor-pointer rounded-2xl bg-slate-900/80 border border-emerald-500/40 hover:border-emerald-400 p-4 mb-5 transition-all group">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-extrabold text-emerald-300 uppercase tracking-wide">⚡ ${u.synergyFlowTitle}</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold group-hover:translate-x-0.5 transition-transform">${u.clickDetail}</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 items-center">
+            <!-- Node 1: Thailand -->
+            <div class="rounded-xl bg-white/5 border border-white/10 p-3 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-xl shrink-0">🇹🇭</div>
+              <div class="min-w-0">
+                <div class="text-[10px] font-bold text-blue-300 uppercase">${m1.bridge.thailandTag}</div>
+                <div class="text-xs sm:text-sm font-extrabold text-white truncate">${m1.bridge.thailandTitle}</div>
+              </div>
+            </div>
+
+            <!-- Node 2: Vietnam -->
+            <div class="rounded-xl bg-emerald-950/60 border border-emerald-500/40 p-3 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-xl shrink-0">🇻🇳</div>
+              <div class="min-w-0">
+                <div class="text-[10px] font-bold text-emerald-300 uppercase">${m1.bridge.vietnamTag}</div>
+                <div class="text-xs sm:text-sm font-extrabold text-white truncate">${m1.bridge.vietnamTitle}</div>
+              </div>
+            </div>
+
+            <!-- Node 3: 4 Strategic Pillars Trigger -->
+            <div class="keep-white-text rounded-xl bg-gradient-to-r from-emerald-600 to-blue-600 p-3 flex items-center justify-between gap-2 text-white shadow-md">
+              <div class="flex items-center gap-2.5">
+                <span class="text-xl">✨</span>
+                <div>
+                  <div class="text-[10px] font-bold uppercase opacity-90">4 VALUE PILLARS</div>
+                  <div class="text-xs sm:text-sm font-extrabold">HYBIND & FGAA</div>
+                </div>
+              </div>
+              <span class="text-sm font-bold">→</span>
+            </div>
           </div>
         </div>
 
-        <h1 class="text-xl sm:text-3xl font-extrabold text-white leading-snug mb-2">
-          ${m1.headline}
-        </h1>
-        <p class="text-xs sm:text-sm text-slate-300 mb-6 max-w-3xl">
-          ${m1.proposalBannerText}
-        </p>
-
-        <!-- 4 Compact Click-to-Reveal Pillar Cards (No long text shown upfront!) -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+        <!-- 4 Ultra-Compact Icon Cards (Click any card to reveal details) -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
           ${m1.pillars
             .map(
               (p, idx) => `
             <div onclick="openPillarModal(${idx})"
               class="glass-subcard cursor-pointer rounded-2xl p-4 hover:border-emerald-400 transition-all group flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between gap-2 mb-3">
-                  <div class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-300 group-hover:scale-110 transition-transform">
-                    ${getIcon(p.icon, "w-5 h-5")}
-                  </div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                    ${pillarEmojis[idx] || "✨"}
+                  </span>
                   <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/10 text-emerald-300">${p.tag}</span>
                 </div>
-                <h3 class="text-sm sm:text-base font-extrabold text-white group-hover:text-emerald-300 transition-colors">${p.title}</h3>
+                <h3 class="text-xs sm:text-sm font-extrabold text-white group-hover:text-emerald-300 transition-colors">${p.title}</h3>
               </div>
-              <div class="mt-3 pt-2 border-t border-white/10 text-[11px] font-bold text-emerald-400 flex items-center justify-between">
-                <span>${u.clickDetail}</span>
+              <div class="mt-3 pt-2 border-t border-white/10 text-[11px] font-bold text-emerald-400">
+                ${u.clickDetail}
               </div>
             </div>
           `
             )
             .join("")}
-        </div>
-
-        <!-- Compact Thailand -> Vietnam Synergy Strip -->
-        <div class="rounded-2xl bg-slate-900/80 border border-emerald-500/35 p-4 sm:p-5 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-1">
-            <!-- Thailand -->
-            <div onclick="openRegionalModal()" class="cursor-pointer flex-1 rounded-xl bg-white/5 border border-white/10 p-3.5 hover:border-blue-400/50 transition-all">
-              <div class="text-[10px] font-bold uppercase text-blue-300">${m1.bridge.thailandTag}</div>
-              <div class="text-sm sm:text-base font-extrabold text-white mt-0.5">${m1.bridge.thailandTitle}</div>
-            </div>
-
-            <div class="hidden sm:flex items-center justify-center text-emerald-400 font-bold text-lg px-1">➔</div>
-
-            <!-- Vietnam -->
-            <div onclick="openRegionalModal()" class="cursor-pointer flex-1 rounded-xl bg-emerald-950/50 border border-emerald-500/40 p-3.5 hover:border-emerald-400 transition-all">
-              <div class="text-[10px] font-bold uppercase text-emerald-300">${m1.bridge.vietnamTag}</div>
-              <div class="text-sm sm:text-base font-extrabold text-white mt-0.5">${m1.bridge.vietnamTitle}</div>
-            </div>
-          </div>
-
-          <button onclick="openRegionalModal()"
-            class="keep-white-text px-4 py-3 rounded-xl font-bold text-xs sm:text-sm bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white shadow-lg transition-all cursor-pointer shrink-0 flex items-center justify-center gap-2">
-            ${getIcon("sparkle", "w-4 h-4")}
-            <span>${m1.bridge.ctaBtn}</span>
-          </button>
         </div>
       </div>
     `;
@@ -920,40 +849,87 @@
     const p = t().mod1.pillars[idx];
     if (!p) return;
     state.openView = `pillar-${idx}`;
+    const emojis = ["🤝", "👥", "🔬", "🚚"];
     const html = `
-      <div class="rounded-2xl bg-slate-800/90 border border-emerald-500/35 p-5">
-        <span class="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 mb-3">${p.tag}</span>
-        <p class="text-sm sm:text-base text-white leading-relaxed">${p.desc}</p>
+      <div class="rounded-2xl bg-slate-800/90 border border-emerald-500/35 p-5 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-2xl shrink-0">
+          ${emojis[idx] || "✨"}
+        </div>
+        <div>
+          <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 mb-2">${p.tag}</span>
+          <p class="text-sm sm:text-base text-white leading-relaxed">${p.desc}</p>
+        </div>
       </div>
     `;
     openModal(p.title, t().mod1.eyebrow, html);
   };
 
+  // Visual Icon & Accordion Modal for "Why Regional Partnership?" (No long text shown unless clicked!)
   window.openRegionalModal = function () {
     const rm = t().mod1.regionalModal;
+    const u = ui();
     state.openView = "synergy";
+    const cardIcons = ["🎯", "⚡", "🔬", "🏢"];
+
     const html = `
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-        ${rm.items
-          .map(
-            (item) => `
-          <div class="rounded-2xl bg-slate-800/90 border border-white/15 p-4">
-            <div class="flex items-center gap-2.5 mb-2">
-              <span class="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-bold flex items-center justify-center shrink-0">${item.num}</span>
-              <h4 class="text-sm sm:text-base font-bold text-white">${item.title}</h4>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${item.desc}</p>
-          </div>
-        `
-          )
-          .join("")}
+      <div class="space-y-3">
+        <div class="text-xs font-semibold text-emerald-300 flex items-center gap-1.5 mb-1">
+          <span>💡</span>
+          <span>${u.tapExpand}</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          ${rm.items
+            .map((item, idx) => {
+              const tags = u.regVisualTags[idx] || [];
+              const accId = `reg-acc-${idx}`;
+              return `
+                <div onclick="toggleVisualAccordion('${accId}')"
+                  class="cursor-pointer rounded-2xl bg-slate-800/90 border border-white/15 hover:border-emerald-400/60 p-4 transition-all">
+                  <div class="flex items-start justify-between gap-2 mb-2.5">
+                    <div class="flex items-center gap-2.5">
+                      <span class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-base flex items-center justify-center shrink-0">
+                        ${cardIcons[idx]}
+                      </span>
+                      <div>
+                        <span class="text-[10px] font-mono font-bold text-emerald-400">0${idx + 1}</span>
+                        <h4 class="text-xs sm:text-sm font-extrabold text-white leading-snug">${item.title}</h4>
+                      </div>
+                    </div>
+                    <span id="${accId}-icon" class="text-slate-400 transition-transform duration-200 shrink-0 mt-1">
+                      ${getIcon("chevronDown", "w-4 h-4")}
+                    </span>
+                  </div>
+
+                  <!-- Visual Icon Pills (Immediate scannable summary without long sentences) -->
+                  <div class="flex flex-wrap gap-1.5">
+                    ${tags
+                      .map(
+                        (tg) => `
+                      <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] font-bold text-emerald-300">
+                        ${tg}
+                      </span>
+                    `
+                      )
+                      .join("")}
+                  </div>
+
+                  <!-- Hidden Detail Paragraph (Revealed only when user clicks this card) -->
+                  <div id="${accId}" class="hidden mt-3 pt-3 border-t border-white/10 text-xs sm:text-sm text-slate-200 leading-relaxed">
+                    ${item.desc}
+                  </div>
+                </div>
+              `;
+            })
+            .join("")}
+        </div>
       </div>
     `;
     openModal(rm.title, rm.subtitle, html);
   };
 
   // ==========================================================================
-  // 6. MODULE 2: COMPACT BJCS PLATFORM (KPIs + 2 CLICK DRAWERS)
+  // 6. MODULE 2: VISUAL PLATFORM & SUPPLY CHAIN DIAGRAM (KPIs + 2 DRAWERS)
   // ==========================================================================
   function renderModule2() {
     const m2 = t().mod2;
@@ -961,89 +937,132 @@
     const container = document.getElementById("section-mod2");
     if (!container) return;
 
+    const kpiIcons = ["🏛️", "📍", "🤝", "🧬"];
+
     container.innerHTML = `
-      <div class="glass-card rounded-3xl p-5 sm:p-8">
-        <div class="mb-5">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-blue-500/15 text-blue-300 border border-blue-500/30 mb-2">
-            ${m2.eyebrow}
+      <div class="glass-card rounded-3xl p-5 sm:p-7">
+        <div class="mb-4">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-blue-500/15 text-blue-300 border border-blue-500/30 mb-1.5">
+            🏢 ${m2.eyebrow}
           </span>
-          <h2 class="text-xl sm:text-3xl font-extrabold text-white">${m2.headline}</h2>
+          <h2 class="text-lg sm:text-2xl font-extrabold text-white">${m2.headline}</h2>
         </div>
 
-        <!-- 4 Compact KPI Cards (Click any KPI to open Drawer) -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+        <!-- 4 Visual KPI Cards (Click any KPI to open Drawer) -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
           ${m2.kpis
             .map(
               (kpi, idx) => `
             <div onclick="${idx < 2 ? "openRtmDrawer()" : "openPortfolioDrawer()"}"
-              class="glass-subcard cursor-pointer rounded-2xl p-4 sm:p-5 hover:border-emerald-400 transition-all group">
-              <div class="text-2xl sm:text-3xl font-extrabold text-emerald-300 mb-1">
+              class="glass-subcard cursor-pointer rounded-2xl p-4 hover:border-emerald-400 transition-all group">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-xl">${kpiIcons[idx]}</span>
+                <span class="text-[10px] font-bold text-emerald-400">${u.clickDetail}</span>
+              </div>
+              <div class="text-xl sm:text-2xl font-extrabold text-emerald-300">
                 <span>${kpi.prefix}</span><span class="kpi-counter" data-target="${kpi.value}">${kpi.value}</span><span>${kpi.suffix}</span>
               </div>
-              <div class="text-xs sm:text-sm font-bold text-white">${kpi.label}</div>
-              <div class="text-[11px] text-emerald-400 font-semibold mt-2">${u.clickDetail}</div>
+              <div class="text-xs font-bold text-white mt-0.5">${kpi.label}</div>
             </div>
           `
             )
             .join("")}
         </div>
 
+        <!-- Visual 4-Node Supply Chain & Technical Flowchart -->
+        <div class="rounded-2xl bg-slate-900/75 border border-white/10 p-4 mb-5">
+          <div class="text-[11px] font-bold uppercase text-slate-400 mb-2.5">⚡ ${u.supplyFlowTitle}</div>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
+            ${u.flowNodes
+              .map(
+                (fn, i) => `
+              <div onclick="${i < 3 ? "openRtmDrawer()" : "openPortfolioDrawer()"}"
+                class="cursor-pointer rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 p-3 flex items-center gap-2.5 transition-all">
+                <span class="text-2xl shrink-0">${fn.icon}</span>
+                <div class="min-w-0">
+                  <div class="text-xs font-extrabold text-white truncate">${fn.title}</div>
+                  <div class="text-[10px] text-emerald-300 truncate">${fn.sub}</div>
+                </div>
+              </div>
+            `
+              )
+              .join("")}
+          </div>
+        </div>
+
         <!-- 2 Clean Interactive Drawer Buttons -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <button onclick="openRtmDrawer()"
-            class="text-left rounded-2xl bg-emerald-950/60 border border-emerald-500/40 hover:border-emerald-400 p-5 flex items-center justify-between gap-3 group transition-all cursor-pointer">
-            <div>
-              <div class="text-[10px] font-bold uppercase text-emerald-400 mb-1">CLICK TO VIEW</div>
-              <div class="text-base sm:text-lg font-extrabold text-white">${m2.drawers.rtmBtn}</div>
-              <div class="text-xs text-slate-300 mt-0.5 line-clamp-1">${m2.drawers.rtmSub}</div>
+            class="text-left rounded-2xl bg-emerald-950/60 border border-emerald-500/40 hover:border-emerald-400 p-4 flex items-center justify-between gap-3 group transition-all cursor-pointer">
+            <div class="flex items-center gap-3 min-w-0">
+              <span class="w-10 h-10 rounded-xl bg-emerald-500/20 text-xl flex items-center justify-center shrink-0">🚚</span>
+              <div class="min-w-0">
+                <div class="text-xs sm:text-sm font-extrabold text-white truncate">${m2.drawers.rtmBtn}</div>
+                <div class="text-[11px] text-emerald-300">${u.clickDetail}</div>
+              </div>
             </div>
-            <span class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0">
-              ${getIcon("arrowRight", "w-5 h-5")}
-            </span>
+            <span class="text-emerald-300 shrink-0">${getIcon("arrowRight", "w-4 h-4")}</span>
           </button>
 
           <button onclick="openPortfolioDrawer()"
-            class="text-left rounded-2xl bg-blue-950/50 border border-blue-500/40 hover:border-blue-400 p-5 flex items-center justify-between gap-3 group transition-all cursor-pointer">
-            <div>
-              <div class="text-[10px] font-bold uppercase text-blue-400 mb-1">CLICK TO VIEW</div>
-              <div class="text-base sm:text-lg font-extrabold text-white">${m2.drawers.portfolioBtn}</div>
-              <div class="text-xs text-slate-300 mt-0.5 line-clamp-1">${m2.drawers.portfolioSub}</div>
+            class="text-left rounded-2xl bg-blue-950/50 border border-blue-500/40 hover:border-blue-400 p-4 flex items-center justify-between gap-3 group transition-all cursor-pointer">
+            <div class="flex items-center gap-3 min-w-0">
+              <span class="w-10 h-10 rounded-xl bg-blue-500/20 text-xl flex items-center justify-center shrink-0">🌐</span>
+              <div class="min-w-0">
+                <div class="text-xs sm:text-sm font-extrabold text-white truncate">${m2.drawers.portfolioBtn}</div>
+                <div class="text-[11px] text-blue-300">${u.clickDetail}</div>
+              </div>
             </div>
-            <span class="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center shrink-0">
-              ${getIcon("arrowRight", "w-5 h-5")}
-            </span>
+            <span class="text-blue-300 shrink-0">${getIcon("arrowRight", "w-4 h-4")}</span>
           </button>
         </div>
       </div>
     `;
   }
 
+  // Visual Accordion Drawer for Route-to-Market (Click each section to expand)
   window.openRtmDrawer = function () {
     const d = t().mod2.rtmDrawer;
+    const u = ui();
     state.openView = "rtm";
+    const secIcons = ["📦", "🔬", "⚖️"];
+
     const html = `
-      <div class="space-y-4">
+      <div class="space-y-3">
+        <div class="text-xs font-semibold text-emerald-300 mb-1">💡 ${u.tapExpand}</div>
         ${d.sections
-          .map(
-            (s) => `
-          <div class="rounded-2xl bg-slate-800/90 border border-white/15 p-4">
-            <span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 mb-1.5">${s.badge}</span>
-            <h4 class="text-sm sm:text-base font-bold text-white mb-2">${s.title}</h4>
-            <ul class="space-y-2">
-              ${s.bullets
-                .map(
-                  (b) => `
-                <li class="flex items-start gap-2 text-xs sm:text-sm text-slate-200 leading-relaxed">
-                  <span class="text-emerald-400 mt-0.5 shrink-0">${getIcon("check", "w-4 h-4")}</span>
-                  <span>${b}</span>
-                </li>
-              `
-                )
-                .join("")}
-            </ul>
-          </div>
-        `
-          )
+          .map((s, idx) => {
+            const accId = `rtm-sec-${idx}`;
+            return `
+              <div onclick="toggleVisualAccordion('${accId}')"
+                class="cursor-pointer rounded-2xl bg-slate-800/90 border border-white/15 hover:border-emerald-400/50 p-4 transition-all">
+                <div class="flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-3">
+                    <span class="w-9 h-9 rounded-xl bg-emerald-500/20 flex items-center justify-center text-lg shrink-0">${secIcons[idx] || "📌"}</span>
+                    <div>
+                      <span class="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 mb-0.5">${s.badge}</span>
+                      <h4 class="text-xs sm:text-sm font-extrabold text-white">${s.title}</h4>
+                    </div>
+                  </div>
+                  <span id="${accId}-icon" class="text-slate-400 transition-transform duration-200 shrink-0">
+                    ${getIcon("chevronDown", "w-4 h-4")}
+                  </span>
+                </div>
+                <ul id="${accId}" class="${idx === 0 ? "" : "hidden"} mt-3 pt-3 border-t border-white/10 space-y-2">
+                  ${s.bullets
+                    .map(
+                      (b) => `
+                    <li class="flex items-start gap-2 text-xs text-slate-200 leading-relaxed">
+                      <span class="text-emerald-400 mt-0.5 shrink-0">✓</span>
+                      <span>${b}</span>
+                    </li>
+                  `
+                    )
+                    .join("")}
+                </ul>
+              </div>
+            `;
+          })
           .join("")}
       </div>
     `;
@@ -1053,30 +1072,38 @@
   window.openPortfolioDrawer = function () {
     const d = t().mod2.portfolioDrawer;
     state.openView = "principals";
+    const segIcons = ["🥩", "💊", "🍜", "🧴"];
+
     const html = `
-      <div class="space-y-5">
-        <div class="space-y-2.5">
-          ${d.principals
+      <div class="space-y-4">
+        <!-- Customer Segments Icon Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          ${d.customerSegments
             .map(
-              (p) => `
-            <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5">
-              <div class="flex flex-wrap items-center justify-between gap-1 mb-1">
-                <span class="text-[11px] font-bold text-slate-400 uppercase">${p.category}</span>
-                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300">${p.synergy}</span>
+              (c, i) => `
+            <div class="rounded-xl bg-emerald-950/45 border border-emerald-500/35 p-3 flex items-start gap-2.5">
+              <span class="text-lg shrink-0">${segIcons[i] || "🏢"}</span>
+              <div>
+                <div class="text-xs font-extrabold text-emerald-300">${c.seg}</div>
+                <div class="text-xs text-white mt-0.5">${c.accts}</div>
               </div>
-              <div class="text-sm sm:text-base font-extrabold text-white">${p.brands}</div>
             </div>
           `
             )
             .join("")}
         </div>
-        <div class="grid grid-cols-1 gap-2.5 pt-2 border-t border-white/10">
-          ${d.customerSegments
+
+        <!-- Global Principals Compact List -->
+        <div class="space-y-2 pt-2 border-t border-white/10">
+          ${d.principals
             .map(
-              (c) => `
-            <div class="rounded-xl bg-blue-950/40 border border-blue-400/25 p-3.5">
-              <div class="text-xs font-bold text-blue-300">${c.seg}</div>
-              <div class="text-xs sm:text-sm font-semibold text-white mt-0.5">${c.accts}</div>
+              (p) => `
+            <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3">
+              <div class="flex flex-wrap items-center justify-between gap-1 mb-0.5">
+                <span class="text-[10px] font-bold text-slate-400 uppercase">${p.category}</span>
+                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-500/15 text-blue-300">${p.synergy}</span>
+              </div>
+              <div class="text-xs sm:text-sm font-extrabold text-white">${p.brands}</div>
             </div>
           `
             )
@@ -1092,7 +1119,7 @@
     counters.forEach((el) => {
       const target = parseInt(el.getAttribute("data-target"), 10);
       if (isNaN(target)) return;
-      const duration = 700;
+      const duration = 650;
       const startTime = performance.now();
       const startVal = target > 1000 ? 1995 : 0;
 
@@ -1108,7 +1135,7 @@
   }
 
   // ==========================================================================
-  // 7. MODULE 3: COMPACT PRODUCT PORTFOLIO (CLICK FOR APPS & COMPARISONS)
+  // 7. MODULE 3: VISUAL PRODUCT PORTFOLIO (ICONS + CLICK-TO-REVEAL)
   // ==========================================================================
   window.switchProductTab = function (tab) {
     state.productTab = tab;
@@ -1124,46 +1151,41 @@
 
     const isHybind = state.productTab === "hybind";
     const prod = isHybind ? m3.hybind : m3.fgaa;
+    const appEmojis = isHybind ? ["🌭", "🍗", "🦐", "🥟"] : ["🏃", "🥤", "💊", "🏥"];
 
     container.innerHTML = `
-      <div class="glass-card rounded-3xl p-5 sm:p-8">
+      <div class="glass-card rounded-3xl p-5 sm:p-7">
         <!-- Product Selector Tabs -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 p-1.5 rounded-2xl bg-slate-950/70 border border-white/10 mb-6">
+        <div class="grid grid-cols-2 gap-2 p-1.5 rounded-2xl bg-slate-950/70 border border-white/10 mb-5">
           <button onclick="switchProductTab('hybind')"
-            class="py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-left flex items-center justify-between transition-all cursor-pointer ${
+            class="py-2.5 px-3.5 rounded-xl font-bold text-xs sm:text-sm text-left flex items-center justify-between transition-all cursor-pointer ${
               isHybind
                 ? "keep-white-text bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow"
                 : "text-slate-300 hover:text-white"
             }">
-            <span>TasteNrich® HYBIND</span>
-            <span class="text-[10px] opacity-85">Phosphate-Free</span>
+            <span>🥩 TasteNrich® HYBIND</span>
+            <span class="hidden sm:inline text-[10px] opacity-85">Phosphate-Free</span>
           </button>
 
           <button onclick="switchProductTab('fgaa')"
-            class="py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-left flex items-center justify-between transition-all cursor-pointer ${
+            class="py-2.5 px-3.5 rounded-xl font-bold text-xs sm:text-sm text-left flex items-center justify-between transition-all cursor-pointer ${
               !isHybind
                 ? "keep-white-text bg-gradient-to-r from-blue-600 to-amber-500 text-white shadow"
                 : "text-slate-300 hover:text-white"
             }">
-            <span>AMINATURE® FGAA</span>
-            <span class="text-[10px] opacity-85">L-Arg · L-Cit · L-His</span>
+            <span>⚡ AMINATURE® FGAA</span>
+            <span class="hidden sm:inline text-[10px] opacity-85">L-Arg · L-Cit · L-His</span>
           </button>
         </div>
 
-        <!-- Compact Product Summary -->
-        <div class="mb-5">
-          <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-500/15 text-emerald-300 mb-2">
-            ${prod.badge}
-          </span>
-          <h2 class="text-xl sm:text-2xl font-extrabold text-white">${prod.headline}</h2>
-        </div>
+        <!-- Compact Headline + Visual Tags -->
+        <h2 class="text-lg sm:text-2xl font-extrabold text-white mb-3">${prod.headline}</h2>
 
-        <!-- Key Visual Tags -->
-        <div class="flex flex-wrap gap-2 mb-6">
+        <div class="flex flex-wrap gap-1.5 mb-5">
           ${prod.tags
             .map(
               (tag) => `
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-xl text-xs font-bold bg-white/10 text-emerald-300 border border-white/15">
+            <span class="px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-emerald-300 border border-white/15">
               ✓ ${tag}
             </span>
           `
@@ -1172,30 +1194,33 @@
         </div>
 
         <!-- 4 Compact Market Numbers -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 mb-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 mb-5">
           ${prod.marketKpis
             .map(
               (mk) => `
-            <div class="glass-subcard rounded-xl p-3.5">
-              <div class="text-lg sm:text-xl font-extrabold text-emerald-300">${mk.val}</div>
-              <div class="text-[11px] text-slate-300 mt-0.5 line-clamp-2">${mk.lbl}</div>
+            <div class="glass-subcard rounded-xl p-3">
+              <div class="text-base sm:text-lg font-extrabold text-emerald-300">${mk.val}</div>
+              <div class="text-[11px] text-slate-300 mt-0.5 line-clamp-1">${mk.lbl}</div>
             </div>
           `
             )
             .join("")}
         </div>
 
-        <!-- 4 Click-to-Reveal Application Segment Pills (Hides long text until clicked) -->
-        <div class="mb-6">
+        <!-- 4 Icon Application Buttons (Click to open details) -->
+        <div class="mb-5">
           <div class="text-xs font-bold text-slate-400 mb-2">${u.viewApps}</div>
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
             ${prod.apps
               .map(
                 (app, idx) => `
               <button onclick="openProductAppModal(${idx})"
-                class="text-left glass-subcard rounded-xl p-3.5 hover:border-emerald-400 transition-all cursor-pointer flex flex-col justify-between">
-                <div class="text-xs sm:text-sm font-extrabold text-white">${app.group}</div>
-                <div class="text-[11px] font-bold text-emerald-400 mt-2">${u.clickDetail}</div>
+                class="text-left glass-subcard rounded-xl p-3.5 hover:border-emerald-400 transition-all cursor-pointer flex items-center gap-3">
+                <span class="text-2xl shrink-0">${appEmojis[idx] || "✨"}</span>
+                <div class="min-w-0">
+                  <div class="text-xs font-extrabold text-white truncate">${app.group}</div>
+                  <div class="text-[10px] font-bold text-emerald-400 mt-0.5">${u.clickDetail}</div>
+                </div>
               </button>
             `
               )
@@ -1204,16 +1229,16 @@
         </div>
 
         <!-- 2 Primary Modal Triggers -->
-        <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
+        <div class="flex flex-wrap items-center gap-2.5 pt-3 border-t border-white/10">
           <button onclick="${isHybind ? "openHybindCompareModal()" : "openFgaaCompareModal()"}"
-            class="keep-white-text flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs sm:text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all cursor-pointer">
-            ${getIcon("sparkle", "w-4 h-4")}
+            class="keep-white-text flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all cursor-pointer">
+            <span>📊</span>
             <span>${prod.compareBtn}</span>
           </button>
 
           <button onclick="${isHybind ? "openHybindQuestionsModal()" : "openFgaaQuestionsModal()"}"
-            class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs sm:text-sm bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all cursor-pointer">
-            ${getIcon("flask", "w-4 h-4")}
+            class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all cursor-pointer">
+            <span>🔬</span>
             <span>${prod.questionsBtn}</span>
           </button>
         </div>
@@ -1228,10 +1253,14 @@
     const app = prod.apps[idx];
     if (!app) return;
     state.openView = `${isHybind ? "hybind" : "fgaa"}-app-${idx}`;
+    const appEmojis = isHybind ? ["🌭", "🍗", "🦐", "🥟"] : ["🏃", "🥤", "💊", "🏥"];
     const html = `
-      <div class="rounded-2xl bg-slate-800/90 border border-emerald-500/35 p-5">
-        <div class="text-xs font-bold uppercase text-emerald-300 mb-2">${prod.title}</div>
-        <p class="text-sm sm:text-base text-white leading-relaxed">${app.items}</p>
+      <div class="rounded-2xl bg-slate-800/90 border border-emerald-500/35 p-5 flex items-start gap-3.5">
+        <span class="text-3xl shrink-0">${appEmojis[idx] || "✨"}</span>
+        <div>
+          <div class="text-xs font-bold uppercase text-emerald-300 mb-1.5">${prod.title}</div>
+          <p class="text-sm sm:text-base text-white leading-relaxed">${app.items}</p>
+        </div>
       </div>
     `;
     openModal(app.group, prod.headline, html);
@@ -1283,25 +1312,25 @@
   function buildQuestionsModalHtml(d) {
     return `
       <div class="space-y-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           ${d.pains
             .map(
               (p) => `
-            <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5">
-              <div class="text-xs font-bold uppercase text-amber-300 mb-1">${p.area}</div>
-              <div class="text-xs text-red-300 mb-1.5">• ${p.pain}</div>
+            <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3">
+              <div class="text-xs font-bold uppercase text-amber-300 mb-1">⚡ ${p.area}</div>
+              <div class="text-xs text-red-300 mb-1">⚠️ ${p.pain}</div>
               <div class="text-xs text-emerald-200">✓ ${p.response}</div>
             </div>
           `
             )
             .join("")}
         </div>
-        <div class="rounded-2xl bg-slate-800/95 border border-emerald-500/30 p-4">
-          <ul class="space-y-2">
+        <div class="rounded-2xl bg-slate-800/95 border border-emerald-500/30 p-3.5">
+          <ul class="space-y-1.5">
             ${d.questions
               .map(
                 (q) => `
-              <li class="text-xs sm:text-sm text-slate-200 flex items-start gap-2">
+              <li class="text-xs text-slate-200 flex items-start gap-2">
                 <span class="text-emerald-400 font-bold">•</span>
                 <span>${q}</span>
               </li>
@@ -1327,7 +1356,7 @@
   };
 
   // ==========================================================================
-  // 8. MODULE 4: ULTRA-COMPACT TARGET MARKET CARDS (CLICK TO REVEAL)
+  // 8. MODULE 4: ULTRA-COMPACT TARGET MARKET CARDS (ICON + NAME ONLY)
   // ==========================================================================
   window.setRegionFilter = function (reg) {
     state.regionFilter = reg;
@@ -1362,34 +1391,31 @@
 
     const catButtons = [
       { id: "all", label: m4.filters.catAll },
-      { id: "meat", label: "HYBIND · Meat" },
-      { id: "seafood", label: "HYBIND · Seafood" },
-      { id: "fgaa", label: "AMINATURE® FGAA" }
+      { id: "meat", label: "🥩 Meat" },
+      { id: "seafood", label: "🦐 Seafood" },
+      { id: "fgaa", label: "💊 FGAA / TPCN" }
     ];
 
+    const catIconMap = { meat: "🥩", seafood: "🦐", fgaa: "💊" };
+
     container.innerHTML = `
-      <div class="glass-card rounded-3xl p-5 sm:p-8">
+      <div class="glass-card rounded-3xl p-5 sm:p-7">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-          <div>
-            <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-emerald-500/15 text-emerald-300 mb-1.5">
-              ${m4.eyebrow}
-            </span>
-            <h2 class="text-xl sm:text-2xl font-extrabold text-white">${m4.headline}</h2>
-          </div>
+          <h2 class="text-lg sm:text-2xl font-extrabold text-white">🗺️ ${m4.headline}</h2>
           <div class="flex items-center gap-3 text-xs">
-            <span class="flex items-center gap-1.5 font-semibold text-emerald-300"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>BJCS Customer</span>
-            <span class="flex items-center gap-1.5 font-semibold text-amber-300"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>Target</span>
+            <span class="flex items-center gap-1.5 font-semibold text-emerald-300"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>BJCS Customer</span>
+            <span class="flex items-center gap-1.5 font-semibold text-amber-300"><span class="w-2 h-2 rounded-full bg-amber-400"></span>Target</span>
           </div>
         </div>
 
         <!-- Compact Filters -->
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
           <div class="flex flex-wrap gap-1.5">
             ${regButtons
               .map(
                 (b) => `
               <button onclick="setRegionFilter('${b.id}')"
-                class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                class="px-2.5 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   state.regionFilter === b.id
                     ? "keep-white-text bg-emerald-600 text-white shadow"
                     : "bg-white/10 text-slate-300 hover:bg-white/15"
@@ -1406,7 +1432,7 @@
               .map(
                 (c) => `
               <button onclick="setCategoryFilter('${c.id}')"
-                class="px-2.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                class="px-2.5 py-1 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   state.categoryFilter === c.id
                     ? "keep-white-text bg-blue-600 text-white"
                     : "bg-white/5 text-slate-400 hover:text-white border border-white/10"
@@ -1419,31 +1445,26 @@
           </div>
         </div>
 
-        <!-- Ultra-Clean Account Grid (Only Name + Badge shown; click for details!) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <!-- Ultra-Clean Account Grid (Icon + Name + Tag; tap for 4-box diagram) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
           ${filtered
             .map(
               (acc) => `
             <div onclick="openAccountModal('${acc.id}')"
-              class="glass-subcard cursor-pointer rounded-2xl p-4 hover:border-emerald-400 transition-all flex flex-col justify-between group">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="inline-flex items-center gap-1.5 text-[11px] font-bold ${
-                    acc.isCustomer ? "text-emerald-300" : "text-amber-300"
-                  }">
-                    <span class="w-2 h-2 rounded-full ${acc.isCustomer ? "bg-emerald-400" : "bg-amber-400"}"></span>
-                    ${acc.isCustomer ? "BJCS Customer" : "Target"}
-                  </span>
-                  <span class="text-[10px] font-mono text-slate-400">${acc.region.toUpperCase()}</span>
+              class="glass-subcard cursor-pointer rounded-2xl p-3.5 hover:border-emerald-400 transition-all flex items-center justify-between gap-3 group">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl shrink-0">
+                  ${catIconMap[acc.category] || "🏢"}
                 </div>
-                <h3 class="text-sm sm:text-base font-extrabold text-white group-hover:text-emerald-300 transition-colors">
-                  ${acc.name}
-                </h3>
+                <div class="min-w-0">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full ${acc.isCustomer ? "bg-emerald-400" : "bg-amber-400"} shrink-0"></span>
+                    <h3 class="text-xs sm:text-sm font-extrabold text-white truncate group-hover:text-emerald-300">${acc.name}</h3>
+                  </div>
+                  <div class="text-[11px] text-blue-300 font-semibold truncate mt-0.5">${acc.productBadge}</div>
+                </div>
               </div>
-              <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px]">
-                <span class="text-blue-300 font-semibold truncate max-w-[60%]">${acc.productBadge}</span>
-                <span class="text-emerald-400 font-bold shrink-0">${u.clickDetail}</span>
-              </div>
+              <span class="text-xs font-bold text-emerald-400 shrink-0">→</span>
             </div>
           `
             )
@@ -1461,34 +1482,37 @@
     const lbl = t().mod4.modalLabels;
 
     const html = `
-      <div class="space-y-3.5">
+      <div class="space-y-3">
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300">
-            ${acc.isCustomer ? "BJCS Active Customer" : "Priority Target"} · ${acc.tier}
+          <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300">
+            ${acc.isCustomer ? "✓ BJCS Active Customer" : "🎯 Priority Target"} · ${acc.tier}
           </span>
-          <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300">
+          <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300">
             ${acc.productBadge}
           </span>
         </div>
 
-        <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5">
-          <div class="text-[11px] font-bold uppercase text-slate-400 mb-1">${lbl.applications}</div>
-          <p class="text-xs sm:text-sm text-white leading-relaxed">${loc.apps}</p>
-        </div>
+        <!-- 2x2 Visual Grid instead of stacked long text -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5">
+            <div class="text-[11px] font-bold uppercase text-slate-400 mb-1">🎯 ${lbl.applications}</div>
+            <p class="text-xs sm:text-sm text-white leading-relaxed">${loc.apps}</p>
+          </div>
 
-        <div class="rounded-xl bg-red-950/35 border border-red-500/30 p-3.5">
-          <div class="text-[11px] font-bold uppercase text-red-300 mb-1">${lbl.painPoint}</div>
-          <p class="text-xs sm:text-sm text-red-100 leading-relaxed">${loc.pain}</p>
-        </div>
+          <div class="rounded-xl bg-red-950/35 border border-red-500/30 p-3.5">
+            <div class="text-[11px] font-bold uppercase text-red-300 mb-1">⚠️ ${lbl.painPoint}</div>
+            <p class="text-xs sm:text-sm text-red-100 leading-relaxed">${loc.pain}</p>
+          </div>
 
-        <div class="rounded-xl bg-emerald-950/45 border border-emerald-500/35 p-3.5">
-          <div class="text-[11px] font-bold uppercase text-emerald-300 mb-1">${lbl.valueProp}</div>
-          <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed">${loc.value}</p>
-        </div>
+          <div class="rounded-xl bg-emerald-950/45 border border-emerald-500/35 p-3.5">
+            <div class="text-[11px] font-bold uppercase text-emerald-300 mb-1">💡 ${lbl.valueProp}</div>
+            <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed">${loc.value}</p>
+          </div>
 
-        <div class="rounded-xl bg-blue-950/45 border border-blue-500/35 p-3.5">
-          <div class="text-[11px] font-bold uppercase text-blue-300 mb-1">${lbl.ksf}</div>
-          <p class="text-xs sm:text-sm text-blue-100 leading-relaxed">${loc.ksf}</p>
+          <div class="rounded-xl bg-blue-950/45 border border-blue-500/35 p-3.5">
+            <div class="text-[11px] font-bold uppercase text-blue-300 mb-1">🔑 ${lbl.ksf}</div>
+            <p class="text-xs sm:text-sm text-blue-100 leading-relaxed">${loc.ksf}</p>
+          </div>
         </div>
       </div>
     `;
@@ -1496,7 +1520,7 @@
   };
 
   // ==========================================================================
-  // 9. MODULE 5: COMPACT ROI SIMULATOR + CLICK-TO-REVEAL STRATEGY MODALS
+  // 9. MODULE 5: VISUAL ROI SIMULATOR + CLICK-TO-REVEAL STRATEGY MODALS
   // ==========================================================================
   window.applyCalcPreset = function (idx) {
     const preset = t().mod5.calc.presets[idx];
@@ -1564,21 +1588,15 @@
     const c = state.calc;
 
     container.innerHTML = `
-      <div class="glass-card rounded-3xl p-5 sm:p-8">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
-          <div>
-            <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-amber-500/15 text-amber-300 mb-1.5">
-              ${m5.eyebrow}
-            </span>
-            <h2 class="text-xl sm:text-2xl font-extrabold text-white">${m5.calc.title}</h2>
-          </div>
-          <!-- Quick Presets -->
+      <div class="glass-card rounded-3xl p-5 sm:p-7">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <h2 class="text-lg sm:text-2xl font-extrabold text-white">📈 ${m5.calc.title}</h2>
           <div class="flex flex-wrap gap-1.5">
             ${m5.calc.presets
               .map(
                 (p, idx) => `
               <button onclick="applyCalcPreset(${idx})"
-                class="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-white/10 hover:bg-emerald-500/20 text-emerald-300 border border-white/15 cursor-pointer transition-all">
+                class="px-2.5 py-1 rounded-xl text-xs font-bold bg-white/10 hover:bg-emerald-500/20 text-emerald-300 border border-white/15 cursor-pointer transition-all">
                 ${p.name}
               </button>
             `
@@ -1588,10 +1606,10 @@
         </div>
 
         <!-- Compact Sliders + Output Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center mb-6">
-          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="glass-subcard rounded-xl p-3.5">
-              <div class="flex justify-between text-xs font-bold mb-2">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center mb-5">
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div class="glass-subcard rounded-xl p-3">
+              <div class="flex justify-between text-xs font-bold mb-1.5">
                 <span class="text-slate-200">${m5.calc.sliders.meatCost}</span>
                 <span id="val-meatCost" class="text-emerald-300 font-mono">$${c.meatCost.toFixed(2)}/kg</span>
               </div>
@@ -1600,8 +1618,8 @@
                 class="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-700 rounded-lg" />
             </div>
 
-            <div class="glass-subcard rounded-xl p-3.5">
-              <div class="flex justify-between text-xs font-bold mb-2">
+            <div class="glass-subcard rounded-xl p-3">
+              <div class="flex justify-between text-xs font-bold mb-1.5">
                 <span class="text-slate-200">${m5.calc.sliders.stppDose}</span>
                 <span id="val-stppDose" class="text-blue-300 font-mono">${c.stppDose.toFixed(2)}%</span>
               </div>
@@ -1610,8 +1628,8 @@
                 class="w-full accent-blue-500 cursor-pointer h-2 bg-slate-700 rounded-lg" />
             </div>
 
-            <div class="glass-subcard rounded-xl p-3.5">
-              <div class="flex justify-between text-xs font-bold mb-2">
+            <div class="glass-subcard rounded-xl p-3">
+              <div class="flex justify-between text-xs font-bold mb-1.5">
                 <span class="text-slate-200">${m5.calc.sliders.hybindDose}</span>
                 <span id="val-hybindDose" class="text-amber-300 font-mono">${c.hybindDose.toFixed(2)}%</span>
               </div>
@@ -1620,8 +1638,8 @@
                 class="w-full accent-amber-500 cursor-pointer h-2 bg-slate-700 rounded-lg" />
             </div>
 
-            <div class="rounded-xl bg-emerald-950/50 border border-emerald-500/40 p-3.5">
-              <div class="flex justify-between text-xs font-bold mb-2">
+            <div class="rounded-xl bg-emerald-950/50 border border-emerald-500/40 p-3">
+              <div class="flex justify-between text-xs font-bold mb-1.5">
                 <span class="text-emerald-200">${m5.calc.sliders.yieldGain}</span>
                 <span id="val-yieldGain" class="text-emerald-300 font-mono">+${c.yieldGain.toFixed(1)}%</span>
               </div>
@@ -1632,25 +1650,25 @@
           </div>
 
           <!-- Compact Real-Time Output Card -->
-          <div class="lg:col-span-5 rounded-2xl bg-emerald-950/60 border-2 border-emerald-500/50 p-5">
-            <div class="grid grid-cols-3 gap-2 text-center mb-4 pb-3 border-b border-white/10">
+          <div class="lg:col-span-5 rounded-2xl bg-emerald-950/60 border-2 border-emerald-500/50 p-4">
+            <div class="grid grid-cols-3 gap-2 text-center mb-3 pb-2.5 border-b border-white/10">
               <div>
                 <div class="text-[10px] text-slate-400 uppercase">Extra Meat</div>
-                <div id="out-extra-meat" class="text-xs sm:text-sm font-bold font-mono text-white mt-0.5"></div>
+                <div id="out-extra-meat" class="text-xs font-bold font-mono text-white mt-0.5"></div>
               </div>
               <div>
                 <div class="text-[10px] text-slate-400 uppercase">Yield Value</div>
-                <div id="out-gross-yield" class="text-xs sm:text-sm font-bold font-mono text-emerald-300 mt-0.5"></div>
+                <div id="out-gross-yield" class="text-xs font-bold font-mono text-emerald-300 mt-0.5"></div>
               </div>
               <div>
                 <div class="text-[10px] text-slate-400 uppercase">Cost Delta</div>
-                <div id="out-additive-diff" class="text-xs sm:text-sm font-bold font-mono text-amber-300 mt-0.5"></div>
+                <div id="out-additive-diff" class="text-xs font-bold font-mono text-amber-300 mt-0.5"></div>
               </div>
             </div>
 
             <div class="text-center">
-              <div class="text-[11px] font-bold uppercase text-slate-300">${m5.calc.outputs.netSavingsLabel}</div>
-              <div id="out-net-savings" class="text-2xl sm:text-3xl font-extrabold text-emerald-300 my-1"></div>
+              <div class="text-[10px] font-bold uppercase text-slate-300">${m5.calc.outputs.netSavingsLabel}</div>
+              <div id="out-net-savings" class="text-xl sm:text-2xl font-extrabold text-emerald-300 my-0.5"></div>
               <div class="text-xs text-slate-300">
                 2,500 MT/yr: <span id="out-annual-roi" class="font-bold font-mono text-emerald-300"></span>
               </div>
@@ -1658,24 +1676,30 @@
           </div>
         </div>
 
-        <!-- 2 Click-to-Reveal Strategy Buttons (Replaces long text blocks) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-white/10">
+        <!-- 2 Click-to-Reveal Visual Strategy Buttons -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-3 border-t border-white/10">
           <button onclick="openDecisionMapModal()"
-            class="glass-subcard rounded-2xl p-4 text-left flex items-center justify-between hover:border-emerald-400 transition-all cursor-pointer">
-            <div>
-              <div class="text-xs sm:text-sm font-extrabold text-white">${u.viewDecisionMap}</div>
-              <div class="text-[11px] text-emerald-400 font-bold mt-0.5">${u.clickDetail}</div>
+            class="glass-subcard rounded-2xl p-3.5 text-left flex items-center justify-between hover:border-emerald-400 transition-all cursor-pointer">
+            <div class="flex items-center gap-3">
+              <span class="text-xl">👥</span>
+              <div>
+                <div class="text-xs sm:text-sm font-extrabold text-white">${u.viewDecisionMap}</div>
+                <div class="text-[10px] text-emerald-400 font-bold">${u.clickDetail}</div>
+              </div>
             </div>
-            <span class="text-emerald-300">${getIcon("users", "w-5 h-5")}</span>
+            <span class="text-emerald-300">→</span>
           </button>
 
           <button onclick="openTrialProtocolModal()"
-            class="glass-subcard rounded-2xl p-4 text-left flex items-center justify-between hover:border-blue-400 transition-all cursor-pointer">
-            <div>
-              <div class="text-xs sm:text-sm font-extrabold text-white">${u.viewTrialProtocol}</div>
-              <div class="text-[11px] text-blue-300 font-bold mt-0.5">${u.clickDetail}</div>
+            class="glass-subcard rounded-2xl p-3.5 text-left flex items-center justify-between hover:border-blue-400 transition-all cursor-pointer">
+            <div class="flex items-center gap-3">
+              <span class="text-xl">🧪</span>
+              <div>
+                <div class="text-xs sm:text-sm font-extrabold text-white">${u.viewTrialProtocol}</div>
+                <div class="text-[10px] text-blue-300 font-bold">${u.clickDetail}</div>
+              </div>
             </div>
-            <span class="text-blue-300">${getIcon("flask", "w-5 h-5")}</span>
+            <span class="text-blue-300">→</span>
           </button>
         </div>
       </div>
@@ -1687,22 +1711,26 @@
   window.openDecisionMapModal = function () {
     const m = t().mod5.methodology;
     state.openView = "decision-map";
+    const roleIcons = ["🔬", "📣", "💼", "🛡️"];
     const html = `
-      <div class="space-y-4">
-        <div class="space-y-2.5">
+      <div class="space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           ${m.buyers
             .map(
-              (b) => `
-            <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5">
-              <div class="text-xs sm:text-sm font-bold text-emerald-300">${b.role}</div>
-              <div class="text-xs sm:text-sm text-slate-200 mt-1">${b.focus}</div>
+              (b, i) => `
+            <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5 flex items-start gap-3">
+              <span class="text-xl shrink-0">${roleIcons[i] || "👤"}</span>
+              <div>
+                <div class="text-xs font-extrabold text-emerald-300">${b.role}</div>
+                <div class="text-xs text-slate-200 mt-1">${b.focus}</div>
+              </div>
             </div>
           `
             )
             .join("")}
         </div>
-        <div class="rounded-xl bg-emerald-950/60 border border-emerald-500/35 p-4">
-          <div class="text-[11px] font-bold uppercase text-emerald-300 mb-1">${m.spinLabel}</div>
+        <div class="rounded-xl bg-emerald-950/60 border border-emerald-500/35 p-3.5">
+          <div class="text-[10px] font-bold uppercase text-emerald-300 mb-1">💬 ${m.spinLabel}</div>
           <p class="text-xs sm:text-sm italic text-white">${m.spinQuote}</p>
         </div>
       </div>
@@ -1714,26 +1742,26 @@
     const m = t().mod5.methodology;
     state.openView = "trial-protocol";
     const html = `
-      <div class="space-y-5">
+      <div class="space-y-4">
         <div>
-          <div class="text-xs font-bold uppercase text-emerald-300 mb-2">TasteNrich® HYBIND — 3-Step Meat & Seafood Trial</div>
-          <div class="space-y-2">
+          <div class="text-xs font-bold uppercase text-emerald-300 mb-2">🥩 TasteNrich® HYBIND — 3-Step Flow</div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             ${m.hybindSteps
               .map(
                 (s) => `
-              <div class="rounded-xl bg-emerald-950/45 border border-emerald-500/30 p-3 text-xs sm:text-sm text-white">${s}</div>
+              <div class="rounded-xl bg-emerald-950/45 border border-emerald-500/30 p-3 text-xs text-white leading-relaxed">${s}</div>
             `
               )
               .join("")}
           </div>
         </div>
         <div>
-          <div class="text-xs font-bold uppercase text-blue-300 mb-2">AMINATURE® FGAA — 3-Step Co-Development</div>
-          <div class="space-y-2">
+          <div class="text-xs font-bold uppercase text-blue-300 mb-2">⚡ AMINATURE® FGAA — 3-Step Flow</div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             ${m.fgaaSteps
               .map(
                 (s) => `
-              <div class="rounded-xl bg-blue-950/45 border border-blue-500/30 p-3 text-xs sm:text-sm text-white">${s}</div>
+              <div class="rounded-xl bg-blue-950/45 border border-blue-500/30 p-3 text-xs text-white leading-relaxed">${s}</div>
             `
               )
               .join("")}
@@ -1745,7 +1773,7 @@
   };
 
   // ==========================================================================
-  // 10. MODULE 6: COMPACT GTM ROADMAP (CLICK PHASE TO REVEAL DELIVERABLES)
+  // 10. MODULE 6: VISUAL GTM ROADMAP (4 PHASE ICONS + CLICK TO REVEAL)
   // ==========================================================================
   function renderModule6() {
     const m6 = t().mod6;
@@ -1753,23 +1781,20 @@
     const container = document.getElementById("section-mod6");
     if (!container) return;
 
+    const phaseIcons = ["📋", "🌱", "🏭", "🚀"];
+
     container.innerHTML = `
-      <div class="glass-card rounded-3xl p-5 sm:p-8">
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
-          <div>
-            <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-emerald-500/15 text-emerald-300 mb-1.5">
-              ${m6.eyebrow}
-            </span>
-            <h2 class="text-xl sm:text-2xl font-extrabold text-white">${m6.headline}</h2>
-          </div>
+      <div class="glass-card rounded-3xl p-5 sm:p-7">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <h2 class="text-lg sm:text-2xl font-extrabold text-white">🚀 ${m6.headline}</h2>
           <button onclick="openMonthlyKpiModal()"
-            class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-bold text-emerald-300 cursor-pointer">
+            class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-bold text-emerald-300 cursor-pointer">
             📊 ${u.viewMonthlyKpi}
           </button>
         </div>
 
-        <!-- 4 Compact Phase Cards (Click any phase to open its deliverables modal) -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+        <!-- 4 Visual Phase Cards (Click any phase to open its checklist) -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
           ${m6.phases
             .map(
               (p, idx) => `
@@ -1777,12 +1802,12 @@
               class="glass-subcard cursor-pointer rounded-2xl p-4 hover:border-emerald-400 transition-all flex flex-col justify-between group">
               <div>
                 <div class="flex items-center justify-between gap-1 mb-2">
-                  <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">${p.step}</span>
-                  <span class="text-[11px] font-bold text-slate-400">${p.period}</span>
+                  <span class="text-xl">${phaseIcons[idx]}</span>
+                  <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">${p.period}</span>
                 </div>
-                <div class="text-base sm:text-lg font-extrabold text-white group-hover:text-emerald-300 transition-colors">${p.name}</div>
+                <div class="text-sm sm:text-base font-extrabold text-white group-hover:text-emerald-300 transition-colors">${p.name}</div>
               </div>
-              <div class="mt-3 pt-2 border-t border-white/10 text-[11px] font-bold text-emerald-400">
+              <div class="mt-3 pt-2 border-t border-white/10 text-[10px] font-bold text-emerald-400">
                 ${u.clickPhaseHint}
               </div>
             </div>
@@ -1792,26 +1817,26 @@
         </div>
 
         <!-- Compact Executive Proposal CTA Box -->
-        <div class="rounded-2xl bg-emerald-950/60 border-2 border-emerald-500/45 p-5 sm:p-6 text-center">
-          <h3 class="text-base sm:text-xl font-extrabold text-white max-w-3xl mx-auto mb-4">
+        <div class="rounded-2xl bg-emerald-950/60 border-2 border-emerald-500/45 p-4 sm:p-5 text-center">
+          <h3 class="text-sm sm:text-lg font-extrabold text-white max-w-3xl mx-auto mb-3.5">
             ${m6.ctaBox.title}
           </h3>
-          <div class="flex flex-wrap items-center justify-center gap-3">
+          <div class="flex flex-wrap items-center justify-center gap-2.5">
             <button onclick="openSampleProtocolModal()"
-              class="keep-white-text inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow cursor-pointer">
-              ${getIcon("flask", "w-4 h-4")}
+              class="keep-white-text inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow cursor-pointer">
+              <span>🧪</span>
               <span>${m6.ctaBox.btnSample}</span>
             </button>
 
             <button onclick="openDownloadPdfModal()"
-              class="keep-white-text inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-blue-600 hover:bg-blue-500 text-white shadow cursor-pointer">
-              ${getIcon("sparkle", "w-4 h-4")}
+              class="keep-white-text inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-blue-600 hover:bg-blue-500 text-white shadow cursor-pointer">
+              <span>📄</span>
               <span>${m6.ctaBox.btnPdf}</span>
             </button>
 
             <button onclick="openContactModal()"
-              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white/10 hover:bg-white/20 text-white border border-white/20 cursor-pointer">
-              ${getIcon("users", "w-4 h-4")}
+              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-white/10 hover:bg-white/20 text-white border border-white/20 cursor-pointer">
+              <span>🏢</span>
               <span>${m6.ctaBox.btnContact}</span>
             </button>
           </div>
@@ -1825,14 +1850,14 @@
     if (!p) return;
     state.openView = `phase-${idx}`;
     const html = `
-      <div class="space-y-3">
-        <div class="text-xs font-semibold text-blue-300">Owner: ${p.owner}</div>
-        <ul class="space-y-2.5">
+      <div class="space-y-2.5">
+        <div class="text-xs font-semibold text-blue-300">👥 ${p.owner}</div>
+        <ul class="space-y-2">
           ${p.deliverables
             .map(
               (d) => `
-            <li class="flex items-start gap-2.5 rounded-xl bg-slate-800/90 border border-white/10 p-3.5 text-xs sm:text-sm text-white">
-              <span class="text-emerald-400 mt-0.5 shrink-0">${getIcon("check", "w-4 h-4")}</span>
+            <li class="flex items-start gap-2.5 rounded-xl bg-slate-800/90 border border-white/10 p-3 text-xs sm:text-sm text-white">
+              <span class="text-emerald-400 font-bold shrink-0">✓</span>
               <span>${d}</span>
             </li>
           `
@@ -1848,11 +1873,11 @@
     const m6 = t().mod6;
     state.openView = "monthly-kpi";
     const html = `
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
         ${m6.reportingMetrics
           .map(
             (rm) => `
-          <div class="rounded-xl bg-slate-800/90 border border-emerald-500/30 p-4 text-sm font-bold text-emerald-300">
+          <div class="rounded-xl bg-slate-800/90 border border-emerald-500/30 p-3.5 text-xs sm:text-sm font-bold text-emerald-300">
             ✓ ${rm}
           </div>
         `
@@ -1863,14 +1888,13 @@
     openModal(m6.reportingTitle, t().mod6.eyebrow, html);
   };
 
-  // CTA Modals (Sample Protocol, PDF Downloads, Contact Team)
   window.openSampleProtocolModal = function () {
     state.openView = "sample-protocol";
     const html = `
-      <div class="space-y-4">
+      <div class="space-y-3.5">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div class="rounded-xl bg-slate-800/90 border border-white/15 p-4">
-            <h4 class="text-sm font-bold text-emerald-300 mb-2">1. TasteNrich® HYBIND</h4>
+            <h4 class="text-sm font-bold text-emerald-300 mb-2">🥩 1. TasteNrich® HYBIND</h4>
             <ul class="space-y-1.5 text-xs text-slate-200">
               <li>• 5–10 kg Sample Kits for Meat & Seafood Trials</li>
               <li>• TDS, SDS, COA & VN Label Classification</li>
@@ -1878,7 +1902,7 @@
             </ul>
           </div>
           <div class="rounded-xl bg-slate-800/90 border border-white/15 p-4">
-            <h4 class="text-sm font-bold text-blue-300 mb-2">2. AMINATURE® FGAA</h4>
+            <h4 class="text-sm font-bold text-blue-300 mb-2">⚡ 2. AMINATURE® FGAA</h4>
             <ul class="space-y-1.5 text-xs text-slate-200">
               <li>• L-Arginine, L-Citrulline & L-Histidine Samples</li>
               <li>• Full COA, TDS, MSDS for MOH Registration</li>
@@ -1886,10 +1910,10 @@
             </ul>
           </div>
         </div>
-        <div class="rounded-xl bg-emerald-950/50 border border-emerald-500/35 p-4 flex items-center justify-between flex-wrap gap-2">
-          <span class="text-xs text-white font-semibold">Nguyen Duc Duy Anh · BJC Specialties Vietnam (duyanh@bjc.co.th)</span>
+        <div class="rounded-xl bg-emerald-950/50 border border-emerald-500/35 p-3.5 flex items-center justify-between flex-wrap gap-2">
+          <span class="text-xs text-white font-semibold">BJC Specialties Vietnam · Food & Nutraceutical Division</span>
           <a href="mailto:duyanh@bjc.co.th?subject=CJ%20BIO%20x%20BJCS%20Vietnam%20-%20Sample%20Protocol"
-            class="keep-white-text px-4 py-2 rounded-lg bg-emerald-600 text-white font-bold text-xs">
+            class="keep-white-text px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs">
             Email Confirmation
           </a>
         </div>
@@ -1901,32 +1925,32 @@
   window.openDownloadPdfModal = function () {
     state.openView = "pdf-download";
     const html = `
-      <div class="space-y-3">
+      <div class="space-y-2.5">
         <a href="/151026-CJ_BIO_x_BJCS_Vietnam.pdf" target="_blank" download
-          class="rounded-xl bg-slate-800/90 border border-emerald-500/40 p-4 flex items-center justify-between gap-3">
+          class="rounded-xl bg-slate-800/90 border border-emerald-500/40 p-3.5 flex items-center justify-between gap-3">
           <div>
-            <div class="text-xs font-bold text-emerald-400">EXECUTIVE PRESENTATION (29 SLIDES · PDF)</div>
-            <div class="text-sm sm:text-base font-bold text-white">151026-CJ_BIO_x_BJCS_Vietnam.pdf</div>
+            <div class="text-[10px] font-bold text-emerald-400">EXECUTIVE PRESENTATION (29 SLIDES · PDF)</div>
+            <div class="text-xs sm:text-sm font-bold text-white">151026-CJ_BIO_x_BJCS_Vietnam.pdf</div>
           </div>
-          <span class="keep-white-text px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs shrink-0">PDF</span>
+          <span class="keep-white-text px-3 py-1 rounded-lg bg-emerald-600 text-white font-bold text-xs shrink-0">PDF</span>
         </a>
 
         <a href="/TasteNrich_HYBIND_Gioi_Thieu_SanPham_CJ_BIO.pdf" target="_blank" download
-          class="rounded-xl bg-slate-800/90 border border-white/15 p-4 flex items-center justify-between gap-3">
+          class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5 flex items-center justify-between gap-3">
           <div>
-            <div class="text-xs font-bold text-amber-400">PRODUCT BRIEF 01</div>
-            <div class="text-sm sm:text-base font-bold text-white">TasteNrich® HYBIND Strategy Brief (PDF)</div>
+            <div class="text-[10px] font-bold text-amber-400">PRODUCT BRIEF 01</div>
+            <div class="text-xs sm:text-sm font-bold text-white">TasteNrich® HYBIND Strategy Brief (PDF)</div>
           </div>
-          <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white font-bold text-xs shrink-0">PDF</span>
+          <span class="px-3 py-1 rounded-lg bg-white/10 text-white font-bold text-xs shrink-0">PDF</span>
         </a>
 
         <a href="/FGAA_AMINATURE_Gioi_Thieu_SanPham_CJ_BIO.pdf" target="_blank" download
-          class="rounded-xl bg-slate-800/90 border border-white/15 p-4 flex items-center justify-between gap-3">
+          class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5 flex items-center justify-between gap-3">
           <div>
-            <div class="text-xs font-bold text-blue-400">PRODUCT BRIEF 02</div>
-            <div class="text-sm sm:text-base font-bold text-white">AMINATURE® FGAA Strategy Brief (PDF)</div>
+            <div class="text-[10px] font-bold text-blue-400">PRODUCT BRIEF 02</div>
+            <div class="text-xs sm:text-sm font-bold text-white">AMINATURE® FGAA Strategy Brief (PDF)</div>
           </div>
-          <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white font-bold text-xs shrink-0">PDF</span>
+          <span class="px-3 py-1 rounded-lg bg-white/10 text-white font-bold text-xs shrink-0">PDF</span>
         </a>
       </div>
     `;
@@ -1936,86 +1960,29 @@
   window.openContactModal = function () {
     state.openView = "contact";
     const html = `
-      <div class="space-y-3.5">
+      <div class="space-y-3">
         <div class="rounded-2xl bg-emerald-950/50 border border-emerald-500/40 p-4">
-          <div class="text-lg font-extrabold text-white">Nguyen Duc Duy Anh</div>
-          <div class="text-xs sm:text-sm text-emerald-300 font-semibold mb-3">BJC Specialties Vietnam</div>
+          <div class="text-base sm:text-lg font-extrabold text-white">BJC Specialties Vietnam</div>
+          <div class="text-xs text-emerald-300 font-semibold mb-3">Food, Beverage & Nutraceutical (TPCN) Ingredients Division</div>
           <div class="flex flex-wrap gap-2 text-xs">
-            <a href="mailto:duyanh@bjc.co.th" class="px-3 py-2 rounded-lg bg-emerald-500/20 text-emerald-200 font-bold">duyanh@bjc.co.th</a>
-            <a href="tel:+84908095693" class="px-3 py-2 rounded-lg bg-blue-500/20 text-blue-200 font-bold">(+84) 908 095 693</a>
+            <a href="mailto:duyanh@bjc.co.th" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-200 font-bold">duyanh@bjc.co.th</a>
+            <a href="tel:+84908095693" class="px-3 py-1.5 rounded-lg bg-blue-500/20 text-blue-200 font-bold">(+84) 908 095 693</a>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5">
-            <div class="text-xs font-bold text-emerald-400 mb-1">TP.HCM Office</div>
+            <div class="text-xs font-bold text-emerald-400 mb-1">📍 TP.HCM Office & Warehouse</div>
             <p class="text-xs text-slate-200">MM Mega Market Office Complex, Lot B, An Phu – An Khanh, Ho Chi Minh City</p>
           </div>
           <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5">
-            <div class="text-xs font-bold text-blue-400 mb-1">Hanoi Office</div>
+            <div class="text-xs font-bold text-blue-400 mb-1">📍 Hanoi Office & Warehouse</div>
             <p class="text-xs text-slate-200">3rd Floor, Lobby A, Geleximco Building, 897 Giai Phong Street, Hanoi</p>
           </div>
         </div>
       </div>
     `;
-    openModal("Contact BJC Specialties Vietnam", "15 October 2026 Partnership Session", html);
-  };
-
-  // ==========================================================================
-  // 10B. DIRECT DEEP-LINK DIRECTORY MODAL (SHARE SPECIFIC SECTIONS INSTANTLY)
-  // ==========================================================================
-  window.openLinkDirectoryModal = function () {
-    const u = ui();
-    const host = window.location.origin.startsWith("http")
-      ? window.location.origin
-      : "https://bjc-cjbio.vercel.app";
-
-    const links = [
-      { label: "01. Executive Hub & Proposal", path: "/01-executive-hub" },
-      { label: "01B. Thailand ➔ Vietnam Regional Synergy (Popup)", path: "/01-executive-hub?open=synergy" },
-      { label: "02. BJCS Vietnam Platform & KPIs", path: "/02-platform" },
-      { label: "02B. Route-to-Market & Logistics (Drawer)", path: "/02-platform?open=rtm" },
-      { label: "02C. Current Principal Portfolio (Drawer)", path: "/02-platform?open=principals" },
-      { label: "03A. TasteNrich® HYBIND Portfolio", path: "/03-portfolio/hybind" },
-      { label: "03B. HYBIND vs. Phosphate STPP Table (Popup)", path: "/03-portfolio/hybind?open=hybind-compare" },
-      { label: "03C. AMINATURE® FGAA Portfolio", path: "/03-portfolio/fgaa" },
-      { label: "03D. FGAA vs. Chemical/Animal Table (Popup)", path: "/03-portfolio/fgaa?open=fgaa-compare" },
-      { label: "04. Target Market & 13 Key Accounts", path: "/04-target-market" },
-      { label: "04B. Masan MEATLife Account Plan (Popup)", path: "/04-target-market?open=account-masan" },
-      { label: "04C. CJ Cầu Tre Account Plan (Popup)", path: "/04-target-market?open=account-cautre" },
-      { label: "05. Cost-in-Use ROI Calculator", path: "/05-win-strategy" },
-      { label: "05B. 3-Stage Trial Protocol (Popup)", path: "/05-win-strategy?open=trial-protocol" },
-      { label: "06. Go-To-Market Roadmap (2026–2027)", path: "/06-gtm-roadmap" }
-    ];
-
-    const html = `
-      <div class="space-y-2.5">
-        ${links
-          .map(
-            (item) => `
-          <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div class="min-w-0">
-              <div class="text-xs sm:text-sm font-bold text-white">${item.label}</div>
-              <div class="text-[11px] font-mono text-emerald-300 truncate">${host}${item.path}</div>
-            </div>
-            <div class="flex items-center gap-1.5 shrink-0">
-              <button onclick="copySpecificUrl('${item.path}')"
-                class="keep-white-text px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold cursor-pointer">
-                ${u.copyUrlBtn}
-              </button>
-              <button onclick="navigateToDeepPath('${item.path}')"
-                class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold cursor-pointer">
-                →
-              </button>
-            </div>
-          </div>
-        `
-          )
-          .join("")}
-      </div>
-    `;
-    state.openView = null;
-    openModal(u.urlDirectoryTitle, u.urlDirectorySub, html);
+    openModal("BJC Specialties Vietnam", "Nationwide Offices, Warehouses & Technical Team", html);
   };
 
   // ==========================================================================
@@ -2100,7 +2067,6 @@
         ? window.location.hash.substring(1)
         : window.location.pathname + window.location.search;
     applyUrlString(raw);
-    updateUrlBadgeDisplay();
   });
 
   document.addEventListener("DOMContentLoaded", function () {

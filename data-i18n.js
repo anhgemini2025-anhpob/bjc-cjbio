@@ -6,7 +6,7 @@
 window.APP_DATA = {
   meta: {
     meetingDate: "15 October 2026",
-    presenter: "Nguyen Duc Duy Anh",
+    presenter: "BJC Specialties Vietnam",
     watermark: "CONFIDENTIAL - BJC SPECIALTIES x CJ BIO - 15 OCT 2026"
   },
 
@@ -29,7 +29,7 @@ window.APP_DATA = {
         badge: "CONFIDENTIAL EXECUTIVE BRIEFING",
         title: "BJC Specialties Vietnam × CJ BIO",
         subtitle: "Exclusive Distribution Proposal: TasteNrich® HYBIND & AMINATURE® FGAA in Vietnam",
-        meta: "15 October 2026 · MS Teams Executive Session · Presenter: Nguyen Duc Duy Anh - BJC Specialties Vietnam",
+        meta: "15 October 2026 · MS Teams Executive Session · BJC Specialties Vietnam",
         placeholder: "Enter Executive Access Code...",
         unlockBtn: "Authenticate & Enter",
         errorMsg: "Access Denied: Invalid executive password. Please verify credentials.",
@@ -41,7 +41,7 @@ window.APP_DATA = {
         headline: "Partnering with CJ BIO in Vietnam: TasteNrich® HYBIND & AMINATURE® FGAA",
         subheadline: "BJCS Vietnam is ready to accelerate CJ BIO's specialty bio-ingredients in Vietnam — building directly on BJC's proven CJ BIO distribution partnership in Thailand.",
         meetingTag: "15 October 2026 | MS Teams",
-        presenterTag: "Presenter: Nguyen Duc Duy Anh - BJC Specialties Vietnam",
+        presenterTag: "BJC Specialties Vietnam · Food & Nutraceutical Ingredients",
         proposalBannerTitle: "EXECUTIVE PROPOSAL",
         proposalBannerText: "Appoint BJCS Vietnam as Exclusive Distributor of TasteNrich® HYBIND & AMINATURE® FGAA → 90-Day Onboarding (Q4 2026) → Priority Customer Trials from Q1 2027 across ~20 Tier-1 Accounts.",
         pillars: [
@@ -102,8 +102,8 @@ window.APP_DATA = {
             },
             {
               num: "04",
-              title: "Executive Oversight & Local Accountability",
-              desc: "Backed by BJC & White Group Public Co., Ltd. regional sponsorship, executed locally by Nguyen Duc Duy Anh (21+ years industry leadership) with transparent monthly KPI reporting to CJ BIO Vietnam."
+              title: "~90 Active Customers, Nationwide Warehousing & Deep Food / Nutraceutical Team Expertise",
+              desc: "Immediate access to ~90 active customer accounts (Masan, CJ Cau Tre, Vissan, C.P., Ajinomoto, Merap...), local Ex-Stock warehouses in HCMC & Hanoi (VND invoicing, door-to-door delivery), and an experienced commercial, NPD & regulatory team with 21+ years of deep expertise in Processed Food, Beverage & Nutraceutical (Health Supplement) sectors."
             }
           ]
         }
@@ -116,7 +116,7 @@ window.APP_DATA = {
           { value: 2007, prefix: "Since ", suffix: "", label: "Presence in Vietnam", sub: "19+ Years of trusted local operations" },
           { value: 2, prefix: "", suffix: " Offices", label: "Ho Chi Minh City & Hanoi", sub: "Full North – Central – South coverage" },
           { value: 90, prefix: "~", suffix: " Accounts", label: "Active Key Customers YTD 2026", sub: "Direct daily R&D, QA & Purchasing links" },
-          { value: 21, prefix: "", suffix: "+ Years", label: "Leadership Experience", sub: "Led by Nguyen Duc Duy Anh + 5 Account Owners & NPD" }
+          { value: 21, prefix: "", suffix: "+ Years", label: "Food & Nutraceutical Expertise", sub: "Dedicated Key Account, NPD Technical & Regulatory Team" }
         ],
         drawers: {
           rtmBtn: "View Route to Market & Regulatory",
@@ -482,7 +482,7 @@ window.APP_DATA = {
         badge: "TÀI LIỆU HỌP CẤP CAO BẢO MẬT",
         title: "BJC Specialties Vietnam × CJ BIO",
         subtitle: "Đề Xuất Phân Phối Độc Quyền: TasteNrich® HYBIND & AMINATURE® FGAA tại Việt Nam",
-        meta: "15/10/2026 · Họp Trực Tuyến MS Teams · Trình bày: Nguyễn Đức Duy Anh - BJC Specialties Vietnam",
+        meta: "15/10/2026 · Họp Trực Tuyến MS Teams · BJC Specialties Vietnam",
         placeholder: "Nhập mật khẩu truy cập...",
         unlockBtn: "Xác Thực & Truy Cập",
         errorMsg: "Mật khẩu không chính xác. Vui lòng kiểm tra lại mã bảo mật.",
@@ -494,7 +494,7 @@ window.APP_DATA = {
         headline: "Hợp Tác Chiến Lược Cùng CJ BIO Tại Việt Nam: TasteNrich® HYBIND & AMINATURE® FGAA",
         subheadline: "BJCS Vietnam đã sẵn sàng bứt phá doanh số dòng nguyên liệu sinh học TasteNrich® HYBIND & FGAA tại Việt Nam — kế thừa trực tiếp mô hình hợp tác phân phối thành công giữa BJC và CJ BIO tại Thái Lan.",
         meetingTag: "15 Tháng 10, 2026 | MS Teams",
-        presenterTag: "Trình bày: Nguyễn Đức Duy Anh - BJC Specialties Vietnam",
+        presenterTag: "BJC Specialties Vietnam · Nguyên Liệu Thực Phẩm & TPCN",
         proposalBannerTitle: "ĐỀ XUẤT HỢP TÁC CỐT LÕI",
         proposalBannerText: "Chỉ định BJCS Vietnam làm Nhà Phân Phối Độc Quyền HYBIND & FGAA → 90 ngày Onboarding (Q4/2026) → Chạy thử nghiệm thực tế từ Q1/2027 tại ~20 Khách hàng Key Accounts khắp Bắc – Trung – Nam.",
         pillars: [
@@ -555,8 +555,8 @@ window.APP_DATA = {
             },
             {
               num: "04",
-              title: "Bảo Chứng Quản Trị Cấp Cao & Thực Thi Bản Địa",
-              desc: "Sự hậu thuẫn chiến lược từ Tập đoàn BJC / White Group kết hợp năng lực điều hành trực tiếp của anh Nguyễn Đức Duy Anh (21+ năm kinh nghiệm ngành nguyên liệu) và báo cáo KPI minh bạch hàng tháng."
+              title: "Tệp ~90 Khách Hàng Hiện Hữu, Kho Bãi Nội Địa & Đội Ngũ Dày Dạn Kinh Nghiệm Thực Phẩm – TPCN",
+              desc: "Sở hữu mạng lưới ~90 khách hàng đang giao dịch (Masan, CJ Cầu Tre, Vissan, C.P., Ajinomoto, Merap...), hệ thống kho Ex-Stock tại TP.HCM & Hà Nội (xuất hóa đơn VNĐ, giao tận nhà máy), cùng đội ngũ nhân sự kinh doanh, kỹ thuật NPD & pháp lý có hơn 21 năm kinh nghiệm chuyên sâu trong ngành Thực phẩm, Đồ uống và Thực phẩm chức năng (TPCN)."
             }
           ]
         }
@@ -569,7 +569,7 @@ window.APP_DATA = {
           { value: 2007, prefix: "Từ ", suffix: "", label: "Hiện Diện Tại Việt Nam", sub: "19+ năm vận hành bền vững & uy tín" },
           { value: 2, prefix: "", suffix: " Văn Phòng", label: "TP. Hồ Chí Minh & Hà Nội", sub: "Độ phủ toàn diện Bắc – Trung – Nam" },
           { value: 90, prefix: "~", suffix: " Khách Hàng", label: "Tài Khoản Giao Dịch YTD 2026", sub: "Làm việc hàng ngày với R&D, QA & Thu mua" },
-          { value: 21, prefix: "", suffix: "+ Năm", label: "Kinh Nghiệm Lãnh Đạo", sub: "Dẫn dắt bởi Nguyễn Đức Duy Anh + 5 Account Owners & NPD" }
+          { value: 21, prefix: "", suffix: "+ Năm", label: "Kinh Nghiệm Thực Phẩm & TPCN", sub: "Đội ngũ Key Account, Kỹ thuật NPD & Pháp lý chuyên sâu" }
         ],
         drawers: {
           rtmBtn: "Xem Mô Hình Cung Ứng & Pháp Lý",
@@ -935,7 +935,7 @@ window.APP_DATA = {
         badge: "대외비 · 경영진 전략 브리핑",
         title: "BJC Specialties Vietnam × CJ BIO",
         subtitle: "베트남 내 TasteNrich® HYBIND 및 AMINATURE® FGAA 독점 유통 파트너십 제안",
-        meta: "2026년 10월 15일 · MS Teams 미팅 · 발표자: Nguyen Duc Duy Anh - BJC Specialties Vietnam",
+        meta: "2026년 10월 15일 · MS Teams 미팅 · BJC Specialties Vietnam",
         placeholder: "보안 접속 코드를 입력하십시오...",
         unlockBtn: "인증 및 프레젠테이션 입장",
         errorMsg: "접속 거부: 비밀번호가 올바르지 않습니다. 보안 코드를 다시 확인해 주십시오.",
@@ -947,7 +947,7 @@ window.APP_DATA = {
         headline: "CJ BIO 베트남 전략적 파트너십: TasteNrich® HYBIND & AMINATURE® FGAA",
         subheadline: "BJCS 베트남은 태국에서 이미 검증된 BJC × CJ BIO 파트너십 성공 모델을 바탕으로, 베트남 시장에서 TasteNrich® HYBIND와 FGAA의 빠른 성장을 견인할 준비가 되어 있습니다.",
         meetingTag: "2026년 10월 15일 | MS Teams",
-        presenterTag: "발표자: Nguyen Duc Duy Anh - BJC Specialties Vietnam",
+        presenterTag: "BJC Specialties Vietnam · 식품 및 건기식 원료 사업부",
         proposalBannerTitle: "핵심 전략 제안 (OUR PROPOSAL)",
         proposalBannerText: "BJCS 베트남을 HYBIND 및 FGAA 베트남 공식 유통 파트너로 지정 → 90일 온보딩 (2026년 4분기) → 2027년 1분기부터 북·중·남부 ~20개 핵심 고객사(Tier-1) 대상 기술 테스트 본격 가동.",
         pillars: [
@@ -1008,8 +1008,8 @@ window.APP_DATA = {
             },
             {
               num: "04",
-              title: "그룹 차원의 거버넌스 및 투명한 현지 실행",
-              desc: "BJC / White Group 경영진의 지역 총괄 지원 아래, 베트남 업계 21년 이상 경력의 Nguyen Duc Duy Anh 대표가 직접 조직을 이끌며 매월 투명한 KPI를 보고합니다."
+              title: "~90개 기존 거래선, 현지 창고 인프라 및 식품·건기식 전문 전담 조직",
+              desc: "현재 활발히 거래 중인 ~90개 핵심 고객망(Masan, CJ Cau Tre, Vissan, C.P., Ajinomoto, Merap 등), 호치민·하노이 현지 Ex-Stock 창고(VND 세금계산서 발행 및 공장 직배송), 그리고 식품·음료·건강기능식품(TPCN) 분야에서 21년 이상의 실무 경력을 보유한 전문 영업·NPD·인허가(RA) 전담 팀을 보유하고 있습니다."
             }
           ]
         }
@@ -1022,7 +1022,7 @@ window.APP_DATA = {
           { value: 2007, prefix: "", suffix: "년 설립", label: "베트남 시장 업력", sub: "19년 이상의 탄탄한 현지 사업 기반" },
           { value: 2, prefix: "", suffix: "개 거점 오피스", label: "호치민(남부) & 하노이(북부)", sub: "북부 · 중부 · 남부 전국 고객 커버리지" },
           { value: 90, prefix: "~", suffix: "개 핵심 고객", label: "2026년 활성 거래선 (YTD)", sub: "고객사 R&D, QA 및 구매팀과 일일 협업" },
-          { value: 21, prefix: "", suffix: "년+ 경력", label: "검증된 리더십", sub: "Nguyen Duc Duy Anh 대표 + 5명 전담 영업 & NPD" }
+          { value: 21, prefix: "", suffix: "년+ 경력", label: "식품 & 건기식 전문성", sub: "전담 Key Account 영업 · NPD 기술 · 인허가(RA) 팀" }
         ],
         drawers: {
           rtmBtn: "유통 경로(RTM) 및 인허가 역량 보기",

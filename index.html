@@ -110,40 +110,46 @@
       transition: all 0.2s ease;
     }
 
-    /* Light Mode Text & Surface Overrides for High Contrast Readability */
+    /* Light Mode Text, Border & Surface Overrides for Ultra-High Contrast Readability */
     html[data-theme="light"] .text-white {
       color: #0F172A !important;
     }
+    html[data-theme="light"] .text-slate-100,
     html[data-theme="light"] .text-slate-200,
     html[data-theme="light"] .text-slate-300 {
-      color: #334155 !important;
+      color: #1E293B !important;
     }
     html[data-theme="light"] .text-slate-400 {
       color: #475569 !important;
     }
     html[data-theme="light"] .text-emerald-300,
     html[data-theme="light"] .text-emerald-400 {
-      color: #007A42 !important;
+      color: #047857 !important;
     }
     html[data-theme="light"] .text-emerald-100,
     html[data-theme="light"] .text-emerald-200 {
-      color: #065F46 !important;
+      color: #064E3B !important;
     }
+    html[data-theme="light"] .text-blue-100,
     html[data-theme="light"] .text-blue-200,
     html[data-theme="light"] .text-blue-300,
     html[data-theme="light"] .text-blue-400 {
       color: #0055A5 !important;
     }
+    html[data-theme="light"] .text-amber-100,
     html[data-theme="light"] .text-amber-200,
     html[data-theme="light"] .text-amber-300,
     html[data-theme="light"] .text-amber-400 {
       color: #B45309 !important;
     }
+    html[data-theme="light"] .text-red-100,
     html[data-theme="light"] .text-red-200,
-    html[data-theme="light"] .text-red-300 {
+    html[data-theme="light"] .text-red-300,
+    html[data-theme="light"] .text-red-400 {
       color: #B91C1C !important;
     }
     html[data-theme="light"] .bg-slate-900,
+    html[data-theme="light"] .bg-slate-900\/95,
     html[data-theme="light"] .bg-slate-900\/90,
     html[data-theme="light"] .bg-slate-900\/85,
     html[data-theme="light"] .bg-slate-900\/80,
@@ -153,20 +159,36 @@
     html[data-theme="light"] .bg-slate-800\/90,
     html[data-theme="light"] .bg-slate-800\/80 {
       background-color: #FFFFFF !important;
-      border-color: rgba(15, 23, 42, 0.14) !important;
+      border-color: rgba(15, 23, 42, 0.15) !important;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
     }
+    html[data-theme="light"] .bg-slate-950\/90,
     html[data-theme="light"] .bg-slate-950\/80,
     html[data-theme="light"] .bg-slate-950\/70,
     html[data-theme="light"] .bg-slate-950\/60 {
-      background-color: rgba(241, 245, 249, 0.92) !important;
-      border-color: rgba(15, 23, 42, 0.12) !important;
+      background-color: #F1F5F9 !important;
+      border-color: rgba(15, 23, 42, 0.14) !important;
+    }
+    html[data-theme="light"] .bg-slate-700 {
+      background-color: #CBD5E1 !important;
     }
     html[data-theme="light"] .bg-white\/5,
-    html[data-theme="light"] .bg-white\/10 {
-      background-color: rgba(15, 23, 42, 0.045) !important;
+    html[data-theme="light"] .bg-white\/10,
+    html[data-theme="light"] .bg-white\/15,
+    html[data-theme="light"] .bg-white\/20 {
+      background-color: rgba(15, 23, 42, 0.055) !important;
+      border-color: rgba(15, 23, 42, 0.14) !important;
+    }
+    html[data-theme="light"] .border-white\/10,
+    html[data-theme="light"] .border-white\/15,
+    html[data-theme="light"] .border-white\/20 {
+      border-color: rgba(15, 23, 42, 0.14) !important;
+    }
+    html[data-theme="light"] .divide-white\/10 > :not([hidden]) ~ :not([hidden]) {
       border-color: rgba(15, 23, 42, 0.12) !important;
     }
+    html[data-theme="light"] .bg-emerald-950\/90,
+    html[data-theme="light"] .bg-emerald-950\/80,
     html[data-theme="light"] .bg-emerald-950\/70,
     html[data-theme="light"] .bg-emerald-950\/60,
     html[data-theme="light"] .bg-emerald-950\/50,
@@ -176,15 +198,26 @@
       background-color: #ECFDF5 !important;
       border-color: rgba(0, 138, 75, 0.35) !important;
     }
+    html[data-theme="light"] .bg-blue-950\/80,
+    html[data-theme="light"] .bg-blue-950\/60,
     html[data-theme="light"] .bg-blue-950\/50,
     html[data-theme="light"] .bg-blue-950\/45,
-    html[data-theme="light"] .bg-blue-950\/40 {
+    html[data-theme="light"] .bg-blue-950\/40,
+    html[data-theme="light"] .bg-blue-950\/35 {
       background-color: #EFF6FF !important;
-      border-color: rgba(0, 85, 165, 0.3) !important;
+      border-color: rgba(0, 85, 165, 0.35) !important;
     }
+    html[data-theme="light"] .bg-red-950\/50,
+    html[data-theme="light"] .bg-red-950\/40,
     html[data-theme="light"] .bg-red-950\/35 {
       background-color: #FEF2F2 !important;
-      border-color: rgba(227, 27, 35, 0.3) !important;
+      border-color: rgba(227, 27, 35, 0.35) !important;
+    }
+    html[data-theme="light"] .bg-amber-950\/50,
+    html[data-theme="light"] .bg-amber-950\/40,
+    html[data-theme="light"] .bg-amber-950\/35 {
+      background-color: #FFFBEB !important;
+      border-color: rgba(239, 124, 0, 0.35) !important;
     }
     html[data-theme="light"] .keep-white-text,
     html[data-theme="light"] .keep-white-text * {
@@ -455,7 +488,7 @@
   </div>
 
   <!-- Application Scripts -->
-  <script src="/data-i18n.js" onerror="var s=document.createElement('script');s.src='data-i18n.js';document.body.appendChild(s);"></script>
-  <script src="/app.js" onerror="var s=document.createElement('script');s.src='app.js';document.body.appendChild(s);"></script>
+  <script src="/data-i18n.js?v=20261015-2" onerror="var s=document.createElement('script');s.src='data-i18n.js?v=20261015-2';document.body.appendChild(s);"></script>
+  <script src="/app.js?v=20261015-2" onerror="var s=document.createElement('script');s.src='app.js?v=20261015-2';document.body.appendChild(s);"></script>
 </body>
 </html>

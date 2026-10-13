@@ -1271,22 +1271,22 @@
       <div class="overflow-x-auto rounded-2xl border border-white/15">
         <table class="w-full text-left border-collapse">
           <thead>
-            <tr class="bg-slate-800/95 text-xs uppercase text-slate-300 border-b border-white/15">
-              <th class="p-3 font-bold">${modalData.headers[0]}</th>
-              <th class="p-3 font-bold text-red-300">${modalData.headers[1]}</th>
-              <th class="p-3 font-bold text-amber-200">${modalData.headers[2]}</th>
-              <th class="p-3 font-bold bg-emerald-950/80 text-emerald-300">${modalData.headers[3]}</th>
+            <tr class="text-xs uppercase border-b border-white/15">
+              <th class="p-3.5 font-extrabold bg-slate-800/95 text-white">${modalData.headers[0]}</th>
+              <th class="p-3.5 font-extrabold bg-red-950/50 text-red-300">${modalData.headers[1]}</th>
+              <th class="p-3.5 font-extrabold bg-amber-950/40 text-amber-300">${modalData.headers[2]}</th>
+              <th class="p-3.5 font-extrabold keep-white-text bg-[#008A4B] text-white shadow-sm">✨ ${modalData.headers[3]}</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-white/10 text-xs sm:text-sm">
             ${modalData.rows
               .map(
                 (r) => `
-              <tr class="bg-slate-900/70">
-                <td class="p-3 font-bold text-white">${r[0]}</td>
-                <td class="p-3 text-slate-300">${r[1]}</td>
-                <td class="p-3 text-slate-300">${r[2]}</td>
-                <td class="p-3 font-semibold text-emerald-200 bg-emerald-950/35">${r[3]}</td>
+              <tr class="bg-slate-900/80">
+                <td class="p-3.5 font-extrabold text-white">${r[0]}</td>
+                <td class="p-3.5 text-slate-200">${r[1]}</td>
+                <td class="p-3.5 text-slate-200">${r[2]}</td>
+                <td class="p-3.5 font-bold text-emerald-200 bg-emerald-950/45">${r[3]}</td>
               </tr>
             `
               )

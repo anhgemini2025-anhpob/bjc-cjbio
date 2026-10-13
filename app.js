@@ -1501,9 +1501,9 @@
     const html = `
       <div class="space-y-4">
         <div class="rounded-2xl bg-gradient-to-r from-emerald-950/80 to-slate-900 border border-emerald-500/40 p-5">
-          <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">Executive Lead & Presenter</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">Presenter</div>
           <div class="text-xl font-extrabold text-white">Nguyen Duc Duy Anh</div>
-          <div class="text-xs sm:text-sm text-slate-300 mb-3">Managing Director / Business Unit Leader — BJC Specialties Vietnam</div>
+          <div class="text-xs sm:text-sm text-slate-300 mb-3">BJC Specialties Vietnam</div>
           <div class="flex flex-wrap gap-3 text-xs sm:text-sm">
             <a href="mailto:duyanh@bjc.co.th" class="px-3.5 py-2 rounded-lg bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 font-semibold">
               Email: duyanh@bjc.co.th

@@ -142,7 +142,7 @@ window.APP_DATA = {
               title: "2. BJCS Application Lab (~350 sqm, Bangkok) + Local NPD",
               bullets: [
                 "Savory & Meat Pilot Equipment: Thermomix, Industrial Mincer & Mixer, Hand Stuffing — ready for Vietnamese giò lụa, sausages, meatballs, burger patties, nuggets & fish balls.",
-                "Flavor & Masking Synergy: Co-development with BJCS flavor principal (dsm-firmenich) to fine-tune savory notes in HYBIND or mask bitterness in FGAA (L-Arginine / L-Histidine)."
+                "Savory & Flavor Synergy: Co-development with BJCS savory partner (Lallemand) to fine-tune natural meat notes in HYBIND, and flavor partner (dsm-firmenich) to mask bitterness in FGAA."
               ]
             },
             {
@@ -160,9 +160,9 @@ window.APP_DATA = {
           title: "Current Tier-1 Principal Portfolio & Customer Segments",
           subtitle: "World-leading specialty ingredient manufacturers represented by BJC Specialties",
           principals: [
-            { category: "Flavors & Taste", brands: "dsm-firmenich · IFF", synergy: "Co-development & taste masking for HYBIND & FGAA" },
+            { category: "Flavors & Taste", brands: "dsm-firmenich · IFF", synergy: "Co-development & bitterness masking for FGAA beverages" },
             { category: "Preservatives", brands: "LANXESS · Wuhan Youji (Sodium Benzoate)", synergy: "Established supply into beverage & meat accounts" },
-            { category: "Yeast Extracts & Savory", brands: "Lallemand (formerly Lesaffre & DSM)", synergy: "Direct synergy with TasteNrich® HYBIND in meat & savory" },
+            { category: "Yeast Extracts & Savory", brands: "Lallemand (formerly Lesaffre & DSM)", synergy: "Direct savory & umami synergy with TasteNrich® HYBIND in meat & seafood" },
             { category: "Cosmetic & Personal Care Actives", brands: "Lipoid Kosmetik · Algaktiv", synergy: "Direct channel for AMINATURE® L-Arginine in oral & skin care" },
             { category: "Rheology, Hydrocolloids & Specialties", brands: "Vanderbilt Minerals/Chemicals · HPMC · Guar Gum · Bunge Loders Croklaan · Tereos · Fosfa · Avantor · ThermoFisher", synergy: "Texture, stabilization & QA lab relationships" }
           ],
@@ -267,7 +267,7 @@ window.APP_DATA = {
           pains: [
             { area: "Cost & Economics", pain: "Higher raw price/kg vs. commodity STPP; margin pressure.", response: "Demonstrate Cost-in-Use ROI per kg finished meat: +1–3% extra cooking yield + premium/export uplift completely offsets additive cost." },
             { area: "Technical Performance", pain: "Concerns over water-holding gap, vacuum-pack purge, or loss of giò lụa/sausage bite.", response: "3-Stage Trial Protocol (Lab → Pilot Plant → Blind Sensory) supported by BJCS Bangkok meat lab & CJ BIO dosage benchmarks." },
-            { area: "Sensory & Color", pain: "Fear of fermented off-notes or color shift.", response: "Blind triangle taste tests + savory flavor fine-tuning using BJCS partner dsm-firmenich." },
+            { area: "Sensory & Color", pain: "Fear of fermented off-notes or color shift.", response: "Blind triangle taste tests + savory flavor fine-tuning using BJCS partner Lallemand." },
             { area: "Operations & Regulatory", pain: "R&D reformulation workload & Vietnam label declaration wording.", response: "Turn-key trial support, in-house MOH/Circular 24 & 17 classification check, and local VND ex-stock inventory." }
           ],
           questions: [
@@ -595,7 +595,7 @@ window.APP_DATA = {
               title: "2. Phòng Lab Ứng Dụng BJCS (~350m², Bangkok) & Đội Ngũ Kỹ Thuật",
               bullets: [
                 "Thiết bị chế biến thịt thực tế: Máy Thermomix, máy xay trộn nhũ hóa, máy nhồi xúc xích — sẵn sàng thử nghiệm giò lụa, xúc xích, thịt viên, thịt kẹp burger, gà viên & cá viên.",
-                "Cộng hưởng Hương liệu: Phối hợp cùng đối tác hương liệu dsm-firmenich giúp tinh chỉnh hương vị thịt tự nhiên cho HYBIND và che vị đắng cho dòng axit amin FGAA."
+                "Cộng hưởng Vị mặn & Hương liệu: Phối hợp cùng đối tác Lallemand giúp tinh chỉnh hương vị thịt tự nhiên cho HYBIND và đối tác dsm-firmenich giúp che vị đắng cho dòng axit amin FGAA."
               ]
             },
             {
@@ -613,9 +613,9 @@ window.APP_DATA = {
           title: "Danh Mục Nhà Sản Xuất Toàn Cầu & Hệ Sinh Thái Khách Hàng BJCS",
           subtitle: "Những thương hiệu nguyên liệu hàng đầu thế giới đang được BJC Specialties đại diện phân phối",
           principals: [
-            { category: "Hương Liệu Thực Phẩm", brands: "dsm-firmenich · IFF", synergy: "Đồng phát triển công thức & che vị đắng cho FGAA / tinh chỉnh vị thịt HYBIND" },
+            { category: "Hương Liệu Thực Phẩm", brands: "dsm-firmenich · IFF", synergy: "Đồng phát triển công thức & che vị đắng cho đồ uống FGAA" },
             { category: "Chất Bảo Quản Chuyên Dụng", brands: "LANXESS · Wuhan Youji (Sodium Benzoate)", synergy: "Mạng lưới khách hàng đồ uống & chế biến thực phẩm sẵn có" },
-            { category: "Chiết Xuất Nấm Men & Đạm Vị Ngọt", brands: "Lallemand (trước đây là Lesaffre & DSM)", synergy: "Cộng hưởng trực tiếp với TasteNrich® HYBIND trong ngành thịt & gia vị" },
+            { category: "Chiết Xuất Nấm Men & Đạm Vị Ngọt", brands: "Lallemand (trước đây là Lesaffre & DSM)", synergy: "Cộng hưởng trực tiếp tinh chỉnh hương vị thịt & umami cùng TasteNrich® HYBIND" },
             { category: "Hoạt Chất Mỹ Phẩm & Chăm Sóc Cá Nhân", brands: "Lipoid Kosmetik · Algaktiv", synergy: "Kênh phân phối sẵn sàng cho AMINATURE® L-Arginine trong kem đánh răng & chăm sóc da" },
             { category: "Chất Tạo Đặc & Phụ Gia Chuyên Dụng", brands: "Vanderbilt · HPMC · Guar Gum · Bunge Loders Croklaan · Tereos · Fosfa · Avantor · ThermoFisher", synergy: "Quan hệ sâu rộng với bộ phận R&D và QA/QC tại các nhà máy lớn" }
           ],
@@ -720,7 +720,7 @@ window.APP_DATA = {
           pains: [
             { area: "Chi Phí & Giá Thành", pain: "Đơn giá nguyên liệu thô/kg của HYBIND cao hơn phosphate truyền thống.", response: "Chứng minh mô hình Chi phí Sử dụng Thực tế: Hiệu suất thu hồi tăng 1–3% giúp tăng khối lượng thành phẩm bán ra, mang lại lợi nhuận ròng cao hơn." },
             { area: "Hiệu Năng Kỹ Thuật", pain: "Lo ngại giải pháp tự nhiên không giữ nước hoặc không tạo độ giòn dai bằng STPP.", response: "Quy trình thử nghiệm 3 bước (Phòng Lab → Dây chuyền Pilot → Đánh giá mù) cùng thiết bị thịt tại Lab Bangkok của BJCS." },
-            { area: "Cảm Quan & Hương Vị", pain: "Sợ mùi lên men lạ hoặc đổi màu sản phẩm.", response: "Đánh giá cảm quan mù và tinh chỉnh hương vị cùng đối tác dsm-firmenich." },
+            { area: "Cảm Quan & Hương Vị", pain: "Sợ mùi lên men lạ hoặc đổi màu sản phẩm.", response: "Đánh giá cảm quan mù và tinh chỉnh hương vị cùng đối tác Lallemand." },
             { area: "Vận Hành & Pháp Lý", pain: "Mất thời gian R&D tinh chỉnh công thức và cách ghi nhãn tại Việt Nam.", response: "Hỗ trợ chạy mẫu tận nhà máy, tư vấn phân loại pháp lý Thông tư 24/17 và dự trữ hàng tại kho nội địa Việt Nam." }
           ],
           questions: [
@@ -1048,7 +1048,7 @@ window.APP_DATA = {
               title: "2. 방콕 어플리케이션 랩 (~350㎡) & 향료 시너지",
               bullets: [
                 "육가공 파일럿 설비 완비: Thermomix, 육가공 민서/믹서, 충진 설비를 통해 베트남 소시지(Giò lụa), 미트볼, 햄버거 패티, 너겟, 어묵 등 사전 검증.",
-                "글로벌 향료 파트너십 시너지: BJCS의 핵심 파트너인 dsm-firmenich 향료 솔루션과 결합하여 HYBIND 육풍미 최적화 및 FGAA(아르기닌/히스티딘) 쓴맛 마스킹 제공."
+                "글로벌 세이보리 & 향료 파트너십 시너지: BJCS의 핵심 파트너인 Lallemand 솔루션과 결합하여 HYBIND 육풍미를 최적화하고, dsm-firmenich 향료 기술로 FGAA(아르기닌/히스티딘) 쓴맛 마스킹을 제공합니다."
               ]
             },
             {
@@ -1066,9 +1066,9 @@ window.APP_DATA = {
           title: "BJCS 베트남 주요 글로벌 파트너사 및 고객 세그먼트",
           subtitle: "세계적인 스페셜티 원료 제조사들과 구축한 검증된 B2B 영업망",
           principals: [
-            { category: "향료 및 풍미 솔루션", brands: "dsm-firmenich · IFF", synergy: "HYBIND 풍미 조정 및 FGAA 쓴맛 마스킹 공동 개발" },
+            { category: "향료 및 풍미 솔루션", brands: "dsm-firmenich · IFF", synergy: "FGAA 음료 쓴맛 마스킹 및 풍미 공동 개발" },
             { category: "기능성 보존제", brands: "LANXESS · Wuhan Youji", synergy: "베트남 주요 음료 및 가공식품 제조사 기존 거래망" },
-            { category: "효모추출물 및 세이보리", brands: "Lallemand (구 Lesaffre & DSM)", synergy: "육가공 및 조미식품 고객사 내 HYBIND 크로스셀링 시너지" },
+            { category: "효모추출물 및 세이보리", brands: "Lallemand (구 Lesaffre & DSM)", synergy: "육가공 및 조미식품 고객사 내 TasteNrich® HYBIND 육풍미 조율 및 시너지" },
             { category: "화장품 및 구강케어 활성 원료", brands: "Lipoid Kosmetik · Algaktiv", synergy: "구강케어(시린이 치약) 및 스킨케어용 L-Arginine 직결 채널" },
             { category: "점증제 및 기능성 원료", brands: "Vanderbilt · HPMC · Guar Gum · Bunge Loders Croklaan · Tereos · Fosfa · Avantor · ThermoFisher", synergy: "식품·제약 R&D 및 품질보증(QA) 부서와의 강력한 신뢰 관계" }
           ],
@@ -1173,7 +1173,7 @@ window.APP_DATA = {
           pains: [
             { area: "원가 및 경제성", pain: "기존 인산염(STPP) 대비 높은 kg당 원료 단가 부담.", response: "완제품 kg당 Cost-in-Use 모델 제시: 조리 수율 1~3% 향상으로 판매 가능 중량이 늘어나 순이익이 오히려 증가함을 입증." },
             { area: "기술적 퍼포먼스", pain: "천연 대체재의 보수력 및 베트남 소시지(Giò lụa) 특유의 탄력 유지 여부 우려.", response: "BJCS 방콕 육가공 랩 설비 및 3단계 파일럿 테스트(랩 → 공장 파일럿 → 블라인드 관능평가)로 검증." },
-            { area: "관능 및 색상", pain: "발효취 또는 육색 변화 우려.", response: "블라인드 삼점 검사 및 BJCS 파트너사 dsm-firmenich 향료 기술로 풍미 미세 조정." },
+            { area: "관능 및 색상", pain: "발효취 또는 육색 변화 우려.", response: "블라인드 삼점 검사 및 BJCS 파트너사 Lallemand 기술로 육풍미 미세 조정." },
             { area: "인허가 및 운영", pain: "배합 변경 업무 부담 및 베트남 라벨 표기 기준.", response: "턴키 테스트 프로토콜 지원, 베트남 회람 24/17 기준 분류 확정 및 현지 창고(Ex-stock) 안정 공급." }
           ],
           questions: [

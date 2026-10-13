@@ -75,13 +75,29 @@
   function ui() {
     const map = {
       en: {
+        headerMeetingBadge: "15 Oct 2026 · Partnership",
         clickDetail: "Tap to view →",
         tapExpand: "Tap card to expand details",
         prevSlide: "← Prev",
         nextSlide: "Next →",
         slideMode: "1-Slide View",
         allMode: "All 6 Slides",
+        valuePillarsTag: "4 VALUE PILLARS",
+        hybindSubTag: "Phosphate-Free",
+        fgaaSubTag: "L-Arg · L-Cit · L-His",
         viewApps: "Application Segments (Tap icon):",
+        bjcsCustomerLegend: "BJCS Active Customer",
+        targetLegend: "Priority Target",
+        activeCustomerBadge: "✓ BJCS Active Customer",
+        priorityTargetBadge: "🎯 Priority Target",
+        extraMeatLbl: "Extra Meat",
+        yieldValueLbl: "Yield Value",
+        costDeltaLbl: "Cost Delta",
+        perTonSuffix: "/ Ton",
+        perYearSuffix: "/ Year",
+        annualVolPrefix: "2,500 MT/yr:",
+        hybindFlowTitle: "🥩 TasteNrich® HYBIND — 3-Step Flow",
+        fgaaFlowTitle: "⚡ AMINATURE® FGAA — 3-Step Flow",
         viewDecisionMap: "Buyer Map & SPIN",
         viewTrialProtocol: "3-Step Trial Flow",
         viewMonthlyKpi: "5 Monthly KPIs",
@@ -89,26 +105,77 @@
         synergyFlowTitle: "Regional Synergy Flow (Tap to inspect)",
         supplyFlowTitle: "End-to-End Local Supply & Technical Chain",
         flowNodes: [
-          { icon: "🚢", title: "Import & MOH RA", sub: "In-house food & TPCN dossier" },
+          { icon: "🚢", title: "Import & MOH RA", sub: "In-house food & nutraceutical dossier" },
           { icon: "🏢", title: "Warehouse HCM & HN", sub: "Ex-Stock VND · Door-to-Door" },
-          { icon: "🔬", title: "NPD & Lab ~350m²", sub: "21+ yrs Food & TPCN team" },
+          { icon: "🔬", title: "NPD & Lab ~350m²", sub: "21+ yrs Food & Nutraceutical team" },
           { icon: "🤝", title: "~90 Active Accounts", sub: "Masan, CJ Cầu Tre, Vissan..." }
         ],
         regVisualTags: [
           ["🌏 One Partner TH–VN", "💎 Value Pricing", "🛡️ Zero Channel Conflict"],
           ["⚡ Proven Recipes", "📊 Dosage Benchmarks", "🚀 Fast Onboarding"],
           ["🌡️ Thermomix", "🥩 Mincer & Mixer", "🌭 Hand Stuffing Line"],
-          ["👥 ~90 Existing Accounts", "🏢 Warehouse HCM & HN", "🧬 21+ Yrs Food & TPCN Team"]
-        ]
+          ["👥 ~90 Existing Accounts", "🏢 Warehouse HCM & HN", "🧬 21+ Yrs Food & Nutraceutical Team"]
+        ],
+        sampleModal: {
+          title: "Sample & Dossier Protocol",
+          subtitle: "By 30 October 2026 Onboarding Milestone",
+          hybindBullets: [
+            "5–10 kg Sample Kits for Meat & Seafood Trials",
+            "TDS, SDS, COA & Vietnam Label Classification",
+            "Halal, Kosher, Non-GMO & FSSC 22000 Certificates"
+          ],
+          fgaaBullets: [
+            "L-Arginine, L-Citrulline & L-Histidine Trial Samples",
+            "Full COA, TDS, MSDS for MOH Registration",
+            "Vegan Action, Halal, Kosher & Taste-Masking Guide"
+          ],
+          footerOrg: "BJC Specialties Vietnam · Food & Nutraceutical Division",
+          emailBtn: "Email Confirmation"
+        },
+        pdfModal: {
+          title: "Download PDF Documents",
+          subtitle: "BJC Specialties Vietnam × CJ BIO (15 Oct 2026)",
+          doc1Tag: "EXECUTIVE PRESENTATION (29 SLIDES · PDF)",
+          doc1Title: "151026-CJ_BIO_x_BJCS_Vietnam.pdf",
+          doc2Tag: "PRODUCT BRIEF 01",
+          doc2Title: "TasteNrich® HYBIND Strategy Brief (PDF)",
+          doc3Tag: "PRODUCT BRIEF 02",
+          doc3Title: "AMINATURE® FGAA Strategy Brief (PDF)"
+        },
+        contactModal: {
+          title: "BJC Specialties Vietnam",
+          subtitle: "Nationwide Offices, Warehouses & Technical Team",
+          division: "Food, Beverage & Nutraceutical Ingredients Division",
+          hcmTitle: "📍 HCMC Office & Warehouse",
+          hcmAddr: "MM Mega Market Office Complex, Lot B, An Phu – An Khanh, Ho Chi Minh City",
+          hnTitle: "📍 Hanoi Office & Warehouse",
+          hnAddr: "3rd Floor, Lobby A, Geleximco Building, 897 Giai Phong Street, Hanoi"
+        }
       },
       vi: {
+        headerMeetingBadge: "15/10/2026 · Đối Tác Chiến Lược",
         clickDetail: "Chạm xem →",
         tapExpand: "Chạm vào từng ô để mở rộng chi tiết",
         prevSlide: "← Trước",
         nextSlide: "Tiếp →",
         slideMode: "Xem từng trang",
         allMode: "Xem cả 6 trang",
-        viewApps: "Nhóm ứng dụng (Chạm vào từng ô):",
+        valuePillarsTag: "4 TRỤ CỘT GIÁ TRỊ",
+        hybindSubTag: "Thay Thế Phosphate",
+        fgaaSubTag: "L-Arg · L-Cit · L-His",
+        viewApps: "Nhóm ứng dụng trọng tâm (Chạm vào từng ô):",
+        bjcsCustomerLegend: "Khách Hàng Hiện Hữu BJCS",
+        targetLegend: "Khách Hàng Mục Tiêu",
+        activeCustomerBadge: "✓ Khách Hàng Hiện Hữu BJCS",
+        priorityTargetBadge: "🎯 Khách Hàng Mục Tiêu Ưu Tiên",
+        extraMeatLbl: "Thịt Giữ Thêm",
+        yieldValueLbl: "Giá Trị Hiệu Suất",
+        costDeltaLbl: "Chênh Lệch Phụ Gia",
+        perTonSuffix: "/ Tấn",
+        perYearSuffix: "/ Năm",
+        annualVolPrefix: "Sản lượng 2.500 Tấn/năm:",
+        hybindFlowTitle: "🥩 TasteNrich® HYBIND — Quy Trình Thử Nghiệm 3 Bước",
+        fgaaFlowTitle: "⚡ AMINATURE® FGAA — Quy Trình Thử Nghiệm 3 Bước",
         viewDecisionMap: "Sơ Đồ Người Quyết Định",
         viewTrialProtocol: "Sơ Đồ Thử Nghiệm 3 Bước",
         viewMonthlyKpi: "5 KPI Hàng Tháng",
@@ -117,25 +184,76 @@
         supplyFlowTitle: "Chuỗi Cung Ứng, Kho Bãi & Kỹ Thuật Thực Phẩm – TPCN",
         flowNodes: [
           { icon: "🚢", title: "Nhập Khẩu & Pháp Lý", sub: "Tự công bố Thực phẩm & TPCN" },
-          { icon: "🏢", title: "Kho Bãi HCM & Hà Nội", sub: "Ex-Stock VNĐ · Giao tận nơi" },
+          { icon: "🏢", title: "Kho Bãi HCM & Hà Nội", sub: "Tồn kho VNĐ · Giao tận nhà máy" },
           { icon: "🔬", title: "Đội Ngũ & Lab ~350m²", sub: "21+ năm KN Thực phẩm & TPCN" },
           { icon: "🤝", title: "~90 Khách Hàng Sẵn Có", sub: "Masan, CJ Cầu Tre, Vissan..." }
         ],
         regVisualTags: [
-          ["🌏 1 Đối Tác Thái – Việt", "💎 Kỷ Luật Giá Trị", "🛡️ Quản Trị Key Accounts"],
-          ["⚡ Công Thức Chuẩn", "📊 Dữ Liệu Chạy Thử", "🚀 Rút Ngắn Lead-Time"],
-          ["🌡️ Thermomix", "🥩 Máy Xay Mincer/Mixer", "🌭 Máy Nhồi Xúc Xích"],
-          ["👥 ~90 Khách Hàng Hiện Hữu", "🏢 Kho Ex-Stock HCM & HN", "🧬 Nhân Sự 21+ Năm Thực Phẩm & TPCN"]
-        ]
+          ["🌏 1 Đối Tác Thái – Việt", "💎 Kỷ Luật Giá Trị", "🛡️ Quản Trị Khách Hàng Trọng Điểm"],
+          ["⚡ Công Thức Chuẩn", "📊 Dữ Liệu Chạy Thử", "🚀 Rút Ngắn Thời Gian Chào Hàng"],
+          ["🌡️ Thiết Bị Thermomix", "🥩 Máy Xay & Trộn Thịt", "🌭 Máy Nhồi Xúc Xích"],
+          ["👥 ~90 Khách Hàng Hiện Hữu", "🏢 Kho Hàng HCM & Hà Nội", "🧬 Nhân Sự 21+ Năm Thực Phẩm & TPCN"]
+        ],
+        sampleModal: {
+          title: "Quy Trình Nhận Mẫu & Hồ Sơ Kỹ Thuật",
+          subtitle: "Cột Mốc Hoàn Tất Trước Ngày 30/10/2026",
+          hybindBullets: [
+            "Bộ mẫu thử 5–10 kg cho nhà máy chế biến Thịt & Thủy sản",
+            "Trọn bộ TDS, SDS, COA & hướng dẫn ghi nhãn tiếng Việt",
+            "Chứng nhận Halal, Kosher, Không biến đổi gen & FSSC 22000"
+          ],
+          fgaaBullets: [
+            "Mẫu thử L-Arginine, L-Citrulline & L-Histidine độ tinh khiết cao",
+            "Đầy đủ COA, TDS, MSDS phục vụ đăng ký hồ sơ Bộ Y Tế",
+            "Chứng nhận Thuần chay, Halal, Kosher & hướng dẫn điều vị"
+          ],
+          footerOrg: "BJC Specialties Việt Nam · Khối Nguyên Liệu Thực Phẩm & TPCN",
+          emailBtn: "Gửi Email Xác Nhận"
+        },
+        pdfModal: {
+          title: "Tải Tài Liệu Trình Bày (PDF)",
+          subtitle: "BJC Specialties Việt Nam × CJ BIO (15/10/2026)",
+          doc1Tag: "BẢN TRÌNH BÀY CHIẾN LƯỢC (29 TRANG · PDF)",
+          doc1Title: "151026-CJ_BIO_x_BJCS_Vietnam.pdf",
+          doc2Tag: "TÀI LIỆU SẢN PHẨM 01",
+          doc2Title: "TasteNrich® HYBIND — Hồ Sơ Giải Pháp (PDF)",
+          doc3Tag: "TÀI LIỆU SẢN PHẨM 02",
+          doc3Title: "AMINATURE® FGAA — Hồ Sơ Giải Pháp (PDF)"
+        },
+        contactModal: {
+          title: "BJC Specialties Việt Nam",
+          subtitle: "Hệ Thống Văn Phòng, Kho Bãi & Đội Ngũ Kỹ Thuật Toàn Quốc",
+          division: "Khối Kinh Doanh Nguyên Liệu Thực Phẩm, Đồ Uống & Thực Phẩm Chức Năng (TPCN)",
+          hcmTitle: "📍 Văn Phòng & Kho Hàng TP.HCM",
+          hcmAddr: "Khu phức hợp MM Mega Market, Lô B, KĐT An Phú – An Khánh, TP. Thủ Đức, TP.HCM",
+          hnTitle: "📍 Văn Phòng & Kho Hàng Hà Nội",
+          hnAddr: "Tầng 3, Sảnh A, Tòa nhà Geleximco, 897 Giải Phóng, Quận Hoàng Mai, Hà Nội"
+        }
       },
       ko: {
+        headerMeetingBadge: "2026.10.15 · 전략적 파트너십",
         clickDetail: "상세 보기 →",
         tapExpand: "카드를 클릭하면 상세 내용이 펼쳐집니다",
         prevSlide: "← 이전",
         nextSlide: "다음 →",
         slideMode: "슬라이드 보기",
-        allMode: "전체 보기",
-        viewApps: "핵심 적용 분야 (클릭):",
+        allMode: "전체 6슬라이드",
+        valuePillarsTag: "4대 핵심 가치 축",
+        hybindSubTag: "인산염 대체 솔루션",
+        fgaaSubTag: "L-Arg · L-Cit · L-His",
+        viewApps: "핵심 적용 분야 (아이콘 클릭):",
+        bjcsCustomerLegend: "BJCS 기존 거래처",
+        targetLegend: "신규 타겟 고객사",
+        activeCustomerBadge: "✓ BJCS 기존 거래 고객사",
+        priorityTargetBadge: "🎯 핵심 타겟 고객사",
+        extraMeatLbl: "추가 수율 증가량",
+        yieldValueLbl: "수율 증가 가치",
+        costDeltaLbl: "첨가물 비용 차액",
+        perTonSuffix: "/ 톤",
+        perYearSuffix: "/ 년",
+        annualVolPrefix: "연간 2,500톤 기준:",
+        hybindFlowTitle: "🥩 TasteNrich® HYBIND — 3단계 기술 검증 프로세스",
+        fgaaFlowTitle: "⚡ AMINATURE® FGAA — 3단계 기술 검증 프로세스",
         viewDecisionMap: "의사결정권자 맵",
         viewTrialProtocol: "3단계 테스트 프로세스",
         viewMonthlyKpi: "월간 5대 KPI",
@@ -144,16 +262,51 @@
         supplyFlowTitle: "베트남 현지 물류 · 기술 · 인허가 밸류체인",
         flowNodes: [
           { icon: "🚢", title: "수입 통관 & 식약청(MOH)", sub: "식품·건기식 인허가 전담" },
-          { icon: "🏢", title: "호치민 & 하노이 창고", sub: "Ex-Stock VND · 직배송" },
+          { icon: "🏢", title: "호치민 & 하노이 창고", sub: "베트남 동(VND) 재고 · 직배송" },
           { icon: "🔬", title: "전담 조직 & 방콕 랩", sub: "21년+ 식품·건기식 전문팀" },
-          { icon: "🤝", title: "~90개 기존 거래선", sub: "Masan, CJ Cầu Tre, Vissan..." }
+          { icon: "🤝", title: "~90개 기존 거래선", sub: "마산, CJ 꺼우째, 비산 등" }
         ],
         regVisualTags: [
           ["🌏 태국·베트남 단일 파트너", "💎 가치 기반 가격 규율", "🛡️ 핵심 고객 통합 관리"],
           ["⚡ 검증된 배합 레시피", "📊 적용 데이터 이전", "🚀 리드타임 단축"],
-          ["🌡️ Thermomix", "🥩 육가공 민서/믹서", "🌭 소시지 충진 라인"],
+          ["🌡️ 써모믹스(Thermomix)", "🥩 육가공 민서/믹서", "🌭 소시지 충진 라인"],
           ["👥 ~90개 기존 거래선", "🏢 호치민·하노이 창고", "🧬 21년+ 식품·건기식 전문 인력"]
-        ]
+        ],
+        sampleModal: {
+          title: "샘플 및 기술 서류 요청 프로토콜",
+          subtitle: "2026년 10월 30일 온보딩 마일스톤",
+          hybindBullets: [
+            "육가공 및 수산가공 공장 테스트용 5~10kg 샘플 키트",
+            "TDS, SDS, COA 및 베트남 클린라벨 표기 가이드",
+            "할랄, 코셔, Non-GMO 및 FSSC 22000 인증서 패키지"
+          ],
+          fgaaBullets: [
+            "L-아르기닌, L-시트룰린, L-히스티딘 고순도 샘플",
+            "베트남 보건부(MOH) 등록용 COA, TDS, MSDS 완비",
+            "비건 액션, 할랄, 코셔 인증 및 고미 마스킹 가이드"
+          ],
+          footerOrg: "BJC Specialties 베트남 · 식품 및 건강기능식품 원료 사업부",
+          emailBtn: "이메일 확인 발송"
+        },
+        pdfModal: {
+          title: "발표 자료 및 브리프 다운로드 (PDF)",
+          subtitle: "BJC Specialties 베트남 × CJ BIO (2026.10.15)",
+          doc1Tag: "경영진 발표 자료 (29슬라이드 · PDF)",
+          doc1Title: "151026-CJ_BIO_x_BJCS_Vietnam.pdf",
+          doc2Tag: "제품 전략 브리프 01",
+          doc2Title: "TasteNrich® HYBIND 전략 브리프 (PDF)",
+          doc3Tag: "제품 전략 브리프 02",
+          doc3Title: "AMINATURE® FGAA 전략 브리프 (PDF)"
+        },
+        contactModal: {
+          title: "BJC Specialties 베트남",
+          subtitle: "베트남 전국 오피스 · 물류창고 · 기술영업 조직",
+          division: "식품 · 음료 · 건강기능식품(TPCN) 원료 사업부",
+          hcmTitle: "📍 호치민 본사 오피스 및 창고",
+          hcmAddr: "호치민시 안푸-안칸 MM 메가마켓 오피스 단지 B동",
+          hnTitle: "📍 하노이 지사 오피스 및 창고",
+          hnAddr: "하노이시 자이퐁 거리 897 Geleximco 빌딩 A로비 3층"
+        }
       }
     };
     return map[state.lang] || map.en;
@@ -578,9 +731,11 @@
       const btns = document.querySelectorAll(`[data-lang-btn="${l}"]`);
       btns.forEach((b) => {
         if (l === state.lang) {
-          b.className = "px-2 py-1 rounded-lg text-xs font-bold bg-emerald-600 text-white keep-white-text shadow-sm transition-all cursor-pointer";
+          b.className =
+            "flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold bg-emerald-600 text-white keep-white-text shadow-sm transition-all cursor-pointer";
         } else {
-          b.className = "px-2 py-1 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer";
+          b.className =
+            "flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer";
         }
       });
     });
@@ -609,7 +764,7 @@
       } else {
         const target = document.getElementById(`section-${modId}`);
         if (target) {
-          const y = target.getBoundingClientRect().top + window.pageYOffset - 75;
+          const y = target.getBoundingClientRect().top + window.pageYOffset - 105;
           window.scrollTo({ top: y, behavior: "smooth" });
         }
       }
@@ -654,7 +809,12 @@
     const curIdx = MOD_LIST.indexOf(state.activeNavHighlight);
     const tabIcons = ["🎯", "🏢", "🧬", "🗺️", "📈", "🚀"];
 
-    // Desktop Top Tabs
+    const headerBadge = document.getElementById("header-meeting-badge");
+    if (headerBadge) {
+      headerBadge.textContent = u.headerMeetingBadge;
+    }
+
+    // Desktop Dedicated Second-Row 6-Column Tabs (Never overlaps or clips)
     const tabsContainer = document.getElementById("nav-tabs-container");
     if (tabsContainer) {
       tabsContainer.innerHTML = nav.tabs
@@ -662,13 +822,13 @@
           const isActive = state.activeNavHighlight === tab.id;
           return `
             <button onclick="selectNavModule('${tab.id}')"
-              class="px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer flex items-center gap-1 ${
+              class="px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 truncate ${
                 isActive
                   ? "bg-emerald-600 text-white keep-white-text shadow-sm"
                   : "text-slate-300 hover:text-white hover:bg-white/10"
               }">
-              <span>${tabIcons[i]}</span>
-              <span>${tab.code}. ${tab.label}</span>
+              <span class="shrink-0">${tabIcons[i]}</span>
+              <span class="truncate">${tab.code}. ${tab.label}</span>
             </button>
           `;
         })
@@ -808,7 +968,7 @@
               <div class="flex items-center gap-2.5">
                 <span class="text-xl">✨</span>
                 <div>
-                  <div class="text-[10px] font-bold uppercase opacity-90">4 VALUE PILLARS</div>
+                  <div class="text-[10px] font-bold uppercase opacity-90">${u.valuePillarsTag}</div>
                   <div class="text-xs sm:text-sm font-extrabold">HYBIND & FGAA</div>
                 </div>
               </div>
@@ -1164,7 +1324,7 @@
                 : "text-slate-300 hover:text-white"
             }">
             <span>🥩 TasteNrich® HYBIND</span>
-            <span class="hidden sm:inline text-[10px] opacity-85">Phosphate-Free</span>
+            <span class="hidden sm:inline text-[10px] opacity-90">${u.hybindSubTag}</span>
           </button>
 
           <button onclick="switchProductTab('fgaa')"
@@ -1174,7 +1334,7 @@
                 : "text-slate-300 hover:text-white"
             }">
             <span>⚡ AMINATURE® FGAA</span>
-            <span class="hidden sm:inline text-[10px] opacity-85">L-Arg · L-Cit · L-His</span>
+            <span class="hidden sm:inline text-[10px] opacity-90">${u.fgaaSubTag}</span>
           </button>
         </div>
 
@@ -1356,7 +1516,7 @@
   };
 
   // ==========================================================================
-  // 8. MODULE 4: ULTRA-COMPACT TARGET MARKET CARDS (ICON + NAME ONLY)
+  // 8. MODULE 4: ULTRA-COMPACT TARGET MARKET CARDS (100% LOCALIZED)
   // ==========================================================================
   window.setRegionFilter = function (reg) {
     state.regionFilter = reg;
@@ -1384,16 +1544,16 @@
 
     const regButtons = [
       { id: "all", label: m4.filters.all },
-      { id: "south", label: "South" },
-      { id: "north", label: "North" },
-      { id: "central", label: "Central" }
+      { id: "south", label: m4.filters.south },
+      { id: "north", label: m4.filters.north },
+      { id: "central", label: m4.filters.central }
     ];
 
     const catButtons = [
       { id: "all", label: m4.filters.catAll },
-      { id: "meat", label: "🥩 Meat" },
-      { id: "seafood", label: "🦐 Seafood" },
-      { id: "fgaa", label: "💊 FGAA / TPCN" }
+      { id: "meat", label: `🥩 ${m4.filters.catMeat}` },
+      { id: "seafood", label: `🦐 ${m4.filters.catSeafood}` },
+      { id: "fgaa", label: `💊 ${m4.filters.catFgaa}` }
     ];
 
     const catIconMap = { meat: "🥩", seafood: "🦐", fgaa: "💊" };
@@ -1403,8 +1563,8 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <h2 class="text-lg sm:text-2xl font-extrabold text-white">🗺️ ${m4.headline}</h2>
           <div class="flex items-center gap-3 text-xs">
-            <span class="flex items-center gap-1.5 font-semibold text-emerald-300"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>BJCS Customer</span>
-            <span class="flex items-center gap-1.5 font-semibold text-amber-300"><span class="w-2 h-2 rounded-full bg-amber-400"></span>Target</span>
+            <span class="flex items-center gap-1.5 font-semibold text-emerald-300"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>${u.bjcsCustomerLegend}</span>
+            <span class="flex items-center gap-1.5 font-semibold text-amber-300"><span class="w-2 h-2 rounded-full bg-amber-400"></span>${u.targetLegend}</span>
           </div>
         </div>
 
@@ -1445,29 +1605,31 @@
           </div>
         </div>
 
-        <!-- Ultra-Clean Account Grid (Icon + Name + Tag; tap for 4-box diagram) -->
+        <!-- Ultra-Clean Account Grid (Icon + Name + Localized Tag; tap for 4-box diagram) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
           ${filtered
-            .map(
-              (acc) => `
-            <div onclick="openAccountModal('${acc.id}')"
-              class="glass-subcard cursor-pointer rounded-2xl p-3.5 hover:border-emerald-400 transition-all flex items-center justify-between gap-3 group">
-              <div class="flex items-center gap-3 min-w-0">
-                <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl shrink-0">
-                  ${catIconMap[acc.category] || "🏢"}
-                </div>
-                <div class="min-w-0">
-                  <div class="flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full ${acc.isCustomer ? "bg-emerald-400" : "bg-amber-400"} shrink-0"></span>
-                    <h3 class="text-xs sm:text-sm font-extrabold text-white truncate group-hover:text-emerald-300">${acc.name}</h3>
+            .map((acc) => {
+              const loc = acc[state.lang] || acc.en;
+              const prodBadgeText = loc.productBadge || acc.productBadge;
+              return `
+                <div onclick="openAccountModal('${acc.id}')"
+                  class="glass-subcard cursor-pointer rounded-2xl p-3.5 hover:border-emerald-400 transition-all flex items-center justify-between gap-3 group">
+                  <div class="flex items-center gap-3 min-w-0">
+                    <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl shrink-0">
+                      ${catIconMap[acc.category] || "🏢"}
+                    </div>
+                    <div class="min-w-0">
+                      <div class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full ${acc.isCustomer ? "bg-emerald-400" : "bg-amber-400"} shrink-0"></span>
+                        <h3 class="text-xs sm:text-sm font-extrabold text-white truncate group-hover:text-emerald-300">${acc.name}</h3>
+                      </div>
+                      <div class="text-[11px] text-blue-300 font-semibold truncate mt-0.5">${prodBadgeText}</div>
+                    </div>
                   </div>
-                  <div class="text-[11px] text-blue-300 font-semibold truncate mt-0.5">${acc.productBadge}</div>
+                  <span class="text-xs font-bold text-emerald-400 shrink-0">→</span>
                 </div>
-              </div>
-              <span class="text-xs font-bold text-emerald-400 shrink-0">→</span>
-            </div>
-          `
-            )
+              `;
+            })
             .join("")}
         </div>
       </div>
@@ -1480,15 +1642,19 @@
     state.openView = `account-${accId}`;
     const loc = acc[state.lang] || acc.en;
     const lbl = t().mod4.modalLabels;
+    const u = ui();
+    const tierText = loc.tier || acc.tier;
+    const prodBadgeText = loc.productBadge || acc.productBadge;
+    const regBadgeText = loc.regionBadge || acc.regionBadge;
 
     const html = `
       <div class="space-y-3">
         <div class="flex flex-wrap gap-2">
           <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300">
-            ${acc.isCustomer ? "✓ BJCS Active Customer" : "🎯 Priority Target"} · ${acc.tier}
+            ${acc.isCustomer ? u.activeCustomerBadge : u.priorityTargetBadge} · ${tierText}
           </span>
           <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300">
-            ${acc.productBadge}
+            ${prodBadgeText}
           </span>
         </div>
 
@@ -1516,7 +1682,7 @@
         </div>
       </div>
     `;
-    openModal(acc.name, acc.regionBadge, html);
+    openModal(acc.name, regBadgeText, html);
   };
 
   // ==========================================================================
@@ -1551,6 +1717,7 @@
 
   function updateCalculatorOutputs() {
     const c = state.calc;
+    const u = ui();
     const res = calculateRoiMetrics();
     const setTxt = (id, val) => {
       const el = document.getElementById(id);
@@ -1569,13 +1736,13 @@
     const netEl = document.getElementById("out-net-savings");
     if (netEl) {
       const sign = res.netSavingsPerTon >= 0 ? "+" : "";
-      netEl.textContent = `${sign}$${res.netSavingsPerTon.toFixed(2)} / Ton`;
+      netEl.textContent = `${sign}$${res.netSavingsPerTon.toFixed(2)} ${u.perTonSuffix}`;
     }
 
     const annEl = document.getElementById("out-annual-roi");
     if (annEl) {
       const sign = res.annualNetBenefit >= 0 ? "+" : "";
-      annEl.textContent = `${sign}$${Math.round(res.annualNetBenefit).toLocaleString()} / Year`;
+      annEl.textContent = `${sign}$${Math.round(res.annualNetBenefit).toLocaleString()} ${u.perYearSuffix}`;
     }
   }
 
@@ -1653,15 +1820,15 @@
           <div class="lg:col-span-5 rounded-2xl bg-emerald-950/60 border-2 border-emerald-500/50 p-4">
             <div class="grid grid-cols-3 gap-2 text-center mb-3 pb-2.5 border-b border-white/10">
               <div>
-                <div class="text-[10px] text-slate-400 uppercase">Extra Meat</div>
+                <div class="text-[10px] text-slate-400 uppercase">${u.extraMeatLbl}</div>
                 <div id="out-extra-meat" class="text-xs font-bold font-mono text-white mt-0.5"></div>
               </div>
               <div>
-                <div class="text-[10px] text-slate-400 uppercase">Yield Value</div>
+                <div class="text-[10px] text-slate-400 uppercase">${u.yieldValueLbl}</div>
                 <div id="out-gross-yield" class="text-xs font-bold font-mono text-emerald-300 mt-0.5"></div>
               </div>
               <div>
-                <div class="text-[10px] text-slate-400 uppercase">Cost Delta</div>
+                <div class="text-[10px] text-slate-400 uppercase">${u.costDeltaLbl}</div>
                 <div id="out-additive-diff" class="text-xs font-bold font-mono text-amber-300 mt-0.5"></div>
               </div>
             </div>
@@ -1670,7 +1837,7 @@
               <div class="text-[10px] font-bold uppercase text-slate-300">${m5.calc.outputs.netSavingsLabel}</div>
               <div id="out-net-savings" class="text-xl sm:text-2xl font-extrabold text-emerald-300 my-0.5"></div>
               <div class="text-xs text-slate-300">
-                2,500 MT/yr: <span id="out-annual-roi" class="font-bold font-mono text-emerald-300"></span>
+                ${u.annualVolPrefix} <span id="out-annual-roi" class="font-bold font-mono text-emerald-300"></span>
               </div>
             </div>
           </div>
@@ -1740,11 +1907,12 @@
 
   window.openTrialProtocolModal = function () {
     const m = t().mod5.methodology;
+    const u = ui();
     state.openView = "trial-protocol";
     const html = `
       <div class="space-y-4">
         <div>
-          <div class="text-xs font-bold uppercase text-emerald-300 mb-2">🥩 TasteNrich® HYBIND — 3-Step Flow</div>
+          <div class="text-xs font-bold uppercase text-emerald-300 mb-2">${u.hybindFlowTitle}</div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             ${m.hybindSteps
               .map(
@@ -1756,7 +1924,7 @@
           </div>
         </div>
         <div>
-          <div class="text-xs font-bold uppercase text-blue-300 mb-2">⚡ AMINATURE® FGAA — 3-Step Flow</div>
+          <div class="text-xs font-bold uppercase text-blue-300 mb-2">${u.fgaaFlowTitle}</div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             ${m.fgaaSteps
               .map(
@@ -1890,47 +2058,45 @@
 
   window.openSampleProtocolModal = function () {
     state.openView = "sample-protocol";
+    const sm = ui().sampleModal;
     const html = `
       <div class="space-y-3.5">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div class="rounded-xl bg-slate-800/90 border border-white/15 p-4">
             <h4 class="text-sm font-bold text-emerald-300 mb-2">🥩 1. TasteNrich® HYBIND</h4>
             <ul class="space-y-1.5 text-xs text-slate-200">
-              <li>• 5–10 kg Sample Kits for Meat & Seafood Trials</li>
-              <li>• TDS, SDS, COA & VN Label Classification</li>
-              <li>• Halal, Kosher, Non-GMO & FSSC 22000 Certs</li>
+              ${sm.hybindBullets.map((b) => `<li>• ${b}</li>`).join("")}
             </ul>
           </div>
           <div class="rounded-xl bg-slate-800/90 border border-white/15 p-4">
             <h4 class="text-sm font-bold text-blue-300 mb-2">⚡ 2. AMINATURE® FGAA</h4>
             <ul class="space-y-1.5 text-xs text-slate-200">
-              <li>• L-Arginine, L-Citrulline & L-Histidine Samples</li>
-              <li>• Full COA, TDS, MSDS for MOH Registration</li>
-              <li>• Vegan Action, Halal, Kosher & Taste-Masking Guide</li>
+              ${sm.fgaaBullets.map((b) => `<li>• ${b}</li>`).join("")}
             </ul>
           </div>
         </div>
         <div class="rounded-xl bg-emerald-950/50 border border-emerald-500/35 p-3.5 flex items-center justify-between flex-wrap gap-2">
-          <span class="text-xs text-white font-semibold">BJC Specialties Vietnam · Food & Nutraceutical Division</span>
+          <span class="text-xs text-white font-semibold">${sm.footerOrg}</span>
           <a href="mailto:duyanh@bjc.co.th?subject=CJ%20BIO%20x%20BJCS%20Vietnam%20-%20Sample%20Protocol"
             class="keep-white-text px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs">
-            Email Confirmation
+            ${sm.emailBtn}
           </a>
         </div>
       </div>
     `;
-    openModal("Sample & Dossier Protocol", "By 30 October 2026 Onboarding Milestone", html);
+    openModal(sm.title, sm.subtitle, html);
   };
 
   window.openDownloadPdfModal = function () {
     state.openView = "pdf-download";
+    const pm = ui().pdfModal;
     const html = `
       <div class="space-y-2.5">
         <a href="/151026-CJ_BIO_x_BJCS_Vietnam.pdf" target="_blank" download
           class="rounded-xl bg-slate-800/90 border border-emerald-500/40 p-3.5 flex items-center justify-between gap-3">
           <div>
-            <div class="text-[10px] font-bold text-emerald-400">EXECUTIVE PRESENTATION (29 SLIDES · PDF)</div>
-            <div class="text-xs sm:text-sm font-bold text-white">151026-CJ_BIO_x_BJCS_Vietnam.pdf</div>
+            <div class="text-[10px] font-bold text-emerald-400">${pm.doc1Tag}</div>
+            <div class="text-xs sm:text-sm font-bold text-white">${pm.doc1Title}</div>
           </div>
           <span class="keep-white-text px-3 py-1 rounded-lg bg-emerald-600 text-white font-bold text-xs shrink-0">PDF</span>
         </a>
@@ -1938,8 +2104,8 @@
         <a href="/TasteNrich_HYBIND_Gioi_Thieu_SanPham_CJ_BIO.pdf" target="_blank" download
           class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5 flex items-center justify-between gap-3">
           <div>
-            <div class="text-[10px] font-bold text-amber-400">PRODUCT BRIEF 01</div>
-            <div class="text-xs sm:text-sm font-bold text-white">TasteNrich® HYBIND Strategy Brief (PDF)</div>
+            <div class="text-[10px] font-bold text-amber-400">${pm.doc2Tag}</div>
+            <div class="text-xs sm:text-sm font-bold text-white">${pm.doc2Title}</div>
           </div>
           <span class="px-3 py-1 rounded-lg bg-white/10 text-white font-bold text-xs shrink-0">PDF</span>
         </a>
@@ -1947,23 +2113,24 @@
         <a href="/FGAA_AMINATURE_Gioi_Thieu_SanPham_CJ_BIO.pdf" target="_blank" download
           class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5 flex items-center justify-between gap-3">
           <div>
-            <div class="text-[10px] font-bold text-blue-400">PRODUCT BRIEF 02</div>
-            <div class="text-xs sm:text-sm font-bold text-white">AMINATURE® FGAA Strategy Brief (PDF)</div>
+            <div class="text-[10px] font-bold text-blue-400">${pm.doc3Tag}</div>
+            <div class="text-xs sm:text-sm font-bold text-white">${pm.doc3Title}</div>
           </div>
           <span class="px-3 py-1 rounded-lg bg-white/10 text-white font-bold text-xs shrink-0">PDF</span>
         </a>
       </div>
     `;
-    openModal("Download PDF Documents", "BJC Specialties Vietnam × CJ BIO (15 Oct 2026)", html);
+    openModal(pm.title, pm.subtitle, html);
   };
 
   window.openContactModal = function () {
     state.openView = "contact";
+    const cm = ui().contactModal;
     const html = `
       <div class="space-y-3">
         <div class="rounded-2xl bg-emerald-950/50 border border-emerald-500/40 p-4">
-          <div class="text-base sm:text-lg font-extrabold text-white">BJC Specialties Vietnam</div>
-          <div class="text-xs text-emerald-300 font-semibold mb-3">Food, Beverage & Nutraceutical (TPCN) Ingredients Division</div>
+          <div class="text-base sm:text-lg font-extrabold text-white">${cm.title}</div>
+          <div class="text-xs text-emerald-300 font-semibold mb-3">${cm.division}</div>
           <div class="flex flex-wrap gap-2 text-xs">
             <a href="mailto:duyanh@bjc.co.th" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-200 font-bold">duyanh@bjc.co.th</a>
             <a href="tel:+84908095693" class="px-3 py-1.5 rounded-lg bg-blue-500/20 text-blue-200 font-bold">(+84) 908 095 693</a>
@@ -1972,17 +2139,17 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5">
-            <div class="text-xs font-bold text-emerald-400 mb-1">📍 TP.HCM Office & Warehouse</div>
-            <p class="text-xs text-slate-200">MM Mega Market Office Complex, Lot B, An Phu – An Khanh, Ho Chi Minh City</p>
+            <div class="text-xs font-bold text-emerald-400 mb-1">${cm.hcmTitle}</div>
+            <p class="text-xs text-slate-200">${cm.hcmAddr}</p>
           </div>
           <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3.5">
-            <div class="text-xs font-bold text-blue-400 mb-1">📍 Hanoi Office & Warehouse</div>
-            <p class="text-xs text-slate-200">3rd Floor, Lobby A, Geleximco Building, 897 Giai Phong Street, Hanoi</p>
+            <div class="text-xs font-bold text-blue-400 mb-1">${cm.hnTitle}</div>
+            <p class="text-xs text-slate-200">${cm.hnAddr}</p>
           </div>
         </div>
       </div>
     `;
-    openModal("BJC Specialties Vietnam", "Nationwide Offices, Warehouses & Technical Team", html);
+    openModal(cm.title, cm.subtitle, html);
   };
 
   // ==========================================================================

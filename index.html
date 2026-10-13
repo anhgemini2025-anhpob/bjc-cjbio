@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark scroll-smooth" data-theme="dark" data-font-scale="md">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BJC Specialties Vietnam × CJ BIO | Executive Partnership Presentation (15 Oct 2026)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>BJC Specialties Vietnam × CJ BIO | Executive Presentation (15 Oct 2026)</title>
 
   <!-- Google Fonts: Plus Jakarta Sans, Inter & Noto Sans KR -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +41,7 @@
 
   <style>
     /* ==========================================================================
-       1. ANTI-COPY PROTECTION & ANTIGRAVITY DESIGN SYSTEM
+       1. ANTI-COPY PROTECTION & DYNAMIC FONT SIZE SCALING
        ========================================================================== */
     *, *::before, *::after {
       user-select: none;
@@ -47,28 +49,146 @@
       -moz-user-select: none;
       -ms-user-select: none;
       -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html[data-font-scale="sm"] { font-size: 14px; }
+    html[data-font-scale="md"] { font-size: 16px; }
+    html[data-font-scale="lg"] { font-size: 18px; }
+    html[data-font-scale="xl"] { font-size: 20px; }
+
+    /* ==========================================================================
+       2. DARK / LIGHT HYBRID THEME SYSTEM
+       ========================================================================== */
+    :root, html[data-theme="dark"] {
+      --bg-grad: linear-gradient(135deg, #0F172A 0%, #132238 50%, #1E293B 100%);
+      --text-main: #F8FAFC;
+      --text-muted: #CBD5E1;
+      --card-bg: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.14);
+      --subcard-bg: rgba(15, 23, 42, 0.72);
+      --header-bg: rgba(15, 23, 42, 0.85);
+      --watermark-color: #ffffff;
+      --watermark-opacity: 0.038;
+    }
+
+    html[data-theme="light"] {
+      --bg-grad: linear-gradient(135deg, #F8FAFC 0%, #EEF2F6 50%, #E2E8F0 100%);
+      --text-main: #0F172A;
+      --text-muted: #334155;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-border: rgba(15, 23, 42, 0.12);
+      --subcard-bg: rgba(248, 250, 252, 0.96);
+      --header-bg: rgba(255, 255, 255, 0.90);
+      --watermark-color: #0F172A;
+      --watermark-opacity: 0.035;
     }
 
     body {
-      background: linear-gradient(135deg, #0F172A 0%, #132238 50%, #1E293B 100%);
-      color: #F8FAFC;
+      background: var(--bg-grad);
+      color: var(--text-main);
       overflow-x: hidden;
       min-height: 100vh;
+      min-height: 100dvh;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* Antigravity Sleek Glassmorphism */
     .glass-card {
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+      transition: background 0.25s ease, border-color 0.25s ease;
     }
 
     .glass-subcard {
-      background: rgba(15, 23, 42, 0.65);
+      background: var(--subcard-bg);
+      border: 1px solid var(--card-border);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: all 0.2s ease;
+    }
+
+    /* Light Mode Text & Surface Overrides for High Contrast Readability */
+    html[data-theme="light"] .text-white {
+      color: #0F172A !important;
+    }
+    html[data-theme="light"] .text-slate-200,
+    html[data-theme="light"] .text-slate-300 {
+      color: #334155 !important;
+    }
+    html[data-theme="light"] .text-slate-400 {
+      color: #475569 !important;
+    }
+    html[data-theme="light"] .text-emerald-300,
+    html[data-theme="light"] .text-emerald-400 {
+      color: #007A42 !important;
+    }
+    html[data-theme="light"] .text-emerald-100,
+    html[data-theme="light"] .text-emerald-200 {
+      color: #065F46 !important;
+    }
+    html[data-theme="light"] .text-blue-200,
+    html[data-theme="light"] .text-blue-300,
+    html[data-theme="light"] .text-blue-400 {
+      color: #0055A5 !important;
+    }
+    html[data-theme="light"] .text-amber-200,
+    html[data-theme="light"] .text-amber-300,
+    html[data-theme="light"] .text-amber-400 {
+      color: #B45309 !important;
+    }
+    html[data-theme="light"] .text-red-200,
+    html[data-theme="light"] .text-red-300 {
+      color: #B91C1C !important;
+    }
+    html[data-theme="light"] .bg-slate-900,
+    html[data-theme="light"] .bg-slate-900\/90,
+    html[data-theme="light"] .bg-slate-900\/85,
+    html[data-theme="light"] .bg-slate-900\/80,
+    html[data-theme="light"] .bg-slate-900\/75,
+    html[data-theme="light"] .bg-slate-900\/70,
+    html[data-theme="light"] .bg-slate-800\/95,
+    html[data-theme="light"] .bg-slate-800\/90,
+    html[data-theme="light"] .bg-slate-800\/80 {
+      background-color: #FFFFFF !important;
+      border-color: rgba(15, 23, 42, 0.14) !important;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    html[data-theme="light"] .bg-slate-950\/80,
+    html[data-theme="light"] .bg-slate-950\/70,
+    html[data-theme="light"] .bg-slate-950\/60 {
+      background-color: rgba(241, 245, 249, 0.92) !important;
+      border-color: rgba(15, 23, 42, 0.12) !important;
+    }
+    html[data-theme="light"] .bg-white\/5,
+    html[data-theme="light"] .bg-white\/10 {
+      background-color: rgba(15, 23, 42, 0.045) !important;
+      border-color: rgba(15, 23, 42, 0.12) !important;
+    }
+    html[data-theme="light"] .bg-emerald-950\/70,
+    html[data-theme="light"] .bg-emerald-950\/60,
+    html[data-theme="light"] .bg-emerald-950\/50,
+    html[data-theme="light"] .bg-emerald-950\/45,
+    html[data-theme="light"] .bg-emerald-950\/40,
+    html[data-theme="light"] .bg-emerald-950\/35 {
+      background-color: #ECFDF5 !important;
+      border-color: rgba(0, 138, 75, 0.35) !important;
+    }
+    html[data-theme="light"] .bg-blue-950\/50,
+    html[data-theme="light"] .bg-blue-950\/45,
+    html[data-theme="light"] .bg-blue-950\/40 {
+      background-color: #EFF6FF !important;
+      border-color: rgba(0, 85, 165, 0.3) !important;
+    }
+    html[data-theme="light"] .bg-red-950\/35 {
+      background-color: #FEF2F2 !important;
+      border-color: rgba(227, 27, 35, 0.3) !important;
+    }
+    html[data-theme="light"] .keep-white-text,
+    html[data-theme="light"] .keep-white-text * {
+      color: #FFFFFF !important;
     }
 
     /* Tilted Repeated Confidential Watermark Overlay */
@@ -78,20 +198,20 @@
       z-index: 35;
       pointer-events: none;
       display: grid;
-      grid-template-columns: repeat(4, minmax(360px, 1fr));
+      grid-template-columns: repeat(4, minmax(340px, 1fr));
       gap: 5rem 3rem;
       transform: rotate(-24deg);
-      opacity: 0.042;
+      opacity: var(--watermark-opacity);
       overflow: hidden;
     }
 
     .watermark-item {
       font-family: 'Plus Jakarta Sans', monospace;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 800;
       letter-spacing: 0.16em;
       white-space: nowrap;
-      color: #ffffff;
+      color: var(--watermark-color);
     }
 
     /* Subtle Red Shake Animation for Incorrect Password */
@@ -107,31 +227,24 @@
       box-shadow: 0 0 35px rgba(227, 27, 35, 0.35) !important;
     }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0F172A;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #334155;
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #008A4B;
+    /* Hide Scrollbar on Horizontal Pill Navs */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Safe Area Padding for iPhone Bottom Bar */
+    .pb-safe {
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
     }
   </style>
 </head>
 
-<body class="antialiased selection:bg-emerald-500 selection:text-white relative">
+<body class="antialiased selection:bg-emerald-500 selection:text-white relative pb-20 lg:pb-8">
 
-  <!-- Ambient Brand Glow Blobs (BJC Emerald + CJ BIO Blue/Amber) -->
+  <!-- Ambient Brand Glow Blobs -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full bg-[#008A4B]/20 blur-[130px]"></div>
-    <div class="absolute top-1/3 -right-32 w-[500px] h-[500px] rounded-full bg-[#0055A5]/20 blur-[140px]"></div>
-    <div class="absolute -bottom-40 left-1/3 w-[460px] h-[460px] rounded-full bg-[#EF7C00]/10 blur-[130px]"></div>
+    <div class="absolute -top-32 -left-32 w-[450px] h-[450px] rounded-full bg-[#008A4B]/15 blur-[120px]"></div>
+    <div class="absolute top-1/3 -right-32 w-[450px] h-[450px] rounded-full bg-[#0055A5]/15 blur-[130px]"></div>
+    <div class="absolute -bottom-40 left-1/3 w-[400px] h-[400px] rounded-full bg-[#EF7C00]/10 blur-[120px]"></div>
   </div>
 
   <!-- Dynamic Tilted Background Watermark -->
@@ -141,41 +254,40 @@
        GATEKEEPER PASSWORD SCREEN ("BjcCj2026")
        ========================================================================== -->
   <div id="gatekeeper-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-2xl transition-opacity duration-400">
-    <div id="gk-card" class="w-full max-w-lg rounded-3xl bg-slate-900/90 border border-white/20 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
-      <!-- Top Brand Accent Bar -->
+    <div id="gk-card" class="w-full max-w-md rounded-3xl bg-slate-900/95 border border-white/20 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
       <div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#008A4B] via-[#0055A5] to-[#EF7C00]"></div>
 
-      <!-- Language Switcher on Gatekeeper -->
-      <div class="flex items-center justify-between gap-2 mb-6">
-        <span id="gk-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
-          CONFIDENTIAL EXECUTIVE BRIEFING
+      <!-- Top Bar: Badge & Language Switcher -->
+      <div class="flex items-center justify-between gap-2 mb-5">
+        <span id="gk-badge" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+          CONFIDENTIAL BRIEFING
         </span>
         <div class="flex items-center gap-1 bg-slate-950/80 p-1 rounded-lg border border-white/10">
-          <button onclick="setLanguage('en')" data-lang-btn="en" class="px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-600 text-white shadow-sm transition-all">EN</button>
-          <button onclick="setLanguage('vi')" data-lang-btn="vi" class="px-2.5 py-1 rounded-md text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-all">VI</button>
-          <button onclick="setLanguage('ko')" data-lang-btn="ko" class="px-2.5 py-1 rounded-md text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-all">KO</button>
+          <button onclick="setLanguage('en')" data-lang-btn="en" class="px-2 py-1 rounded text-xs font-bold bg-emerald-600 text-white keep-white-text">EN</button>
+          <button onclick="setLanguage('vi')" data-lang-btn="vi" class="px-2 py-1 rounded text-xs font-semibold text-slate-300">VI</button>
+          <button onclick="setLanguage('ko')" data-lang-btn="ko" class="px-2 py-1 rounded text-xs font-semibold text-slate-300">KO</button>
         </div>
       </div>
 
       <!-- Dual Logos Display -->
-      <div class="flex items-center justify-center gap-4 sm:gap-6 bg-white rounded-2xl p-4 mb-6 shadow-inner">
-        <img src="Logo BJC specialties.jpg" alt="BJC Specialties Logo" class="h-9 sm:h-11 object-contain" />
-        <span class="text-slate-300 font-light text-2xl">×</span>
-        <img src="Logo CJ bio.png" alt="CJ BIO Logo" class="h-9 sm:h-11 object-contain" />
+      <div class="flex items-center justify-center gap-4 bg-white rounded-2xl p-3.5 mb-5 shadow-inner border border-slate-200">
+        <img src="Logo BJC specialties.jpg" alt="BJC Specialties Logo" class="h-8 sm:h-10 object-contain" />
+        <span class="text-slate-400 font-light text-xl">×</span>
+        <img src="Logo CJ bio.png" alt="CJ BIO Logo" class="h-8 sm:h-10 object-contain" />
       </div>
 
-      <h1 id="gk-title" class="text-2xl sm:text-3xl font-extrabold text-white text-center mb-2">
+      <h1 id="gk-title" class="text-xl sm:text-2xl font-extrabold text-white text-center mb-1.5">
         BJC Specialties Vietnam × CJ BIO
       </h1>
-      <p id="gk-subtitle" class="text-xs sm:text-sm text-emerald-300 font-semibold text-center mb-2">
-        Exclusive Distribution Proposal: TasteNrich® HYBIND & AMINATURE® FGAA in Vietnam
+      <p id="gk-subtitle" class="text-xs sm:text-sm text-emerald-300 font-semibold text-center mb-1.5">
+        TasteNrich® HYBIND & AMINATURE® FGAA
       </p>
-      <p id="gk-meta" class="text-xs text-slate-400 text-center mb-6">
-        15 October 2026 · MS Teams Executive Session · Presenter: Nguyen Duc Duy Anh - BJC Specialties Vietnam
+      <p id="gk-meta" class="text-[11px] text-slate-400 text-center mb-5">
+        15 October 2026 · Presenter: Nguyen Duc Duy Anh - BJC Specialties Vietnam
       </p>
 
       <!-- Password Form -->
-      <form onsubmit="handleGatekeeperSubmit(event)" class="space-y-4">
+      <form onsubmit="handleGatekeeperSubmit(event)" class="space-y-3.5">
         <div class="relative">
           <input
             id="gk-password-input"
@@ -183,170 +295,163 @@
             autocomplete="off"
             autofocus
             data-allow-copy="true"
-            placeholder="Enter Executive Access Code..."
-            class="w-full px-4 py-3.5 pr-12 rounded-xl bg-slate-950/90 border border-white/20 text-white placeholder-slate-500 text-sm font-mono focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/30 transition-all"
+            placeholder="Enter Access Code..."
+            class="w-full px-4 py-3 pr-12 rounded-xl bg-slate-950/90 border border-white/20 text-white placeholder-slate-400 text-sm font-mono focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/30 transition-all"
           />
           <button type="button" onclick="togglePasswordVisibility()" title="Show/Hide Password"
-            class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs font-mono">
-            EYE
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs font-mono px-1.5 py-1">
+            👁
           </button>
         </div>
 
-        <div id="gk-error-msg" class="hidden rounded-xl bg-red-500/15 border border-red-500/40 px-4 py-2.5 text-xs font-semibold text-red-300 text-center"></div>
+        <div id="gk-error-msg" class="hidden rounded-xl bg-red-500/15 border border-red-500/40 px-3 py-2 text-xs font-semibold text-red-300 text-center"></div>
 
         <button type="submit"
-          class="w-full py-3.5 px-6 rounded-xl font-extrabold text-sm bg-gradient-to-r from-[#008A4B] via-emerald-600 to-[#0055A5] hover:from-emerald-500 hover:to-blue-500 text-white shadow-lg shadow-emerald-600/30 transition-all cursor-pointer flex items-center justify-center gap-2">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-          </svg>
+          class="keep-white-text w-full py-3 px-5 rounded-xl font-extrabold text-sm bg-gradient-to-r from-[#008A4B] via-emerald-600 to-[#0055A5] hover:from-emerald-500 hover:to-blue-500 text-white shadow-lg shadow-emerald-600/25 transition-all cursor-pointer flex items-center justify-center gap-2">
           <span id="gk-unlock-btn-text">Authenticate & Enter</span>
         </button>
       </form>
 
-      <div id="gk-security-note" class="mt-6 pt-4 border-t border-white/10 text-[11px] text-slate-400 text-center">
-        Protected by Anti-Copy Suite · Unauthorized reproduction or capture is strictly prohibited.
+      <div id="gk-security-note" class="mt-4 pt-3 border-t border-white/10 text-[10px] text-slate-400 text-center">
+        Protected by Anti-Copy Suite
       </div>
     </div>
   </div>
 
   <!-- ==========================================================================
-       STICKY NAVIGATION BAR (DUAL LOGOS + 6 MODULE TABS + I18N SWITCHER)
+       STICKY NAVIGATION BAR (LOGOS + TABS + THEME + FONT SIZE + I18N)
        ========================================================================== -->
-  <header class="sticky top-0 z-40 backdrop-blur-xl bg-slate-950/80 border-b border-white/15">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
-        <!-- Dual Logos (BJCS Vietnam x CJ BIO) -->
-        <div onclick="selectNavModule('all')" class="flex items-center gap-2.5 cursor-pointer shrink-0">
-          <div class="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-xl shadow-sm">
-            <img src="Logo BJC specialties.jpg" alt="BJC Specialties" class="h-6 sm:h-7 object-contain" />
-            <span class="text-slate-400 font-bold text-sm">×</span>
-            <img src="Logo CJ bio.png" alt="CJ BIO" class="h-6 sm:h-7 object-contain" />
+  <header class="sticky top-0 z-40 backdrop-blur-xl border-b border-white/15" style="background: var(--header-bg);">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6">
+      <div class="flex items-center justify-between h-14 sm:h-16 gap-2">
+        <!-- Dual Logos -->
+        <div onclick="selectNavModule('mod1')" class="flex items-center gap-2 cursor-pointer shrink-0">
+          <div class="flex items-center gap-2 bg-white px-2.5 py-1 rounded-xl shadow-sm border border-slate-200/80">
+            <img src="Logo BJC specialties.jpg" alt="BJC Specialties" class="h-5 sm:h-6 object-contain" />
+            <span class="text-slate-400 font-bold text-xs">×</span>
+            <img src="Logo CJ bio.png" alt="CJ BIO" class="h-5 sm:h-6 object-contain" />
           </div>
         </div>
 
-        <!-- Interactive 6 Module Tab Links (Desktop Scrollable) -->
-        <nav id="nav-tabs-container" class="hidden xl:flex items-center gap-1 overflow-x-auto py-1">
-          <!-- Populated dynamically by app.js -->
+        <!-- Desktop Compact Tab Links -->
+        <nav id="nav-tabs-container" class="hidden lg:flex items-center gap-1 overflow-x-auto py-1 no-scrollbar">
+          <!-- Populated by app.js -->
         </nav>
 
-        <!-- Right Controls: Language Switcher (EN | VI | KO) & Lock Button -->
-        <div class="flex items-center gap-2 shrink-0">
-          <div class="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-white/15">
-            <button onclick="setLanguage('en')" data-lang-btn="en" class="px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-600 text-white shadow-sm transition-all cursor-pointer">EN</button>
-            <button onclick="setLanguage('vi')" data-lang-btn="vi" class="px-2.5 py-1 rounded-md text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer">VI</button>
-            <button onclick="setLanguage('ko')" data-lang-btn="ko" class="px-2.5 py-1 rounded-md text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer">KO</button>
+        <!-- Reader-Centric Controls: Theme (Light/Dark) + Font Size (A-/A+) + Language + Lock -->
+        <div class="flex items-center gap-1.5 shrink-0">
+          <!-- Theme Toggle (Light / Dark) -->
+          <button onclick="toggleTheme()" id="theme-toggle-btn" title="Switch Light / Dark Background"
+            class="px-2.5 py-1.5 rounded-xl bg-white/10 hover:bg-emerald-500/20 border border-white/15 text-xs font-bold text-white flex items-center gap-1 transition-all cursor-pointer">
+            <span id="theme-toggle-icon">☀️</span>
+            <span id="theme-toggle-label" class="hidden md:inline">Light</span>
+          </button>
+
+          <!-- Font Size Controls (A- / A / A+) -->
+          <div class="flex items-center bg-white/5 rounded-xl p-0.5 border border-white/15" title="Adjust Font Size">
+            <button onclick="changeFontScale(-1)" class="px-2 py-1 rounded-lg text-xs font-extrabold text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer">A-</button>
+            <button onclick="resetFontScale()" id="font-scale-indicator" class="px-1.5 py-1 text-[11px] font-mono font-bold text-emerald-300 cursor-pointer">100%</button>
+            <button onclick="changeFontScale(1)" class="px-2 py-1 rounded-lg text-xs font-extrabold text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer">A+</button>
           </div>
 
-          <button onclick="lockPresentation()" title="Lock Presentation"
-            class="px-3 py-2 rounded-xl bg-white/5 hover:bg-red-500/20 text-slate-300 hover:text-red-300 border border-white/10 hover:border-red-500/30 text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
+          <!-- Language Switcher (EN | VI | KO) -->
+          <div class="flex items-center gap-0.5 bg-white/5 p-0.5 rounded-xl border border-white/15">
+            <button onclick="setLanguage('en')" data-lang-btn="en" class="px-2 py-1 rounded-lg text-xs font-bold bg-emerald-600 text-white keep-white-text transition-all cursor-pointer">EN</button>
+            <button onclick="setLanguage('vi')" data-lang-btn="vi" class="px-2 py-1 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer">VI</button>
+            <button onclick="setLanguage('ko')" data-lang-btn="ko" class="px-2 py-1 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer">KO</button>
+          </div>
+
+          <!-- Lock Button -->
+          <button onclick="lockPresentation()" title="Lock Screen"
+            class="p-2 rounded-xl bg-white/5 hover:bg-red-500/20 text-slate-300 hover:text-red-300 border border-white/10 transition-all cursor-pointer">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
             </svg>
-            <span id="nav-lock-text" class="hidden sm:inline">Lock</span>
           </button>
         </div>
-      </div>
-
-      <!-- Mobile / Tablet Secondary Tab Bar -->
-      <div class="xl:hidden flex items-center gap-1.5 overflow-x-auto pb-2.5 pt-1 no-scrollbar">
-        <button onclick="selectNavModule('mod1')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/5 text-slate-200 whitespace-nowrap">[01. Executive Hub]</button>
-        <button onclick="selectNavModule('mod2')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/5 text-slate-200 whitespace-nowrap">[02. Platform]</button>
-        <button onclick="selectNavModule('mod3')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/5 text-slate-200 whitespace-nowrap">[03. Portfolio]</button>
-        <button onclick="selectNavModule('mod4')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/5 text-slate-200 whitespace-nowrap">[04. Target Market]</button>
-        <button onclick="selectNavModule('mod5')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/5 text-slate-200 whitespace-nowrap">[05. Win Strategy]</button>
-        <button onclick="selectNavModule('mod6')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-white/5 text-slate-200 whitespace-nowrap">[06. GTM Roadmap]</button>
       </div>
     </div>
   </header>
 
   <!-- ==========================================================================
-       MAIN EXECUTIVE PRESENTATION CONTENT (6 MODULES)
+       MAIN COMPACT PRESENTATION STAGE (USER-CENTRIC SLIDE DECK VIEW)
        ========================================================================== -->
-  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
-    <!-- MODULE 1: EXECUTIVE HUB & REGIONAL SYNERGY -->
-    <section id="section-mod1" class="scroll-mt-24"></section>
+  <main class="relative z-10 max-w-6xl mx-auto px-3 sm:px-6 py-4 sm:py-8">
+    <!-- Top Slide Progress & Mode Bar -->
+    <div id="deck-control-bar" class="mb-4 flex items-center justify-between gap-2"></div>
 
-    <!-- MODULE 2: BJCS VIETNAM PLATFORM & INFRASTRUCTURE -->
-    <section id="section-mod2" class="scroll-mt-24"></section>
+    <!-- 6 Modules (Shown 1 at a time by default for zero visual clutter) -->
+    <div class="space-y-6">
+      <section id="section-mod1"></section>
+      <section id="section-mod2"></section>
+      <section id="section-mod3"></section>
+      <section id="section-mod4"></section>
+      <section id="section-mod5"></section>
+      <section id="section-mod6"></section>
+    </div>
 
-    <!-- MODULE 3: CJ BIO PRODUCT INNOVATION SHOWCASE -->
-    <section id="section-mod3" class="scroll-mt-24"></section>
-
-    <!-- MODULE 4: TARGET MARKET & ACCOUNT MAPPING -->
-    <section id="section-mod4" class="scroll-mt-24"></section>
-
-    <!-- MODULE 5: HOW WE WIN & COST-IN-USE CALCULATOR -->
-    <section id="section-mod5" class="scroll-mt-24"></section>
-
-    <!-- MODULE 6: GO-TO-MARKET ROADMAP & PROPOSAL -->
-    <section id="section-mod6" class="scroll-mt-24"></section>
+    <!-- Bottom Prev / Next Slide Navigation -->
+    <div id="deck-footer-nav" class="mt-6"></div>
   </main>
 
   <!-- ==========================================================================
-       EXECUTIVE FOOTER
+       MOBILE / IPHONE / ANDROID BOTTOM NAVIGATION BAR
        ========================================================================== -->
-  <footer class="relative z-10 border-t border-white/10 bg-slate-950/80 py-8 mt-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-      <div>
-        <strong class="text-white">BJC Specialties Vietnam × CJ BIO</strong> · Strategic Partnership Briefing · 15 October 2026
-      </div>
-      <div>
-        HCMC & Hanoi Offices · Presenter: <span class="text-emerald-400 font-semibold">Nguyen Duc Duy Anh</span> (duyanh@bjc.co.th | +84 908 095 693)
-      </div>
-    </div>
-  </footer>
+  <nav id="mobile-bottom-nav" class="lg:hidden fixed bottom-0 inset-x-0 z-40 backdrop-blur-xl border-t border-white/15 px-2 py-1.5 pb-safe" style="background: var(--header-bg);">
+    <!-- Populated by app.js -->
+  </nav>
 
   <!-- ==========================================================================
-       PROGRESSIVE DISCLOSURE MODAL OVERLAY
+       CLICK-TO-REVEAL MODAL OVERLAY (RESPONSIVE BOTTOM-SHEET ON MOBILE)
        ========================================================================== -->
   <div id="app-modal-backdrop" onclick="if(event.target === this) closeModal()"
-    class="hidden opacity-0 fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-opacity duration-200">
-    <div class="w-full max-w-4xl max-h-[88vh] flex flex-col rounded-3xl bg-slate-900 border border-white/20 shadow-2xl overflow-hidden">
+    class="hidden opacity-0 fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 bg-slate-950/75 backdrop-blur-md transition-opacity duration-200">
+    <div class="w-full max-w-3xl max-h-[88dvh] flex flex-col rounded-t-3xl sm:rounded-3xl bg-slate-900 border border-white/20 shadow-2xl overflow-hidden">
       <!-- Modal Header -->
-      <div class="px-6 py-5 bg-slate-950/70 border-b border-white/15 flex items-start justify-between gap-4">
+      <div class="px-5 py-4 bg-slate-950/70 border-b border-white/15 flex items-start justify-between gap-3">
         <div>
-          <h3 id="app-modal-title" class="text-lg sm:text-xl font-extrabold text-white"></h3>
-          <p id="app-modal-subtitle" class="text-xs sm:text-sm text-emerald-300 mt-0.5"></p>
+          <h3 id="app-modal-title" class="text-base sm:text-lg font-extrabold text-white"></h3>
+          <p id="app-modal-subtitle" class="text-xs text-emerald-300 mt-0.5"></p>
         </div>
-        <button onclick="closeModal()" class="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white transition-colors cursor-pointer">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <button onclick="closeModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors cursor-pointer shrink-0">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
       <!-- Modal Body -->
-      <div id="app-modal-body" class="p-6 overflow-y-auto"></div>
+      <div id="app-modal-body" class="p-5 sm:p-6 overflow-y-auto"></div>
     </div>
   </div>
 
   <!-- ==========================================================================
-       PROGRESSIVE DISCLOSURE SLIDE-OVER DRAWER
+       CLICK-TO-REVEAL SLIDE-OVER DRAWER
        ========================================================================== -->
   <div id="app-drawer-backdrop" onclick="if(event.target === this) closeDrawer()"
     class="hidden opacity-0 fixed inset-0 z-50 flex justify-end bg-slate-950/75 backdrop-blur-sm transition-opacity duration-250">
-    <div id="app-drawer-panel" class="w-full max-w-2xl bg-slate-900 border-l border-white/20 h-full flex flex-col shadow-2xl transform translate-x-full transition-transform duration-250">
-      <div class="px-6 py-5 bg-slate-950/80 border-b border-white/15 flex items-start justify-between gap-4">
+    <div id="app-drawer-panel" class="w-full max-w-xl bg-slate-900 border-l border-white/20 h-full flex flex-col shadow-2xl transform translate-x-full transition-transform duration-250">
+      <div class="px-5 py-4 bg-slate-950/80 border-b border-white/15 flex items-start justify-between gap-3">
         <div>
-          <h3 id="app-drawer-title" class="text-lg sm:text-xl font-extrabold text-white"></h3>
-          <p id="app-drawer-subtitle" class="text-xs sm:text-sm text-blue-300 mt-0.5"></p>
+          <h3 id="app-drawer-title" class="text-base sm:text-lg font-extrabold text-white"></h3>
+          <p id="app-drawer-subtitle" class="text-xs text-blue-300 mt-0.5"></p>
         </div>
-        <button onclick="closeDrawer()" class="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white transition-colors cursor-pointer">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <button onclick="closeDrawer()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors cursor-pointer shrink-0">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-      <div id="app-drawer-body" class="p-6 overflow-y-auto flex-1"></div>
+      <div id="app-drawer-body" class="p-5 sm:p-6 overflow-y-auto flex-1"></div>
     </div>
   </div>
 
   <!-- ==========================================================================
        SECURITY TOAST NOTIFICATION
        ========================================================================== -->
-  <div id="security-toast" class="opacity-0 translate-y-4 pointer-events-none fixed bottom-6 right-6 z-50 max-w-sm rounded-2xl bg-slate-900/95 border border-red-500/50 px-4 py-3 shadow-2xl flex items-center gap-3 transition-all duration-300">
-    <span class="w-2.5 h-2.5 rounded-full bg-red-500 shrink-0 animate-ping"></span>
+  <div id="security-toast" class="opacity-0 translate-y-4 pointer-events-none fixed bottom-20 lg:bottom-6 right-4 z-50 max-w-xs rounded-2xl bg-slate-900/95 border border-red-500/50 px-4 py-2.5 shadow-2xl flex items-center gap-2.5 transition-all duration-300">
+    <span class="w-2 h-2 rounded-full bg-red-500 shrink-0 animate-ping"></span>
     <span id="security-toast-text" class="text-xs font-semibold text-red-200">
-      Confidential Presentation — Copying & right-click are disabled.
+      Confidential Presentation
     </span>
   </div>
 

@@ -107,14 +107,14 @@
         flowNodes: [
           { icon: "🚢", title: "Import & MOH RA", sub: "In-house food & nutraceutical dossier" },
           { icon: "🏢", title: "Warehouse HCM & HN", sub: "Ex-Stock VND · Door-to-Door" },
-          { icon: "🔬", title: "NPD & Lab ~350m²", sub: "21+ yrs Food & Nutraceutical team" },
+          { icon: "🔬", title: "NPD & Lab ~350m²", sub: "Food, Beverage & Nutraceutical R&D" },
           { icon: "🤝", title: "~90 Active Accounts", sub: "Masan, CJ Cầu Tre, Vissan..." }
         ],
         regVisualTags: [
           ["🌏 One Partner TH–VN", "💎 Value Pricing", "🛡️ Zero Channel Conflict"],
           ["⚡ Proven Recipes", "📊 Dosage Benchmarks", "🚀 Fast Onboarding"],
           ["🌡️ Thermomix", "🥩 Mincer & Mixer", "🌭 Hand Stuffing Line"],
-          ["👥 ~90 Existing Accounts", "🏢 Warehouse HCM & HN", "🧬 21+ Yrs Food & Nutraceutical Team"]
+          ["👥 ~90 Existing Accounts", "🏢 Warehouse HCM & HN", "🌐 15+ Global Principals"]
         ],
         sampleModal: {
           title: "Sample & Dossier Protocol",
@@ -129,8 +129,8 @@
             "Full COA, TDS, MSDS for MOH Registration",
             "Vegan Action, Halal, Kosher & Taste-Masking Guide"
           ],
-          footerOrg: "BJC Specialties Vietnam · Food & Nutraceutical Division",
-          emailBtn: "Email Confirmation"
+          footerOrg: "BJC Specialties Vietnam · Food, Beverage & Nutraceutical Division",
+          statusBadge: "✓ Ready for Q4 2026 Onboarding"
         },
         pdfModal: {
           title: "Download PDF Documents",
@@ -144,12 +144,14 @@
         },
         contactModal: {
           title: "BJC Specialties Vietnam",
-          subtitle: "Nationwide Offices, Warehouses & Technical Team",
+          subtitle: "Nationwide Offices, Warehouses & Technical R&D Organization",
           division: "Food, Beverage & Nutraceutical Ingredients Division",
-          hcmTitle: "📍 HCMC Office & Warehouse",
-          hcmAddr: "MM Mega Market Office Complex, Lot B, An Phu – An Khanh, Ho Chi Minh City",
-          hnTitle: "📍 Hanoi Office & Warehouse",
-          hnAddr: "3rd Floor, Lobby A, Geleximco Building, 897 Giai Phong Street, Hanoi"
+          badge1: "🏛️ BJC Group Subsidiary in Vietnam (Since 2007)",
+          badge2: "🚚 Nationwide Ex-Stock Warehousing (HCMC & Hanoi)",
+          hcmTitle: "📍 HCMC Head Office & Southern Warehouse",
+          hcmAddr: "MM Mega Market Office Complex, Lot B, An Phu – An Khanh, Thu Duc City, Ho Chi Minh City",
+          hnTitle: "📍 Hanoi Branch Office & Northern Warehouse",
+          hnAddr: "3rd Floor, Lobby A, Geleximco Building, 897 Giai Phong Street, Hoang Mai District, Hanoi"
         }
       },
       vi: {
@@ -185,14 +187,14 @@
         flowNodes: [
           { icon: "🚢", title: "Nhập Khẩu & Pháp Lý", sub: "Tự công bố Thực phẩm & TPCN" },
           { icon: "🏢", title: "Kho Bãi HCM & Hà Nội", sub: "Tồn kho VNĐ · Giao tận nhà máy" },
-          { icon: "🔬", title: "Đội Ngũ & Lab ~350m²", sub: "21+ năm KN Thực phẩm & TPCN" },
+          { icon: "🔬", title: "Trung Tâm Lab ~350m²", sub: "R&D Thực phẩm, Đồ uống & TPCN" },
           { icon: "🤝", title: "~90 Khách Hàng Sẵn Có", sub: "Masan, CJ Cầu Tre, Vissan..." }
         ],
         regVisualTags: [
           ["🌏 1 Đối Tác Thái – Việt", "💎 Kỷ Luật Giá Trị", "🛡️ Quản Trị Khách Hàng Trọng Điểm"],
           ["⚡ Công Thức Chuẩn", "📊 Dữ Liệu Chạy Thử", "🚀 Rút Ngắn Thời Gian Chào Hàng"],
           ["🌡️ Thiết Bị Thermomix", "🥩 Máy Xay & Trộn Thịt", "🌭 Máy Nhồi Xúc Xích"],
-          ["👥 ~90 Khách Hàng Hiện Hữu", "🏢 Kho Hàng HCM & Hà Nội", "🧬 Nhân Sự 21+ Năm Thực Phẩm & TPCN"]
+          ["👥 ~90 Khách Hàng Hiện Hữu", "🏢 Kho Hàng HCM & Hà Nội", "🌐 15+ Tập Đoàn Nguyên Liệu Quốc Tế"]
         ],
         sampleModal: {
           title: "Quy Trình Nhận Mẫu & Hồ Sơ Kỹ Thuật",
@@ -207,8 +209,8 @@
             "Đầy đủ COA, TDS, MSDS phục vụ đăng ký hồ sơ Bộ Y Tế",
             "Chứng nhận Thuần chay, Halal, Kosher & hướng dẫn điều vị"
           ],
-          footerOrg: "BJC Specialties Việt Nam · Khối Nguyên Liệu Thực Phẩm & TPCN",
-          emailBtn: "Gửi Email Xác Nhận"
+          footerOrg: "BJC Specialties Việt Nam · Khối Nguyên Liệu Thực Phẩm, Đồ Uống & TPCN",
+          statusBadge: "✓ Sẵn Sàng Tiếp Nhận Mẫu Quý 4/2026"
         },
         pdfModal: {
           title: "Tải Tài Liệu Trình Bày (PDF)",
@@ -222,12 +224,14 @@
         },
         contactModal: {
           title: "BJC Specialties Việt Nam",
-          subtitle: "Hệ Thống Văn Phòng, Kho Bãi & Đội Ngũ Kỹ Thuật Toàn Quốc",
+          subtitle: "Hệ Thống Văn Phòng, Kho Bãi & Trung Tâm Kỹ Thuật R&D Toàn Quốc",
           division: "Khối Kinh Doanh Nguyên Liệu Thực Phẩm, Đồ Uống & Thực Phẩm Chức Năng (TPCN)",
-          hcmTitle: "📍 Văn Phòng & Kho Hàng TP.HCM",
-          hcmAddr: "Khu phức hợp MM Mega Market, Lô B, KĐT An Phú – An Khánh, TP. Thủ Đức, TP.HCM",
-          hnTitle: "📍 Văn Phòng & Kho Hàng Hà Nội",
-          hnAddr: "Tầng 3, Sảnh A, Tòa nhà Geleximco, 897 Giải Phóng, Quận Hoàng Mai, Hà Nội"
+          badge1: "🏛️ Công Ty Thành Viên Tập Đoàn BJC Tại Việt Nam (Từ 2007)",
+          badge2: "🚚 Hệ Thống Kho Nội Địa Ex-Stock (TP.HCM & Hà Nội)",
+          hcmTitle: "📍 Trụ Sở Chính & Kho Hàng Miền Nam (TP.HCM)",
+          hcmAddr: "Khu phức hợp MM Mega Market, Lô B, KĐT An Phú – An Khánh, TP. Thủ Đức, TP. Hồ Chí Minh",
+          hnTitle: "📍 Chi Nhánh & Kho Hàng Miền Bắc (Hà Nội)",
+          hnAddr: "Tầng 3, Sảnh A, Tòa nhà Geleximco, 897 Giải Phóng, Quận Hoàng Mai, TP. Hà Nội"
         }
       },
       ko: {
@@ -263,14 +267,14 @@
         flowNodes: [
           { icon: "🚢", title: "수입 통관 & 식약청(MOH)", sub: "식품·건기식 인허가 전담" },
           { icon: "🏢", title: "호치민 & 하노이 창고", sub: "베트남 동(VND) 재고 · 직배송" },
-          { icon: "🔬", title: "전담 조직 & 방콕 랩", sub: "21년+ 식품·건기식 전문팀" },
+          { icon: "🔬", title: "전담 R&D & 방콕 랩", sub: "식품·음료·건기식 R&D 기술센터" },
           { icon: "🤝", title: "~90개 기존 거래선", sub: "마산, CJ 꺼우째, 비산 등" }
         ],
         regVisualTags: [
           ["🌏 태국·베트남 단일 파트너", "💎 가치 기반 가격 규율", "🛡️ 핵심 고객 통합 관리"],
           ["⚡ 검증된 배합 레시피", "📊 적용 데이터 이전", "🚀 리드타임 단축"],
           ["🌡️ 써모믹스(Thermomix)", "🥩 육가공 민서/믹서", "🌭 소시지 충진 라인"],
-          ["👥 ~90개 기존 거래선", "🏢 호치민·하노이 창고", "🧬 21년+ 식품·건기식 전문 인력"]
+          ["👥 ~90개 기존 거래선", "🏢 호치민·하노이 창고", "🌐 15+ 글로벌 선도 원료 파트너"]
         ],
         sampleModal: {
           title: "샘플 및 기술 서류 요청 프로토콜",
@@ -285,8 +289,8 @@
             "베트남 보건부(MOH) 등록용 COA, TDS, MSDS 완비",
             "비건 액션, 할랄, 코셔 인증 및 고미 마스킹 가이드"
           ],
-          footerOrg: "BJC Specialties 베트남 · 식품 및 건강기능식품 원료 사업부",
-          emailBtn: "이메일 확인 발송"
+          footerOrg: "BJC Specialties 베트남 · 식품·음료·건강기능식품 원료 사업부",
+          statusBadge: "✓ 2026년 4분기 온보딩 준비 완료"
         },
         pdfModal: {
           title: "발표 자료 및 브리프 다운로드 (PDF)",
@@ -299,13 +303,15 @@
           doc3Title: "AMINATURE® FGAA 전략 브리프 (PDF)"
         },
         contactModal: {
-          title: "BJC Specialties 베트남",
-          subtitle: "베트남 전국 오피스 · 물류창고 · 기술영업 조직",
+          title: "BJC Specialties 베트남 (법인)",
+          subtitle: "베트남 전국 오피스 · 물류창고 · R&D 기술영업 조직",
           division: "식품 · 음료 · 건강기능식품(TPCN) 원료 사업부",
-          hcmTitle: "📍 호치민 본사 오피스 및 창고",
-          hcmAddr: "호치민시 안푸-안칸 MM 메가마켓 오피스 단지 B동",
-          hnTitle: "📍 하노이 지사 오피스 및 창고",
-          hnAddr: "하노이시 자이퐁 거리 897 Geleximco 빌딩 A로비 3층"
+          badge1: "🏛️ BJC 그룹 베트남 현지 법인 (2007년 설립)",
+          badge2: "🚚 호치민 & 하노이 현지 창고 재고 (Ex-Stock) 운영",
+          hcmTitle: "📍 호치민 본사 오피스 및 남부 물류창고",
+          hcmAddr: "호치민시 투득시 안푸-안칸 MM 메가마켓 오피스 단지 B동",
+          hnTitle: "📍 하노이 지사 오피스 및 북부 물류창고",
+          hnAddr: "하노이시 호앙마이구 자이퐁 거리 897 Geleximco 빌딩 A로비 3층"
         }
       }
     };
@@ -1097,7 +1103,7 @@
     const container = document.getElementById("section-mod2");
     if (!container) return;
 
-    const kpiIcons = ["🏛️", "📍", "🤝", "🧬"];
+    const kpiIcons = ["🏛️", "📍", "🤝", "🌐"];
 
     container.innerHTML = `
       <div class="glass-card rounded-3xl p-5 sm:p-7">
@@ -2077,10 +2083,9 @@
         </div>
         <div class="rounded-xl bg-emerald-950/50 border border-emerald-500/35 p-3.5 flex items-center justify-between flex-wrap gap-2">
           <span class="text-xs text-white font-semibold">${sm.footerOrg}</span>
-          <a href="mailto:duyanh@bjc.co.th?subject=CJ%20BIO%20x%20BJCS%20Vietnam%20-%20Sample%20Protocol"
-            class="keep-white-text px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs">
-            ${sm.emailBtn}
-          </a>
+          <span class="keep-white-text px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs">
+            ${sm.statusBadge}
+          </span>
         </div>
       </div>
     `;
@@ -2132,8 +2137,8 @@
           <div class="text-base sm:text-lg font-extrabold text-white">${cm.title}</div>
           <div class="text-xs text-emerald-300 font-semibold mb-3">${cm.division}</div>
           <div class="flex flex-wrap gap-2 text-xs">
-            <a href="mailto:duyanh@bjc.co.th" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-200 font-bold">duyanh@bjc.co.th</a>
-            <a href="tel:+84908095693" class="px-3 py-1.5 rounded-lg bg-blue-500/20 text-blue-200 font-bold">(+84) 908 095 693</a>
+            <span class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-200 font-bold">${cm.badge1}</span>
+            <span class="px-3 py-1.5 rounded-lg bg-blue-500/20 text-blue-200 font-bold">${cm.badge2}</span>
           </div>
         </div>
 

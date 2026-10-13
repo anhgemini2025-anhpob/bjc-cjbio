@@ -102,21 +102,21 @@ window.APP_DATA = {
             },
             {
               num: "04",
-              title: "~90 Active Customers, Nationwide Warehousing & Deep Food / Nutraceutical Team Expertise",
-              desc: "Immediate access to ~90 active customer accounts (Masan, CJ Cau Tre, Vissan, C.P., Ajinomoto, Merap...), local Ex-Stock warehouses in HCMC & Hanoi (VND invoicing, door-to-door delivery), and an experienced commercial, NPD & regulatory team with 21+ years of deep expertise in Processed Food, Beverage & Nutraceutical (Health Supplement) sectors."
+              title: "~90 Active Customers, Nationwide Warehousing & Dedicated Corporate R&D / Regulatory Organization",
+              desc: "Immediate access to ~90 active customer accounts (Masan, CJ Cầu Tre, Vissan, C.P., Ajinomoto, Merap...), local Ex-Stock warehouses in HCMC & Hanoi (VND invoicing, door-to-door delivery), and BJC Specialties Vietnam's dedicated commercial, NPD & regulatory organization serving the Food, Beverage & Nutraceutical sectors since 2007."
             }
           ]
         }
       },
       mod2: {
         eyebrow: "MODULE 02 · BJCS VIETNAM PLATFORM & INFRASTRUCTURE",
-        headline: "Established Nationwide Infrastructure & Tier-1 Principal Ecosystem",
-        subheadline: "Operating in Vietnam since 2007 under BJC Specialties / White Group Public Co., Ltd. with full commercial, technical, logistics, and regulatory capabilities.",
+        headline: "Nationwide Distribution Ecosystem & World-Class Principal Portfolio",
+        subheadline: "Operating in Vietnam since 2007 under BJC Specialties (BJC Group) with full corporate commercial, technical R&D, warehousing, and regulatory capabilities.",
         kpis: [
-          { value: 2007, prefix: "Since ", suffix: "", label: "Presence in Vietnam", sub: "19+ Years of trusted local operations" },
-          { value: 2, prefix: "", suffix: " Offices", label: "Ho Chi Minh City & Hanoi", sub: "Full North – Central – South coverage" },
-          { value: 90, prefix: "~", suffix: " Accounts", label: "Active Key Customers YTD 2026", sub: "Direct daily R&D, QA & Purchasing links" },
-          { value: 21, prefix: "", suffix: "+ Years", label: "Food & Nutraceutical Expertise", sub: "Dedicated Key Account, NPD Technical & Regulatory Team" }
+          { value: 2007, prefix: "Since ", suffix: "", label: "Corporate Presence in Vietnam", sub: "Established BJC Group subsidiary in Vietnam" },
+          { value: 2, prefix: "", suffix: " Hubs", label: "HCMC & Hanoi Offices & Warehouses", sub: "Full North – Central – South nationwide coverage" },
+          { value: 90, prefix: "~", suffix: " Customers", label: "Active Factory Accounts (2026)", sub: "Direct daily R&D, QA & Purchasing links" },
+          { value: 15, prefix: "", suffix: "+ Principals", label: "World-Class Ingredient Partners", sub: "dsm-firmenich, LANXESS, Lallemand, Lipoid..." }
         ],
         drawers: {
           rtmBtn: "View Route to Market & Regulatory",
@@ -555,8 +555,8 @@ window.APP_DATA = {
             },
             {
               num: "04",
-              title: "Tệp ~90 Khách Hàng Hiện Hữu, Kho Bãi Nội Địa & Đội Ngũ Dày Dạn Kinh Nghiệm Thực Phẩm – TPCN",
-              desc: "Sở hữu mạng lưới ~90 khách hàng đang giao dịch (Masan, CJ Cầu Tre, Vissan, C.P., Ajinomoto, Merap...), hệ thống kho nội địa tại TP.HCM & Hà Nội (xuất hóa đơn VNĐ, giao tận nhà máy), cùng đội ngũ nhân sự kinh doanh, kỹ thuật & pháp lý có hơn 21 năm kinh nghiệm chuyên sâu trong ngành Thực phẩm, Đồ uống và Thực phẩm chức năng (TPCN)."
+              title: "Tệp ~90 Khách Hàng Hiện Hữu, Kho Bãi Toàn Quốc & Tổ Chức Kỹ Thuật – Pháp Lý Công Ty Chuyên Trách",
+              desc: "Sở hữu mạng lưới ~90 nhà máy khách hàng đang giao dịch (Masan, CJ Cầu Tre, Vissan, C.P., Ajinomoto, Merap...), hệ thống kho nội địa tại TP.HCM & Hà Nội (xuất hóa đơn VNĐ, giao tận nhà máy), cùng nền tảng công ty BJC Specialties Việt Nam hoạt động từ năm 2007 với bộ máy Kinh doanh, R&D Ứng dụng và Pháp lý chuyên trách ngành Thực phẩm, Đồ uống & TPCN."
             }
           ]
         }
@@ -564,12 +564,12 @@ window.APP_DATA = {
       mod2: {
         eyebrow: "PHẦN 02 · NỀN TẢNG & HẠ TẦNG BJCS VIỆT NAM",
         headline: "Hệ Sinh Thái Phân Phối Toàn Quốc & Danh Mục Nhà Cung Cấp Hàng Đầu Thế Giới",
-        subheadline: "Hiện diện tại Việt Nam từ năm 2007, sở hữu năng lực toàn diện từ kho vận nội địa, kỹ thuật ứng dụng đến pháp lý công bố thực phẩm & TPCN.",
+        subheadline: "Công ty thành viên thuộc Tập đoàn BJC hoạt động tại Việt Nam từ năm 2007, sở hữu năng lực toàn diện từ kho vận nội địa, phòng Lab ứng dụng đến pháp lý công bố thực phẩm & TPCN.",
         kpis: [
-          { value: 2007, prefix: "Từ ", suffix: "", label: "Hiện Diện Tại Việt Nam", sub: "19+ năm vận hành bền vững & uy tín" },
-          { value: 2, prefix: "", suffix: " Văn Phòng", label: "TP. Hồ Chí Minh & Hà Nội", sub: "Độ phủ toàn diện Bắc – Trung – Nam" },
-          { value: 90, prefix: "~", suffix: " Khách Hàng", label: "Khách Hàng Giao Dịch 2026", sub: "Làm việc hàng ngày với R&D, QA & Thu mua" },
-          { value: 21, prefix: "", suffix: "+ Năm", label: "Kinh Nghiệm Thực Phẩm & TPCN", sub: "Đội ngũ Kinh doanh, Kỹ thuật & Pháp lý chuyên sâu" }
+          { value: 2007, prefix: "Từ ", suffix: "", label: "Thành Lập Tại Việt Nam", sub: "Công ty thành viên Tập đoàn BJC tại Việt Nam" },
+          { value: 2, prefix: "", suffix: " Trung Tâm", label: "Văn Phòng & Kho TP.HCM – Hà Nội", sub: "Độ phủ phân phối Bắc – Trung – Nam" },
+          { value: 90, prefix: "~", suffix: " Khách Hàng", label: "Nhà Máy Đang Giao Dịch (2026)", sub: "Kết nối trực tiếp R&D, QA & Thu mua" },
+          { value: 15, prefix: "", suffix: "+ Tập Đoàn", label: "Đối Tác Nguyên Liệu Toàn Cầu", sub: "dsm-firmenich, LANXESS, Lallemand, Lipoid..." }
         ],
         drawers: {
           rtmBtn: "Xem Mô Hình Cung Ứng, Kho Bãi & Pháp Lý",
@@ -1008,21 +1008,21 @@ window.APP_DATA = {
             },
             {
               num: "04",
-              title: "~90개 기존 거래선, 현지 창고 인프라 및 식품·건기식 전문 전담 조직",
-              desc: "현재 활발히 거래 중인 ~90개 핵심 고객망(Masan, CJ Cau Tre, Vissan, C.P., Ajinomoto, Merap 등), 호치민·하노이 현지 창고(VND 세금계산서 발행 및 공장 직배송), 그리고 식품·음료·건강기능식품 분야에서 21년 이상의 실무 경력을 보유한 전문 영업·기술·인허가 전담 팀을 보유하고 있습니다."
+              title: "~90개 기존 거래선, 전국 창고 인프라 및 전사 기술·인허가 전담 조직",
+              desc: "현재 활발히 거래 중인 ~90개 핵심 고객망(Masan, CJ Cầu Tre, Vissan, C.P., Ajinomoto, Merap 등), 호치민·하노이 현지 창고(VND 세금계산서 발행 및 공장 직배송), 그리고 2007년 설립된 BJC Specialties 베트남 법인의 식품·음료·건강기능식품 전담 영업, R&D 응용기술 및 인허가 조직을 보유하고 있습니다."
             }
           ]
         }
       },
       mod2: {
         eyebrow: "모듈 02 · BJCS 베트남 플랫폼 및 인프라 역량",
-        headline: "2007년 설립된 베트남 전국 유통망 및 글로벌 파트너십",
-        subheadline: "호치민과 하노이 양대 거점을 중심으로 영업, 기술 개발, 인허가, 현지 창고 물류를 원스톱으로 수행합니다.",
+        headline: "베트남 전국 유통 생태계 및 글로벌 원료 파트너십 포트폴리오",
+        subheadline: "2007년 설립된 BJC 그룹 베트남 법인으로서 호치민과 하노이 양대 거점을 중심으로 영업, 기술 R&D, 인허가, 현지 창고 물류를 원스톱으로 수행합니다.",
         kpis: [
-          { value: 2007, prefix: "", suffix: "년 설립", label: "베트남 시장 업력", sub: "19년 이상의 탄탄한 현지 사업 기반" },
-          { value: 2, prefix: "", suffix: "개 거점 오피스", label: "호치민(남부) & 하노이(북부)", sub: "북부 · 중부 · 남부 전국 고객 커버리지" },
-          { value: 90, prefix: "~", suffix: "개 핵심 고객", label: "2026년 활성 거래선", sub: "고객사 R&D, QA 및 구매팀과 일일 협업" },
-          { value: 21, prefix: "", suffix: "년+ 경력", label: "식품 & 건기식 전문성", sub: "전담 영업 · 기술 · 인허가 전문 조직" }
+          { value: 2007, prefix: "", suffix: "년 설립", label: "베트남 현지 법인 설립", sub: "BJC 그룹 베트남 스페셜티 원료 법인" },
+          { value: 2, prefix: "", suffix: "대 거점", label: "호치민 & 하노이 오피스·창고", sub: "북부 · 중부 · 남부 전국 물류 커버리지" },
+          { value: 90, prefix: "~", suffix: "개 고객사", label: "활성 제조사 거래선 (2026)", sub: "고객사 R&D, QA 및 구매팀과 일일 협업" },
+          { value: 15, prefix: "", suffix: "+ 파트너사", label: "글로벌 선도 원료 제조사", sub: "dsm-firmenich, LANXESS, Lallemand, Lipoid 등" }
         ],
         drawers: {
           rtmBtn: "유통 경로, 창고 물류 및 인허가 역량 보기",

@@ -271,9 +271,9 @@
 
       <!-- Dual Logos Display -->
       <div class="flex items-center justify-center gap-4 bg-white rounded-2xl p-3.5 mb-5 shadow-inner border border-slate-200">
-        <img src="Logo BJC specialties.jpg" alt="BJC Specialties Logo" class="h-8 sm:h-10 object-contain" />
+        <img src="/Logo BJC specialties.jpg" onerror="this.src='Logo BJC specialties.jpg'" alt="BJC Specialties Logo" class="h-8 sm:h-10 object-contain" />
         <span class="text-slate-400 font-light text-xl">×</span>
-        <img src="Logo CJ bio.png" alt="CJ BIO Logo" class="h-8 sm:h-10 object-contain" />
+        <img src="/Logo CJ bio.png" onerror="this.src='Logo CJ bio.png'" alt="CJ BIO Logo" class="h-8 sm:h-10 object-contain" />
       </div>
 
       <h1 id="gk-title" class="text-xl sm:text-2xl font-extrabold text-white text-center mb-1.5">
@@ -282,9 +282,15 @@
       <p id="gk-subtitle" class="text-xs sm:text-sm text-emerald-300 font-semibold text-center mb-1.5">
         TasteNrich® HYBIND & AMINATURE® FGAA
       </p>
-      <p id="gk-meta" class="text-[11px] text-slate-400 text-center mb-5">
+      <p id="gk-meta" class="text-[11px] text-slate-400 text-center mb-4">
         15 October 2026 · Presenter: Nguyen Duc Duy Anh - BJC Specialties Vietnam
       </p>
+
+      <!-- Deep Link Destination Preview (Shown when opening a shared specific URL) -->
+      <div id="gk-deeplink-banner" class="hidden mb-4 rounded-xl bg-emerald-500/15 border border-emerald-500/35 px-3 py-2 text-center">
+        <div class="text-[10px] font-bold uppercase text-emerald-300">Direct Shared Link</div>
+        <div id="gk-deeplink-path" class="text-xs font-mono font-bold text-white truncate mt-0.5"></div>
+      </div>
 
       <!-- Password Form -->
       <form onsubmit="handleGatekeeperSubmit(event)" class="space-y-3.5">
@@ -319,7 +325,7 @@
   </div>
 
   <!-- ==========================================================================
-       STICKY NAVIGATION BAR (LOGOS + TABS + THEME + FONT SIZE + I18N)
+       STICKY NAVIGATION BAR (LOGOS + TABS + SHARE + THEME + FONT SIZE + I18N)
        ========================================================================== -->
   <header class="sticky top-0 z-40 backdrop-blur-xl border-b border-white/15" style="background: var(--header-bg);">
     <div class="max-w-6xl mx-auto px-3 sm:px-6">
@@ -327,9 +333,9 @@
         <!-- Dual Logos -->
         <div onclick="selectNavModule('mod1')" class="flex items-center gap-2 cursor-pointer shrink-0">
           <div class="flex items-center gap-2 bg-white px-2.5 py-1 rounded-xl shadow-sm border border-slate-200/80">
-            <img src="Logo BJC specialties.jpg" alt="BJC Specialties" class="h-5 sm:h-6 object-contain" />
+            <img src="/Logo BJC specialties.jpg" onerror="this.src='Logo BJC specialties.jpg'" alt="BJC Specialties" class="h-5 sm:h-6 object-contain" />
             <span class="text-slate-400 font-bold text-xs">×</span>
-            <img src="Logo CJ bio.png" alt="CJ BIO" class="h-5 sm:h-6 object-contain" />
+            <img src="/Logo CJ bio.png" onerror="this.src='Logo CJ bio.png'" alt="CJ BIO" class="h-5 sm:h-6 object-contain" />
           </div>
         </div>
 
@@ -338,17 +344,32 @@
           <!-- Populated by app.js -->
         </nav>
 
-        <!-- Reader-Centric Controls: Theme (Light/Dark) + Font Size (A-/A+) + Language + Lock -->
+        <!-- Reader-Centric Controls: Share Link + Theme (Light/Dark) + Font Size (A-/A+) + Language + Lock -->
         <div class="flex items-center gap-1.5 shrink-0">
+          <!-- Share Current Position Button -->
+          <button onclick="shareCurrentUrl()" id="header-share-btn" title="Copy / Share Direct Link to This Exact View"
+            class="keep-white-text px-2.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white flex items-center gap-1 shadow-sm transition-all cursor-pointer">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+            </svg>
+            <span id="header-share-label" class="hidden sm:inline">Share</span>
+          </button>
+
+          <!-- Quick Links Directory Modal Trigger -->
+          <button onclick="openLinkDirectoryModal()" title="View All Direct Section Links"
+            class="px-2 py-1.5 rounded-xl bg-white/10 hover:bg-blue-500/20 border border-white/15 text-xs font-mono font-bold text-blue-300 transition-all cursor-pointer">
+            URLs
+          </button>
+
           <!-- Theme Toggle (Light / Dark) -->
           <button onclick="toggleTheme()" id="theme-toggle-btn" title="Switch Light / Dark Background"
             class="px-2.5 py-1.5 rounded-xl bg-white/10 hover:bg-emerald-500/20 border border-white/15 text-xs font-bold text-white flex items-center gap-1 transition-all cursor-pointer">
             <span id="theme-toggle-icon">☀️</span>
-            <span id="theme-toggle-label" class="hidden md:inline">Light</span>
+            <span id="theme-toggle-label" class="hidden xl:inline">Light</span>
           </button>
 
           <!-- Font Size Controls (A- / A / A+) -->
-          <div class="flex items-center bg-white/5 rounded-xl p-0.5 border border-white/15" title="Adjust Font Size">
+          <div class="hidden sm:flex items-center bg-white/5 rounded-xl p-0.5 border border-white/15" title="Adjust Font Size">
             <button onclick="changeFontScale(-1)" class="px-2 py-1 rounded-lg text-xs font-extrabold text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer">A-</button>
             <button onclick="resetFontScale()" id="font-scale-indicator" class="px-1.5 py-1 text-[11px] font-mono font-bold text-emerald-300 cursor-pointer">100%</button>
             <button onclick="changeFontScale(1)" class="px-2 py-1 rounded-lg text-xs font-extrabold text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer">A+</button>
@@ -377,8 +398,8 @@
        MAIN COMPACT PRESENTATION STAGE (USER-CENTRIC SLIDE DECK VIEW)
        ========================================================================== -->
   <main class="relative z-10 max-w-6xl mx-auto px-3 sm:px-6 py-4 sm:py-8">
-    <!-- Top Slide Progress & Mode Bar -->
-    <div id="deck-control-bar" class="mb-4 flex items-center justify-between gap-2"></div>
+    <!-- Top Slide Progress, Live URL Breadcrumb & Mode Bar -->
+    <div id="deck-control-bar" class="mb-4 flex flex-wrap items-center justify-between gap-2"></div>
 
     <!-- 6 Modules (Shown 1 at a time by default for zero visual clutter) -->
     <div class="space-y-6">
@@ -402,22 +423,31 @@
   </nav>
 
   <!-- ==========================================================================
-       CLICK-TO-REVEAL MODAL OVERLAY (RESPONSIVE BOTTOM-SHEET ON MOBILE)
+       CLICK-TO-REVEAL MODAL OVERLAY (WITH DIRECT SHARE LINK BUTTON)
        ========================================================================== -->
   <div id="app-modal-backdrop" onclick="if(event.target === this) closeModal()"
     class="hidden opacity-0 fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 bg-slate-950/75 backdrop-blur-md transition-opacity duration-200">
     <div class="w-full max-w-3xl max-h-[88dvh] flex flex-col rounded-t-3xl sm:rounded-3xl bg-slate-900 border border-white/20 shadow-2xl overflow-hidden">
       <!-- Modal Header -->
       <div class="px-5 py-4 bg-slate-950/70 border-b border-white/15 flex items-start justify-between gap-3">
-        <div>
+        <div class="min-w-0">
           <h3 id="app-modal-title" class="text-base sm:text-lg font-extrabold text-white"></h3>
           <p id="app-modal-subtitle" class="text-xs text-emerald-300 mt-0.5"></p>
         </div>
-        <button onclick="closeModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors cursor-pointer shrink-0">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button onclick="shareCurrentUrl()" title="Share Direct Link to This Popup"
+            class="keep-white-text px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white flex items-center gap-1.5 transition-all cursor-pointer">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+            </svg>
+            <span id="modal-share-btn-text">Share Link</span>
+          </button>
+          <button onclick="closeModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors cursor-pointer">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
       <!-- Modal Body -->
       <div id="app-modal-body" class="p-5 sm:p-6 overflow-y-auto"></div>
@@ -425,23 +455,43 @@
   </div>
 
   <!-- ==========================================================================
-       CLICK-TO-REVEAL SLIDE-OVER DRAWER
+       CLICK-TO-REVEAL SLIDE-OVER DRAWER (WITH DIRECT SHARE LINK BUTTON)
        ========================================================================== -->
   <div id="app-drawer-backdrop" onclick="if(event.target === this) closeDrawer()"
     class="hidden opacity-0 fixed inset-0 z-50 flex justify-end bg-slate-950/75 backdrop-blur-sm transition-opacity duration-250">
     <div id="app-drawer-panel" class="w-full max-w-xl bg-slate-900 border-l border-white/20 h-full flex flex-col shadow-2xl transform translate-x-full transition-transform duration-250">
       <div class="px-5 py-4 bg-slate-950/80 border-b border-white/15 flex items-start justify-between gap-3">
-        <div>
+        <div class="min-w-0">
           <h3 id="app-drawer-title" class="text-base sm:text-lg font-extrabold text-white"></h3>
           <p id="app-drawer-subtitle" class="text-xs text-blue-300 mt-0.5"></p>
         </div>
-        <button onclick="closeDrawer()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors cursor-pointer shrink-0">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button onclick="shareCurrentUrl()" title="Share Direct Link to This Drawer"
+            class="keep-white-text px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white flex items-center gap-1.5 transition-all cursor-pointer">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+            </svg>
+            <span id="drawer-share-btn-text">Share Link</span>
+          </button>
+          <button onclick="closeDrawer()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors cursor-pointer">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
       <div id="app-drawer-body" class="p-5 sm:p-6 overflow-y-auto flex-1"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SHARE LINK CONFIRMATION TOAST
+       ========================================================================== -->
+  <div id="share-toast" class="opacity-0 translate-y-4 pointer-events-none fixed bottom-20 lg:bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-md w-[92%] sm:w-auto rounded-2xl bg-slate-900/95 border border-emerald-500/60 px-4 py-3 shadow-2xl flex items-center gap-3 transition-all duration-300">
+    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0"></span>
+    <div class="min-w-0">
+      <div id="share-toast-title" class="text-xs font-extrabold text-emerald-300">Link Copied to Clipboard!</div>
+      <div id="share-toast-url" class="text-[11px] font-mono text-slate-300 truncate"></div>
     </div>
   </div>
 
@@ -456,7 +506,7 @@
   </div>
 
   <!-- Application Scripts -->
-  <script src="data-i18n.js"></script>
-  <script src="app.js"></script>
+  <script src="/data-i18n.js" onerror="var s=document.createElement('script');s.src='data-i18n.js';document.body.appendChild(s);"></script>
+  <script src="/app.js" onerror="var s=document.createElement('script');s.src='app.js';document.body.appendChild(s);"></script>
 </body>
 </html>

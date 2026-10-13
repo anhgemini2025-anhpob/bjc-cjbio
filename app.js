@@ -6,12 +6,47 @@
 (function () {
   const PASSCODE = "BjcCj2026";
   const MOD_LIST = ["mod1", "mod2", "mod3", "mod4", "mod5", "mod6"];
+  const MOD_SLUGS = {
+    mod1: "/01-executive-hub",
+    mod2: "/02-platform",
+    mod3: "/03-portfolio",
+    mod4: "/04-target-market",
+    mod5: "/05-win-strategy",
+    mod6: "/06-gtm-roadmap",
+    all: "/all-modules"
+  };
+  const SLUG_TO_MOD = {
+    "01-executive-hub": "mod1",
+    "executive-hub": "mod1",
+    "executive": "mod1",
+    "mod1": "mod1",
+    "02-platform": "mod2",
+    "platform": "mod2",
+    "mod2": "mod2",
+    "03-portfolio": "mod3",
+    "portfolio": "mod3",
+    "mod3": "mod3",
+    "04-target-market": "mod4",
+    "target-market": "mod4",
+    "market": "mod4",
+    "mod4": "mod4",
+    "05-win-strategy": "mod5",
+    "win-strategy": "mod5",
+    "roi-calculator": "mod5",
+    "mod5": "mod5",
+    "06-gtm-roadmap": "mod6",
+    "gtm-roadmap": "mod6",
+    "roadmap": "mod6",
+    "mod6": "mod6",
+    "all-modules": "all"
+  };
+
   const FONT_SCALES = ["sm", "md", "lg", "xl"];
   const FONT_LABELS = { sm: "90%", md: "100%", lg: "112%", xl: "125%" };
 
   // Reactive Application State
   const state = {
-    authenticated: false,
+    authenticated: sessionStorage.getItem("bjc_cj_unlocked") === "1",
     lang: "vi", // Default to Vietnamese for immediate clarity, switchable to EN | VI | KO
     theme: localStorage.getItem("bjc_cj_theme") || "dark", // 'dark' | 'light'
     fontScaleIndex: parseInt(localStorage.getItem("bjc_cj_font_idx") || "1", 10), // 0:sm, 1:md, 2:lg, 3:xl
@@ -20,6 +55,8 @@
     productTab: "hybind", // 'hybind' | 'fgaa'
     regionFilter: "all", // 'all' | 'south' | 'north' | 'central'
     categoryFilter: "all", // 'all' | 'meat' | 'seafood' | 'fgaa'
+    openView: null, // Tracks exact open modal/drawer for deep-link sharing (e.g., 'synergy', 'account-masan', 'hybind-compare')
+    suppressUrlSync: false,
     calc: {
       meatCost: 4.5,
       stppDose: 0.35,
@@ -35,7 +72,7 @@
     return window.APP_DATA.i18n[state.lang] || window.APP_DATA.i18n.en;
   }
 
-  // Localized short UI labels for compact controls
+  // Localized short UI labels for compact controls & sharing
   function ui() {
     const map = {
       en: {
@@ -50,7 +87,12 @@
         viewDecisionMap: "Decision Map & SPIN Question",
         viewTrialProtocol: "3-Stage Trial Protocol (HYBIND & FGAA)",
         viewMonthlyKpi: "5 Monthly Governance KPIs",
-        clickPhaseHint: "Click to view deliverables →"
+        clickPhaseHint: "Click to view deliverables →",
+        shareBtn: "Share Link",
+        copyUrlBtn: "Copy Link",
+        copiedTitle: "Direct Link Copied to Clipboard!",
+        urlDirectoryTitle: "Direct Section & Popup Links Directory",
+        urlDirectorySub: "Click Copy to share any exact section or popup directly with colleagues"
       },
       vi: {
         clickDetail: "Nhấn xem chi tiết →",
@@ -64,7 +106,12 @@
         viewDecisionMap: "Chân Dung Người Quyết Định & SPIN",
         viewTrialProtocol: "Quy Trình Thử Nghiệm 3 Bước",
         viewMonthlyKpi: "5 KPI Báo Cáo Hàng Tháng",
-        clickPhaseHint: "Nhấn xem hạng mục →"
+        clickPhaseHint: "Nhấn xem hạng mục →",
+        shareBtn: "Chia sẻ vị trí này",
+        copyUrlBtn: "Sao chép Link",
+        copiedTitle: "Đã sao chép địa chỉ Link đúng vị trí này!",
+        urlDirectoryTitle: "Danh Mục Địa Chỉ Link Chia Sẻ Nhanh",
+        urlDirectorySub: "Sao chép link từng mục cụ thể để gửi người đọc mở ngay đúng vị trí mong muốn"
       },
       ko: {
         clickDetail: "클릭하여 상세 보기 →",
@@ -78,7 +125,12 @@
         viewDecisionMap: "의사결정권자 맵 & SPIN 질문",
         viewTrialProtocol: "3단계 기술 검증 프로토콜",
         viewMonthlyKpi: "월간 보고 5대 핵심 KPI",
-        clickPhaseHint: "세부 과제 보기 →"
+        clickPhaseHint: "세부 과제 보기 →",
+        shareBtn: "현재 위치 공유",
+        copyUrlBtn: "링크 복사",
+        copiedTitle: "현재 위치의 직접 링크가 복사되었습니다!",
+        urlDirectoryTitle: "섹션별 직접 공유 링크 목록",
+        urlDirectorySub: "원하는 섹션이나 팝업 위치의 링크를 바로 복사하여 공유하세요"
       }
     };
     return map[state.lang] || map.en;
@@ -93,9 +145,316 @@
       truck: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>`,
       check: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`,
       sparkle: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>`,
-      arrowRight: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>`
+      arrowRight: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>`,
+      link: `<svg class="${cls}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>`
     };
     return icons[name] || icons.sparkle;
+  }
+
+  // ==========================================================================
+  // 0. DEEP-LINK URL ROUTING & SHARE SYSTEM (SUB-PATHS + QUERY PARAMS)
+  // ==========================================================================
+  function getRelativeDeepPath(overrides = {}) {
+    const mod = overrides.mod || (state.activeTab === "all" ? "all" : state.activeNavHighlight);
+    const prodTab = overrides.productTab || state.productTab;
+    const openKey = overrides.open !== undefined ? overrides.open : state.openView;
+    const lang = overrides.lang || state.lang;
+
+    let basePath = MOD_SLUGS[mod] || "/01-executive-hub";
+    if (mod === "mod3") {
+      basePath = `/03-portfolio/${prodTab}`;
+    }
+
+    const params = new URLSearchParams();
+    if (openKey) params.set("open", openKey);
+    if (mod === "mod4" && state.regionFilter !== "all" && !openKey) {
+      params.set("region", state.regionFilter);
+    }
+    if (mod === "mod4" && state.categoryFilter !== "all" && !openKey) {
+      params.set("cat", state.categoryFilter);
+    }
+    if (lang && lang !== "vi") {
+      params.set("lang", lang);
+    }
+
+    const qs = params.toString();
+    return qs ? `${basePath}?${qs}` : basePath;
+  }
+
+  function getFullShareUrl(overrides = {}) {
+    const relPath = getRelativeDeepPath(overrides);
+    if (window.location.protocol === "file:") {
+      const baseFile = window.location.href.split("#")[0];
+      return `${baseFile}#${relPath}`;
+    }
+    return `${window.location.origin}${relPath}`;
+  }
+
+  function syncUrlState(push = false) {
+    if (state.suppressUrlSync) return;
+    const relPath = getRelativeDeepPath();
+    try {
+      if (window.location.protocol === "file:") {
+        window.location.hash = relPath;
+      } else if (push) {
+        window.history.pushState({ relPath }, "", relPath);
+      } else {
+        window.history.replaceState({ relPath }, "", relPath);
+      }
+    } catch (err) {
+      // Fallback to hash if history pushState is restricted
+      window.location.hash = relPath;
+    }
+    updateUrlBadgeDisplay();
+  }
+
+  function updateUrlBadgeDisplay() {
+    const relPath = getRelativeDeepPath();
+    const hostLabel = window.location.host || "bjc-cjbio.vercel.app";
+    const badgeEl = document.getElementById("live-url-badge-text");
+    if (badgeEl) {
+      badgeEl.textContent = `${hostLabel}${relPath}`;
+    }
+    const hdrShareLbl = document.getElementById("header-share-label");
+    const modShareLbl = document.getElementById("modal-share-btn-text");
+    const drwShareLbl = document.getElementById("drawer-share-btn-text");
+    if (hdrShareLbl) hdrShareLbl.textContent = ui().shareBtn;
+    if (modShareLbl) modShareLbl.textContent = ui().copyUrlBtn;
+    if (drwShareLbl) drwShareLbl.textContent = ui().copyUrlBtn;
+  }
+
+  let shareToastTimer = null;
+  function showShareToast(urlStr) {
+    const toast = document.getElementById("share-toast");
+    const titleEl = document.getElementById("share-toast-title");
+    const urlEl = document.getElementById("share-toast-url");
+    if (!toast || !titleEl || !urlEl) return;
+    titleEl.textContent = ui().copiedTitle;
+    urlEl.textContent = urlStr;
+    toast.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+    toast.classList.add("opacity-100", "translate-y-0");
+    clearTimeout(shareToastTimer);
+    shareToastTimer = setTimeout(() => {
+      toast.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+      toast.classList.remove("opacity-100", "translate-y-0");
+    }, 3200);
+  }
+
+  function copyTextToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+    }
+    return Promise.resolve(fallbackCopy(text));
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("data-allow-copy", "true");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand("copy");
+    } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  window.shareCurrentUrl = function () {
+    const fullUrl = getFullShareUrl();
+    copyTextToClipboard(fullUrl).then(() => {
+      showShareToast(fullUrl);
+    });
+  };
+
+  window.copySpecificUrl = function (relPath) {
+    const fullUrl =
+      window.location.protocol === "file:"
+        ? `${window.location.href.split("#")[0]}#${relPath}`
+        : `${window.location.origin}${relPath}`;
+    copyTextToClipboard(fullUrl).then(() => {
+      showShareToast(fullUrl);
+    });
+  };
+
+  window.navigateToDeepPath = function (relPath) {
+    closeModal(true);
+    closeDrawer(true);
+    applyUrlString(relPath);
+    syncUrlState(true);
+  };
+
+  function applyUrlString(rawUrlStr) {
+    state.suppressUrlSync = true;
+    try {
+      let pathPart = "";
+      let queryPart = "";
+      if (rawUrlStr.includes("?")) {
+        const parts = rawUrlStr.split("?");
+        pathPart = parts[0];
+        queryPart = parts.slice(1).join("?");
+      } else {
+        pathPart = rawUrlStr;
+      }
+
+      const cleanSegments = pathPart
+        .replace(/^#\/?/, "")
+        .replace(/^\/+/, "")
+        .replace(/\/+$/, "")
+        .split("/")
+        .filter(Boolean);
+
+      const params = new URLSearchParams(queryPart);
+
+      // 1. Language
+      const langParam = params.get("lang");
+      if (langParam && ["en", "vi", "ko"].includes(langParam)) {
+        state.lang = langParam;
+      }
+
+      // 2. Module & Sub-tab from path segments
+      if (cleanSegments.length > 0) {
+        const seg0 = cleanSegments[0].toLowerCase();
+        if (SLUG_TO_MOD[seg0]) {
+          const targetMod = SLUG_TO_MOD[seg0];
+          if (targetMod === "all") {
+            state.activeTab = "all";
+          } else {
+            state.activeTab = targetMod;
+            state.activeNavHighlight = targetMod;
+          }
+        }
+        if (cleanSegments[1]) {
+          const seg1 = cleanSegments[1].toLowerCase();
+          if (seg1 === "hybind" || seg1 === "fgaa") {
+            state.activeTab = "mod3";
+            state.activeNavHighlight = "mod3";
+            state.productTab = seg1;
+          } else if (window.APP_DATA.accounts.some((a) => a.id === seg1)) {
+            state.activeTab = "mod4";
+            state.activeNavHighlight = "mod4";
+            params.set("open", `account-${seg1}`);
+          }
+        }
+      }
+
+      // 3. Query overrides for tab / region / category
+      const tabParam = params.get("tab");
+      if (tabParam === "hybind" || tabParam === "fgaa") {
+        state.productTab = tabParam;
+      }
+      const regParam = params.get("region");
+      if (regParam && ["all", "south", "north", "central"].includes(regParam)) {
+        state.regionFilter = regParam;
+      }
+      const catParam = params.get("cat");
+      if (catParam && ["all", "meat", "seafood", "fgaa"].includes(catParam)) {
+        state.categoryFilter = catParam;
+      }
+
+      // 4. Automatically switch to parent module if ?open=... is specified
+      const openKey = params.get("open");
+      if (openKey) {
+        if (openKey === "synergy" || openKey.startsWith("pillar-")) {
+          state.activeNavHighlight = "mod1";
+          if (state.activeTab !== "all") state.activeTab = "mod1";
+        } else if (openKey === "rtm" || openKey === "principals") {
+          state.activeNavHighlight = "mod2";
+          if (state.activeTab !== "all") state.activeTab = "mod2";
+        } else if (openKey.startsWith("hybind-")) {
+          state.activeNavHighlight = "mod3";
+          if (state.activeTab !== "all") state.activeTab = "mod3";
+          state.productTab = "hybind";
+        } else if (openKey.startsWith("fgaa-")) {
+          state.activeNavHighlight = "mod3";
+          if (state.activeTab !== "all") state.activeTab = "mod3";
+          state.productTab = "fgaa";
+        } else if (openKey.startsWith("account-")) {
+          state.activeNavHighlight = "mod4";
+          if (state.activeTab !== "all") state.activeTab = "mod4";
+        } else if (openKey === "decision-map" || openKey === "trial-protocol") {
+          state.activeNavHighlight = "mod5";
+          if (state.activeTab !== "all") state.activeTab = "mod5";
+        } else if (
+          openKey.startsWith("phase-") ||
+          ["monthly-kpi", "sample-protocol", "pdf-download", "contact"].includes(openKey)
+        ) {
+          state.activeNavHighlight = "mod6";
+          if (state.activeTab !== "all") state.activeTab = "mod6";
+        }
+      }
+
+      // Render UI with updated state
+      updateLangButtonStyles();
+      renderAll();
+
+      // 5. Trigger specific open Modal / Drawer if requested in URL
+      if (openKey) {
+        triggerOpenViewByKey(openKey);
+      }
+    } finally {
+      state.suppressUrlSync = false;
+    }
+  }
+
+  function triggerOpenViewByKey(openKey) {
+    if (!openKey) return;
+    if (openKey === "synergy") return window.openRegionalModal();
+    if (openKey.startsWith("pillar-")) {
+      const idx = parseInt(openKey.replace("pillar-", ""), 10);
+      return window.openPillarModal(idx);
+    }
+    if (openKey === "rtm") return window.openRtmDrawer();
+    if (openKey === "principals") return window.openPortfolioDrawer();
+    if (openKey === "hybind-compare") return window.openHybindCompareModal();
+    if (openKey === "fgaa-compare") return window.openFgaaCompareModal();
+    if (openKey === "hybind-questions") return window.openHybindQuestionsModal();
+    if (openKey === "fgaa-questions") return window.openFgaaQuestionsModal();
+    if (openKey.startsWith("hybind-app-")) {
+      state.productTab = "hybind";
+      const idx = parseInt(openKey.replace("hybind-app-", ""), 10);
+      return window.openProductAppModal(idx);
+    }
+    if (openKey.startsWith("fgaa-app-")) {
+      state.productTab = "fgaa";
+      const idx = parseInt(openKey.replace("fgaa-app-", ""), 10);
+      return window.openProductAppModal(idx);
+    }
+    if (openKey.startsWith("account-")) {
+      const accId = openKey.replace("account-", "");
+      return window.openAccountModal(accId);
+    }
+    if (openKey === "decision-map") return window.openDecisionMapModal();
+    if (openKey === "trial-protocol") return window.openTrialProtocolModal();
+    if (openKey.startsWith("phase-")) {
+      const idx = parseInt(openKey.replace("phase-", ""), 10);
+      return window.openPhaseModal(idx);
+    }
+    if (openKey === "monthly-kpi") return window.openMonthlyKpiModal();
+    if (openKey === "sample-protocol") return window.openSampleProtocolModal();
+    if (openKey === "pdf-download") return window.openDownloadPdfModal();
+    if (openKey === "contact") return window.openContactModal();
+  }
+
+  function parseInitialLocation() {
+    let raw = "";
+    if (window.location.hash && window.location.hash.length > 1) {
+      raw = window.location.hash.substring(1);
+    } else {
+      raw = window.location.pathname + window.location.search;
+    }
+
+    // Show destination badge on Gatekeeper if user opened a specific deep link
+    const gkBanner = document.getElementById("gk-deeplink-banner");
+    const gkPath = document.getElementById("gk-deeplink-path");
+    if (gkBanner && gkPath && raw && raw !== "/" && raw !== "/index.html") {
+      gkBanner.classList.remove("hidden");
+      gkPath.textContent = (window.location.host || "bjc-cjbio.vercel.app") + (raw.startsWith("/") ? raw : "/" + raw);
+    }
+
+    applyUrlString(raw);
+    syncUrlState(false);
   }
 
   // ==========================================================================
@@ -225,6 +584,11 @@
     if (input) input.placeholder = gk.placeholder;
     document.getElementById("gk-unlock-btn-text").textContent = gk.unlockBtn;
     document.getElementById("gk-security-note").textContent = gk.securityNote;
+
+    if (state.authenticated) {
+      const overlay = document.getElementById("gatekeeper-overlay");
+      if (overlay) overlay.classList.add("hidden", "opacity-0", "pointer-events-none");
+    }
   }
 
   window.handleGatekeeperSubmit = function (e) {
@@ -236,6 +600,7 @@
 
     if (val === PASSCODE) {
       state.authenticated = true;
+      sessionStorage.setItem("bjc_cj_unlocked", "1");
       errEl.classList.add("hidden");
       const overlay = document.getElementById("gatekeeper-overlay");
       overlay.classList.add("opacity-0", "pointer-events-none");
@@ -258,6 +623,7 @@
 
   window.lockPresentation = function () {
     state.authenticated = false;
+    sessionStorage.removeItem("bjc_cj_unlocked");
     const overlay = document.getElementById("gatekeeper-overlay");
     const input = document.getElementById("gk-password-input");
     const errEl = document.getElementById("gk-error-msg");
@@ -279,23 +645,33 @@
   // ==========================================================================
   // 4. LANGUAGE & SLIDE DECK NAVIGATION CONTROLLER
   // ==========================================================================
-  window.setLanguage = function (lang) {
-    if (!["en", "vi", "ko"].includes(lang)) return;
-    state.lang = lang;
+  function updateLangButtonStyles() {
     ["en", "vi", "ko"].forEach((l) => {
       const btns = document.querySelectorAll(`[data-lang-btn="${l}"]`);
       btns.forEach((b) => {
-        if (l === lang) {
+        if (l === state.lang) {
           b.className = "px-2 py-1 rounded-lg text-xs font-bold bg-emerald-600 text-white keep-white-text shadow-sm transition-all cursor-pointer";
         } else {
           b.className = "px-2 py-1 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer";
         }
       });
     });
+  }
+
+  window.setLanguage = function (lang) {
+    if (!["en", "vi", "ko"].includes(lang)) return;
+    state.lang = lang;
+    updateLangButtonStyles();
     renderAll();
+    if (state.openView) {
+      triggerOpenViewByKey(state.openView);
+    }
+    syncUrlState(false);
   };
 
   window.selectNavModule = function (modId) {
+    closeModal(true);
+    closeDrawer(true);
     if (modId === "all") {
       state.activeTab = state.activeTab === "all" ? state.activeNavHighlight : "all";
     } else {
@@ -312,11 +688,14 @@
     }
     renderModuleVisibility();
     renderNavBar();
+    syncUrlState(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
     if (modId === "mod2" || state.activeTab === "all") setTimeout(animateKpiCounters, 80);
   };
 
   window.stepSlide = function (delta) {
+    closeModal(true);
+    closeDrawer(true);
     const idx = MOD_LIST.indexOf(state.activeNavHighlight);
     const nextIdx = (idx + delta + MOD_LIST.length) % MOD_LIST.length;
     const nextMod = MOD_LIST[nextIdx];
@@ -324,6 +703,7 @@
     state.activeNavHighlight = nextMod;
     renderModuleVisibility();
     renderNavBar();
+    syncUrlState(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
     if (nextMod === "mod2") setTimeout(animateKpiCounters, 80);
   };
@@ -390,21 +770,32 @@
       `;
     }
 
-    // Top Deck Progress Bar
+    // Top Deck Progress Bar + Live Clickable URL Address Pill
     const deckBar = document.getElementById("deck-control-bar");
     if (deckBar) {
       const currentTabObj = nav.tabs[curIdx] || nav.tabs[0];
+      const hostLabel = window.location.host || "bjc-cjbio.vercel.app";
+      const relPath = getRelativeDeepPath();
       deckBar.innerHTML = `
-        <div class="flex items-center gap-2">
+        <div class="flex flex-wrap items-center gap-2">
           <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-mono text-xs font-bold">
             ${curIdx + 1} / 6
           </span>
           <span class="text-xs sm:text-sm font-bold text-slate-300">${currentTabObj.label}</span>
+
+          <!-- Live Section URL Address Pill (Click to copy exact link) -->
+          <button onclick="shareCurrentUrl()" title="Click to copy direct URL to this position"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/80 hover:bg-emerald-950/70 border border-emerald-500/35 text-[11px] font-mono text-emerald-300 cursor-pointer transition-all">
+            ${getIcon("link", "w-3.5 h-3.5")}
+            <span id="live-url-badge-text" class="truncate max-w-[200px] sm:max-w-[340px]">${hostLabel}${relPath}</span>
+          </button>
         </div>
-        <button onclick="selectNavModule('all')"
-          class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-semibold text-slate-200 cursor-pointer transition-all">
-          ${state.activeTab === "all" ? u.slideMode : u.allMode}
-        </button>
+        <div class="flex items-center gap-2">
+          <button onclick="selectNavModule('all')"
+            class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-semibold text-slate-200 cursor-pointer transition-all">
+            ${state.activeTab === "all" ? u.slideMode : u.allMode}
+          </button>
+        </div>
       `;
     }
 
@@ -439,6 +830,7 @@
         `;
       }
     }
+    updateUrlBadgeDisplay();
   }
 
   // ==========================================================================
@@ -527,6 +919,7 @@
   window.openPillarModal = function (idx) {
     const p = t().mod1.pillars[idx];
     if (!p) return;
+    state.openView = `pillar-${idx}`;
     const html = `
       <div class="rounded-2xl bg-slate-800/90 border border-emerald-500/35 p-5">
         <span class="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 mb-3">${p.tag}</span>
@@ -538,6 +931,7 @@
 
   window.openRegionalModal = function () {
     const rm = t().mod1.regionalModal;
+    state.openView = "synergy";
     const html = `
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
         ${rm.items
@@ -626,6 +1020,7 @@
 
   window.openRtmDrawer = function () {
     const d = t().mod2.rtmDrawer;
+    state.openView = "rtm";
     const html = `
       <div class="space-y-4">
         ${d.sections
@@ -657,6 +1052,7 @@
 
   window.openPortfolioDrawer = function () {
     const d = t().mod2.portfolioDrawer;
+    state.openView = "principals";
     const html = `
       <div class="space-y-5">
         <div class="space-y-2.5">
@@ -717,6 +1113,7 @@
   window.switchProductTab = function (tab) {
     state.productTab = tab;
     renderModule3();
+    syncUrlState(true);
   };
 
   function renderModule3() {
@@ -826,9 +1223,11 @@
 
   window.openProductAppModal = function (idx) {
     const m3 = t().mod3;
-    const prod = state.productTab === "hybind" ? m3.hybind : m3.fgaa;
+    const isHybind = state.productTab === "hybind";
+    const prod = isHybind ? m3.hybind : m3.fgaa;
     const app = prod.apps[idx];
     if (!app) return;
+    state.openView = `${isHybind ? "hybind" : "fgaa"}-app-${idx}`;
     const html = `
       <div class="rounded-2xl bg-slate-800/90 border border-emerald-500/35 p-5">
         <div class="text-xs font-bold uppercase text-emerald-300 mb-2">${prod.title}</div>
@@ -871,11 +1270,13 @@
 
   window.openHybindCompareModal = function () {
     const d = t().mod3.hybindCompareModal;
+    state.openView = "hybind-compare";
     openModal(d.title, d.subtitle, buildComparisonTableHtml(d));
   };
 
   window.openFgaaCompareModal = function () {
     const d = t().mod3.fgaaCompareModal;
+    state.openView = "fgaa-compare";
     openModal(d.title, d.subtitle, buildComparisonTableHtml(d));
   };
 
@@ -915,11 +1316,13 @@
 
   window.openHybindQuestionsModal = function () {
     const d = t().mod3.hybindQuestionsModal;
+    state.openView = "hybind-questions";
     openModal(d.title, d.subtitle, buildQuestionsModalHtml(d));
   };
 
   window.openFgaaQuestionsModal = function () {
     const d = t().mod3.fgaaQuestionsModal;
+    state.openView = "fgaa-questions";
     openModal(d.title, d.subtitle, buildQuestionsModalHtml(d));
   };
 
@@ -929,11 +1332,13 @@
   window.setRegionFilter = function (reg) {
     state.regionFilter = reg;
     renderModule4();
+    syncUrlState(false);
   };
 
   window.setCategoryFilter = function (cat) {
     state.categoryFilter = cat;
     renderModule4();
+    syncUrlState(false);
   };
 
   function renderModule4() {
@@ -1051,6 +1456,7 @@
   window.openAccountModal = function (accId) {
     const acc = window.APP_DATA.accounts.find((a) => a.id === accId);
     if (!acc) return;
+    state.openView = `account-${accId}`;
     const loc = acc[state.lang] || acc.en;
     const lbl = t().mod4.modalLabels;
 
@@ -1280,6 +1686,7 @@
 
   window.openDecisionMapModal = function () {
     const m = t().mod5.methodology;
+    state.openView = "decision-map";
     const html = `
       <div class="space-y-4">
         <div class="space-y-2.5">
@@ -1305,6 +1712,7 @@
 
   window.openTrialProtocolModal = function () {
     const m = t().mod5.methodology;
+    state.openView = "trial-protocol";
     const html = `
       <div class="space-y-5">
         <div>
@@ -1415,6 +1823,7 @@
   window.openPhaseModal = function (idx) {
     const p = t().mod6.phases[idx];
     if (!p) return;
+    state.openView = `phase-${idx}`;
     const html = `
       <div class="space-y-3">
         <div class="text-xs font-semibold text-blue-300">Owner: ${p.owner}</div>
@@ -1437,6 +1846,7 @@
 
   window.openMonthlyKpiModal = function () {
     const m6 = t().mod6;
+    state.openView = "monthly-kpi";
     const html = `
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         ${m6.reportingMetrics
@@ -1455,6 +1865,7 @@
 
   // CTA Modals (Sample Protocol, PDF Downloads, Contact Team)
   window.openSampleProtocolModal = function () {
+    state.openView = "sample-protocol";
     const html = `
       <div class="space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1488,9 +1899,10 @@
   };
 
   window.openDownloadPdfModal = function () {
+    state.openView = "pdf-download";
     const html = `
       <div class="space-y-3">
-        <a href="151026-CJ_BIO_x_BJCS_Vietnam.pdf" target="_blank" download
+        <a href="/151026-CJ_BIO_x_BJCS_Vietnam.pdf" target="_blank" download
           class="rounded-xl bg-slate-800/90 border border-emerald-500/40 p-4 flex items-center justify-between gap-3">
           <div>
             <div class="text-xs font-bold text-emerald-400">EXECUTIVE PRESENTATION (29 SLIDES · PDF)</div>
@@ -1499,7 +1911,7 @@
           <span class="keep-white-text px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs shrink-0">PDF</span>
         </a>
 
-        <a href="TasteNrich_HYBIND_Gioi_Thieu_SanPham_CJ_BIO.pdf" target="_blank" download
+        <a href="/TasteNrich_HYBIND_Gioi_Thieu_SanPham_CJ_BIO.pdf" target="_blank" download
           class="rounded-xl bg-slate-800/90 border border-white/15 p-4 flex items-center justify-between gap-3">
           <div>
             <div class="text-xs font-bold text-amber-400">PRODUCT BRIEF 01</div>
@@ -1508,7 +1920,7 @@
           <span class="px-3 py-1.5 rounded-lg bg-white/10 text-white font-bold text-xs shrink-0">PDF</span>
         </a>
 
-        <a href="FGAA_AMINATURE_Gioi_Thieu_SanPham_CJ_BIO.pdf" target="_blank" download
+        <a href="/FGAA_AMINATURE_Gioi_Thieu_SanPham_CJ_BIO.pdf" target="_blank" download
           class="rounded-xl bg-slate-800/90 border border-white/15 p-4 flex items-center justify-between gap-3">
           <div>
             <div class="text-xs font-bold text-blue-400">PRODUCT BRIEF 02</div>
@@ -1522,6 +1934,7 @@
   };
 
   window.openContactModal = function () {
+    state.openView = "contact";
     const html = `
       <div class="space-y-3.5">
         <div class="rounded-2xl bg-emerald-950/50 border border-emerald-500/40 p-4">
@@ -1549,6 +1962,63 @@
   };
 
   // ==========================================================================
+  // 10B. DIRECT DEEP-LINK DIRECTORY MODAL (SHARE SPECIFIC SECTIONS INSTANTLY)
+  // ==========================================================================
+  window.openLinkDirectoryModal = function () {
+    const u = ui();
+    const host = window.location.origin.startsWith("http")
+      ? window.location.origin
+      : "https://bjc-cjbio.vercel.app";
+
+    const links = [
+      { label: "01. Executive Hub & Proposal", path: "/01-executive-hub" },
+      { label: "01B. Thailand ➔ Vietnam Regional Synergy (Popup)", path: "/01-executive-hub?open=synergy" },
+      { label: "02. BJCS Vietnam Platform & KPIs", path: "/02-platform" },
+      { label: "02B. Route-to-Market & Logistics (Drawer)", path: "/02-platform?open=rtm" },
+      { label: "02C. Current Principal Portfolio (Drawer)", path: "/02-platform?open=principals" },
+      { label: "03A. TasteNrich® HYBIND Portfolio", path: "/03-portfolio/hybind" },
+      { label: "03B. HYBIND vs. Phosphate STPP Table (Popup)", path: "/03-portfolio/hybind?open=hybind-compare" },
+      { label: "03C. AMINATURE® FGAA Portfolio", path: "/03-portfolio/fgaa" },
+      { label: "03D. FGAA vs. Chemical/Animal Table (Popup)", path: "/03-portfolio/fgaa?open=fgaa-compare" },
+      { label: "04. Target Market & 13 Key Accounts", path: "/04-target-market" },
+      { label: "04B. Masan MEATLife Account Plan (Popup)", path: "/04-target-market?open=account-masan" },
+      { label: "04C. CJ Cầu Tre Account Plan (Popup)", path: "/04-target-market?open=account-cautre" },
+      { label: "05. Cost-in-Use ROI Calculator", path: "/05-win-strategy" },
+      { label: "05B. 3-Stage Trial Protocol (Popup)", path: "/05-win-strategy?open=trial-protocol" },
+      { label: "06. Go-To-Market Roadmap (2026–2027)", path: "/06-gtm-roadmap" }
+    ];
+
+    const html = `
+      <div class="space-y-2.5">
+        ${links
+          .map(
+            (item) => `
+          <div class="rounded-xl bg-slate-800/90 border border-white/15 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="min-w-0">
+              <div class="text-xs sm:text-sm font-bold text-white">${item.label}</div>
+              <div class="text-[11px] font-mono text-emerald-300 truncate">${host}${item.path}</div>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button onclick="copySpecificUrl('${item.path}')"
+                class="keep-white-text px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold cursor-pointer">
+                ${u.copyUrlBtn}
+              </button>
+              <button onclick="navigateToDeepPath('${item.path}')"
+                class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold cursor-pointer">
+                →
+              </button>
+            </div>
+          </div>
+        `
+          )
+          .join("")}
+      </div>
+    `;
+    state.openView = null;
+    openModal(u.urlDirectoryTitle, u.urlDirectorySub, html);
+  };
+
+  // ==========================================================================
   // 11. MODAL & SLIDE-OVER DRAWER CONTROLLERS
   // ==========================================================================
   window.openModal = function (title, subtitle, bodyHtml) {
@@ -1560,15 +2030,20 @@
     setTimeout(() => {
       backdrop.classList.remove("opacity-0");
     }, 10);
+    syncUrlState(false);
   };
 
-  window.closeModal = function () {
+  window.closeModal = function (silent = false) {
     const backdrop = document.getElementById("app-modal-backdrop");
     if (!backdrop) return;
     backdrop.classList.add("opacity-0");
     setTimeout(() => {
       backdrop.classList.add("hidden");
     }, 180);
+    if (!silent && state.openView) {
+      state.openView = null;
+      syncUrlState(false);
+    }
   };
 
   window.openDrawer = function (title, subtitle, bodyHtml) {
@@ -1582,9 +2057,10 @@
       backdrop.classList.remove("opacity-0");
       panel.classList.remove("translate-x-full");
     }, 10);
+    syncUrlState(false);
   };
 
-  window.closeDrawer = function () {
+  window.closeDrawer = function (silent = false) {
     const backdrop = document.getElementById("app-drawer-backdrop");
     const panel = document.getElementById("app-drawer-panel");
     if (!backdrop || !panel) return;
@@ -1593,10 +2069,14 @@
     setTimeout(() => {
       backdrop.classList.add("hidden");
     }, 220);
+    if (!silent && state.openView) {
+      state.openView = null;
+      syncUrlState(false);
+    }
   };
 
   // ==========================================================================
-  // 12. MASTER RENDER
+  // 12. MASTER RENDER & DEEP-LINK INITIALIZATION
   // ==========================================================================
   function renderAll() {
     applyThemeAndFont();
@@ -1611,8 +2091,20 @@
     renderModuleVisibility();
   }
 
+  window.addEventListener("popstate", function () {
+    closeModal(true);
+    closeDrawer(true);
+    state.openView = null;
+    const raw =
+      window.location.hash && window.location.hash.length > 1
+        ? window.location.hash.substring(1)
+        : window.location.pathname + window.location.search;
+    applyUrlString(raw);
+    updateUrlBadgeDisplay();
+  });
+
   document.addEventListener("DOMContentLoaded", function () {
     initSecuritySuite();
-    setLanguage(state.lang);
+    parseInitialLocation();
   });
 })();

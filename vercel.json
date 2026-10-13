@@ -1,0 +1,41 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/01-executive-hub",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/02-platform",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/03-portfolio",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/03-portfolio/:tab",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/04-target-market",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/05-win-strategy",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/06-gtm-roadmap",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/all-modules",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/((?!index\\.html|app\\.js|data-i18n\\.js|.*\\.jpg|.*\\.png|.*\\.pdf|.*\\.ico).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

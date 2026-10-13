@@ -4,7 +4,7 @@
 // ============================================================================
 
 (function () {
-  const PASSCODE = "BjcCj2026";
+  const PASSCODE = "Bjc2026!";
   const MOD_LIST = ["mod1", "mod2", "mod3", "mod4", "mod5", "mod6"];
   const MOD_SLUGS = {
     mod1: "/01-executive-hub",
@@ -46,7 +46,7 @@
 
   // Reactive Application State
   const state = {
-    authenticated: sessionStorage.getItem("bjc_cj_unlocked") === "1",
+    authenticated: sessionStorage.getItem("bjc_cj_unlocked_v2") === "1",
     lang: "vi",
     theme: localStorage.getItem("bjc_cj_theme") || "dark",
     fontScaleIndex: parseInt(localStorage.getItem("bjc_cj_font_idx") || "1", 10),
@@ -687,7 +687,7 @@
 
     if (val === PASSCODE) {
       state.authenticated = true;
-      sessionStorage.setItem("bjc_cj_unlocked", "1");
+      sessionStorage.setItem("bjc_cj_unlocked_v2", "1");
       errEl.classList.add("hidden");
       const overlay = document.getElementById("gatekeeper-overlay");
       overlay.classList.add("opacity-0", "pointer-events-none");
@@ -710,7 +710,7 @@
 
   window.lockPresentation = function () {
     state.authenticated = false;
-    sessionStorage.removeItem("bjc_cj_unlocked");
+    sessionStorage.removeItem("bjc_cj_unlocked_v2");
     const overlay = document.getElementById("gatekeeper-overlay");
     const input = document.getElementById("gk-password-input");
     const errEl = document.getElementById("gk-error-msg");

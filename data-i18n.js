@@ -54,7 +54,7 @@ window.APP_DATA = {
           {
             icon: "users",
             title: "The Right Customers, Today",
-            desc: "~90 active customer accounts YTD 2026 including Masan Group, CJ Cầu Tre (bibigo), Ajinomoto, Unilever, Navico, Seapimex, Hoa Linh & Merap.",
+            desc: "~90 active customer accounts YTD 2026 including Masan Group, CJ Cầu Tre (bibigo), Ajinomoto, LC Foods, Navico, Seapimex, Hoa Linh & Merap.",
             tag: "Immediate Access"
           },
           {
@@ -170,7 +170,7 @@ window.APP_DATA = {
             { seg: "Meat, Seafood & Convenience Food", accts: "Masan Group (MEATLife), CJ Cầu Tre (bibigo), LC Foods, Seapimex, Navico" },
             { seg: "Seasoning, Savory & Flavors", accts: "Ajinomoto, Givaudan, Nitto Fuji, Đại Vân, Hoàng Anh, Ban Mai Xanh, Hưng Việt" },
             { seg: "Beverages, Snacks & Nutrition", accts: "Masan Consumer (Wake-up 247), Tribeco, Yến Việt, Liwayway (Oishi), Thế Hệ Mới" },
-            { seg: "Pharma, Supplements & Personal Care", accts: "Unilever Vietnam, Hoa Linh, Merap Group, Dược–TBYT Đà Nẵng" }
+            { seg: "Pharma, Supplements & Oral Care", accts: "Hoa Linh, Merap Group, Dược–TBYT Đà Nẵng" }
           ]
         }
       },
@@ -507,7 +507,7 @@ window.APP_DATA = {
           {
             icon: "users",
             title: "Tệp Khách Hàng Mục Tiêu Sẵn Có",
-            desc: "~90 khách hàng đang giao dịch (năm 2026) gồm Masan Group, CJ Cầu Tre (bibigo), Ajinomoto, Unilever, Navico, Seapimex, Hoa Linh & Merap.",
+            desc: "~90 khách hàng đang giao dịch (năm 2026) gồm Masan Group, CJ Cầu Tre (bibigo), Ajinomoto, LC Foods, Navico, Seapimex, Hoa Linh & Merap.",
             tag: "Tiếp Cận Tức Thì"
           },
           {
@@ -623,7 +623,7 @@ window.APP_DATA = {
             { seg: "Thịt Chế Biến, Thủy Sản & Thực Phẩm Tiện Lợi", accts: "Masan Group (MEATLife), CJ Cầu Tre (bibigo), LC Foods, Seapimex, Navico" },
             { seg: "Gia Vị, Thực Phẩm Mặn & Hương Liệu", accts: "Ajinomoto, Givaudan, Nitto Fuji, Đại Vân, Hoàng Anh, Ban Mai Xanh, Hưng Việt" },
             { seg: "Đồ Uống, Giải Khát & Dinh Dưỡng", accts: "Masan Consumer (Wake-up 247), Tribeco, Yến Việt, Liwayway (Oishi), Thế Hệ Mới" },
-            { seg: "Dược Phẩm, TPCN & Chăm Sóc Cá Nhân", accts: "Unilever Vietnam, Hoa Linh, Merap Group, Dược–TBYT Đà Nẵng" }
+            { seg: "Dược Phẩm, TPCN & Chăm Sóc Răng Miệng", accts: "Hoa Linh, Merap Group, Dược–TBYT Đà Nẵng" }
           ]
         }
       },
@@ -960,7 +960,7 @@ window.APP_DATA = {
           {
             icon: "users",
             title: "즉시 공략 가능한 ~90개 핵심 고객망",
-            desc: "Masan, CJ Cầu Tre (비비고), Ajinomoto, Unilever, Navico, Seapimex, Hoa Linh, Merap 등 약 90개 활성 고객사와 긴밀히 거래 중입니다.",
+            desc: "Masan, CJ Cầu Tre (비비고), Ajinomoto, Navico, Seapimex, Hoa Linh, Merap 등 약 90개 활성 고객사와 긴밀히 거래 중입니다.",
             tag: "핵심 고객 직접 네트워크"
           },
           {
@@ -1076,7 +1076,7 @@ window.APP_DATA = {
             { seg: "육가공, 수산가공 및 간편식", accts: "Masan Group (MEATLife), CJ Cầu Tre (bibigo), LC Foods, Seapimex, Navico" },
             { seg: "조미료, 소스 및 향료", accts: "Ajinomoto, Givaudan, Nitto Fuji, Đại Vân, Hoàng Anh, Ban Mai Xanh, Hưng Việt" },
             { seg: "음료, 스낵 및 뉴트리션", accts: "Masan Consumer (Wake-up 247), Tribeco, Yến Việt, Liwayway (Oishi), Thế Hệ Mới" },
-            { seg: "제약, 건강기능식품 및 퍼스널케어", accts: "Unilever Vietnam, Hoa Linh, Merap Group, Dược–TBYT Đà Nẵng" }
+            { seg: "제약, 건강기능식품 및 퍼스널케어", accts: "Hoa Linh, Merap Group, Dược–TBYT Đà Nẵng" }
           ]
         }
       },
@@ -1704,43 +1704,6 @@ window.APP_DATA = {
         pain: "점유율 방어 및 포트폴리오 고급화를 위한 신규 기능성 음료 출시 및 수출용 Halal/Vegan 인증 확보.",
         value: "비건·할랄 인증 발효 아미노산 공급 및 BJCS 향료 파트너십을 통한 통합 제형 개발.",
         ksf: "기존 고객사인 Tribeco와 즉각적인 공동 개발 착수 및 Tân Hiệp Phát 대상 신속한 제품화 패키지 제안."
-      }
-    },
-    {
-      id: "unilever-vietnam",
-      name: "Unilever Vietnam",
-      region: "south",
-      regionBadge: "South (HCMC · Củ Chi)",
-      category: "fgaa",
-      productBadge: "AMINATURE® L-Arginine (Personal & Oral Care)",
-      isCustomer: true,
-      tier: "Tier-1 Priority",
-      en: {
-        regionBadge: "South (HCMC · Củ Chi)",
-        productBadge: "AMINATURE® L-Arginine (Oral & Personal Care)",
-        tier: "Tier-1 Priority",
-        apps: "Oral care (sensitive-teeth toothpaste formulations like P/S) and skin/hair care products.",
-        pain: "Strict global MNC sustainability & purity standards requiring natural, non-animal, plant-fermented L-Arginine as pH adjuster and oral-care active.",
-        value: "100% Non-GMO plant bio-fermented L-Arginine with global CJ BIO traceability and zero heavy metal risk.",
-        ksf: "Leverage BJCS's active personal-care supply relationship with Unilever Vietnam and align global approval documentation."
-      },
-      vi: {
-        regionBadge: "Miền Nam (TP.HCM · Củ Chi)",
-        productBadge: "AMINATURE® L-Arginine (Chăm Sóc Răng Miệng & Mỹ Phẩm)",
-        tier: "Khách Hàng Trọng Điểm",
-        apps: "Chăm sóc răng miệng (kem đánh răng giảm ê buốt) và các sản phẩm chăm sóc da / tóc.",
-        pain: "Tiêu chuẩn tập đoàn đa quốc gia khắt khe, yêu cầu L-Arginine nguồn gốc thực vật tự nhiên làm chất điều chỉnh pH và hoạt chất chống ê buốt răng.",
-        value: "L-Arginine lên men thực vật tự nhiên 100% từ CJ BIO với độ tinh khiết tuyệt đối và chuỗi cung ứng bền vững.",
-        ksf: "Tận dụng mối quan hệ cung ứng nguyên liệu mỹ phẩm sẵn có của BJCS tại Unilever Việt Nam kết hợp hồ sơ phê duyệt toàn cầu."
-      },
-      ko: {
-        regionBadge: "남부 (호치민 · 구찌)",
-        productBadge: "AMINATURE® L-Arginine (구강 · 퍼스널케어)",
-        tier: "1순위 핵심 고객",
-        apps: "구강케어(시린이 케어 치약 등) 및 스킨·헤어케어 제품군.",
-        pain: "글로벌 다국적 기업 기준에 부합하는 비동물성·친환경 천연 유래 pH 조절제 및 구강케어 활성 원료 필요.",
-        value: "100% 식물성 발효 L-Arginine 공급을 통한 클린 뷰티 및 시린이 케어 기능성 충족.",
-        ksf: "BJCS의 기존 유니레버 베트남 거래 채널 활용 및 화장품 등급(INCI) 글로벌 승인 서류 연동."
       }
     },
     {

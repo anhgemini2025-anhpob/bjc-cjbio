@@ -2014,6 +2014,11 @@
               <span>${m6.ctaBox.btnContact}</span>
             </button>
           </div>
+
+          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-center gap-2 text-[11px] sm:text-xs text-slate-300 select-none">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span>Executive Presentation Prepared &amp; Designed by <strong class="text-white font-semibold">Duy Anh</strong> (October 2026)</span>
+          </div>
         </div>
       </div>
     `;
@@ -2151,6 +2156,11 @@
             <div class="text-xs font-bold text-blue-400 mb-1">${cm.hnTitle}</div>
             <p class="text-xs text-slate-200">${cm.hnAddr}</p>
           </div>
+        </div>
+
+        <div class="rounded-xl bg-slate-800/60 border border-white/10 p-3 text-center text-xs text-slate-300">
+          <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-0.5">Presentation Architecture & Strategic Deck Design</div>
+          <div class="text-xs text-white font-semibold">Prepared &amp; Designed by Duy Anh (October 2026)</div>
         </div>
       </div>
     `;

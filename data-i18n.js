@@ -28,7 +28,7 @@ window.APP_DATA = {
       gatekeeper: {
         badge: "CONFIDENTIAL EXECUTIVE BRIEFING",
         title: "BJC Specialties Vietnam × CJ BIO",
-        subtitle: "Exclusive Distribution Proposal: TasteNrich® HYBIND & AMINATURE® FGAA in Vietnam",
+        subtitle: "Strategic Distribution Proposal: TasteNrich® HYBIND & AMINATURE® FGAA in Vietnam",
         meta: "15 October 2026 · MS Teams Executive Session · BJC Specialties Vietnam",
         placeholder: "Enter Executive Access Code...",
         unlockBtn: "Authenticate & Enter",
@@ -43,7 +43,7 @@ window.APP_DATA = {
         meetingTag: "15 October 2026 | MS Teams",
         presenterTag: "BJC Specialties Vietnam · Food & Nutraceutical Ingredients",
         proposalBannerTitle: "EXECUTIVE PROPOSAL",
-        proposalBannerText: "Appoint BJCS Vietnam as Exclusive Distributor of TasteNrich® HYBIND & AMINATURE® FGAA → 90-Day Onboarding (Q4 2026) → Priority Customer Trials from Q1 2027 across ~20 Tier-1 Accounts.",
+        proposalBannerText: "Appoint BJCS Vietnam as Strategic Distribution Partner for TasteNrich® HYBIND & AMINATURE® FGAA → 90-Day Onboarding (Q4 2026) → Priority Customer Trials from Q1 2027 across ~20 Tier-1 Accounts.",
         pillars: [
           {
             icon: "handshake",
@@ -389,13 +389,13 @@ window.APP_DATA = {
             step: "PHASE 01",
             name: "ONBOARD",
             period: "Oct – Dec 2026",
-            summary: "Foundation, NDA, Exclusive Distribution Agreement, Product Training & Regulatory Dossiers",
+            summary: "Foundation, NDA, Strategic Distribution Agreement, Product Training & Regulatory Dossiers",
             deliverables: [
               "15 Oct 2026: Executive Introduction Meeting (CJ BIO Vietnam × BJCS Vietnam).",
               "By 30 Oct 2026: Sign NDA; receive CJ BIO technical documents (TDS, SDS, COA, Halal/Kosher/Vegan/FSSC 22000) & initial lab samples.",
               "Nov 2026: Intensive CJ BIO product & application training for BJCS sales/NPD team; lock ~20 Priority Tier-1 Account list.",
               "Confirm TasteNrich® HYBIND Vietnam regulatory classification (ingredient vs. INS additive) & label wording; prepare self-declaration dossiers.",
-              "Dec 2026: Finalize Exclusive Distribution Agreement, CIF/Ex-stock pricing, MOQ & lead times; conduct first customer presentations."
+              "Dec 2026: Finalize Strategic Distribution Agreement, CIF/Ex-stock pricing, MOQ & lead times; conduct first customer presentations."
             ],
             owner: "CJ BIO Vietnam + BJCS Management & Regulatory"
           },
@@ -452,7 +452,7 @@ window.APP_DATA = {
         ],
         ctaBox: {
           badge: "STRATEGIC PARTNERSHIP PROPOSAL · 15 OCTOBER 2026",
-          title: "Our Proposal: Appoint BJCS Vietnam as Exclusive Distributor for HYBIND & FGAA in Vietnam",
+          title: "Our Proposal: Appoint BJCS Vietnam as Strategic Distribution Partner for HYBIND & FGAA in Vietnam",
           subtitle: "A dedicated local team, proven regional synergy with BJC Thailand, structured 3-stage application trials, and transparent monthly reporting to CJ BIO Vietnam.",
           btnSample: "Request Sample Protocol",
           btnPdf: "Download Meeting Summary (PDF)",
@@ -481,7 +481,7 @@ window.APP_DATA = {
       gatekeeper: {
         badge: "TÀI LIỆU HỌP CẤP CAO BẢO MẬT",
         title: "BJC Specialties Vietnam × CJ BIO",
-        subtitle: "Đề Xuất Phân Phối Độc Quyền: TasteNrich® HYBIND & AMINATURE® FGAA tại Việt Nam",
+        subtitle: "Đề Xuất Hợp Tác Phân Phối Chiến Lược: TasteNrich® HYBIND & AMINATURE® FGAA tại Việt Nam",
         meta: "15/10/2026 · Họp Trực Tuyến MS Teams · BJC Specialties Vietnam",
         placeholder: "Nhập mật khẩu truy cập...",
         unlockBtn: "Xác Thực & Truy Cập",
@@ -496,7 +496,7 @@ window.APP_DATA = {
         meetingTag: "15 Tháng 10, 2026 | MS Teams",
         presenterTag: "BJC Specialties Vietnam · Nguyên Liệu Thực Phẩm & TPCN",
         proposalBannerTitle: "ĐỀ XUẤT HỢP TÁC CỐT LÕI",
-        proposalBannerText: "Chỉ định BJCS Vietnam làm Nhà Phân Phối Độc Quyền HYBIND & FGAA → 90 ngày Khởi động (Quý 4/2026) → Chạy thử nghiệm thực tế từ Quý 1/2027 tại ~20 Khách hàng Trọng điểm khắp Bắc – Trung – Nam.",
+        proposalBannerText: "Chỉ định BJCS Vietnam làm Đối Tác Phân Phối Chiến Lược HYBIND & FGAA → 90 ngày Khởi động (Quý 4/2026) → Chạy thử nghiệm thực tế từ Quý 1/2027 tại ~20 Khách hàng Trọng điểm khắp Bắc – Trung – Nam.",
         pillars: [
           {
             icon: "handshake",
@@ -665,7 +665,7 @@ window.APP_DATA = {
           badge: "100% LÊN MEN THỰC VẬT KHÔNG BIẾN ĐỔI GEN · THUẦN CHAY",
           title: "AMINATURE® FGAA",
           headline: "Axit Amin Cấp Thực Phẩm & Dinh Dưỡng: L-Arginine · L-Citrulline · L-Histidine",
-          desc: "Dòng axit amin tinh khiết cao cấp mang thương hiệu AMINATURE® của CJ BIO, sản xuất độc quyền bằng công nghệ lên men sinh học từ 100% nguyên liệu thực vật không biến đổi gen. Đạt trọn bộ chứng nhận vàng (Vegan Action, Halal, Kosher, FSSC 22000) — loại bỏ hoàn toàn rủi ro tạp chất từ chiết xuất lông/tóc động vật hoặc tổng hợp hóa học.",
+          desc: "Dòng axit amin tinh khiết cao cấp mang thương hiệu AMINATURE® của CJ BIO, sản xuất bằng công nghệ lên men sinh học tiên tiến từ 100% nguyên liệu thực vật không biến đổi gen. Đạt trọn bộ chứng nhận vàng (Vegan Action, Halal, Kosher, FSSC 22000) — loại bỏ hoàn toàn rủi ro tạp chất từ chiết xuất lông/tóc động vật hoặc tổng hợp hóa học.",
           tags: [
             "L-Arginine (Tuần Hoàn Máu & Chăm Sóc Răng Miệng)",
             "L-Citrulline (Kéo Dài Sức Bền & Chống Mỏi Cơ)",
@@ -905,7 +905,7 @@ window.APP_DATA = {
         ],
         ctaBox: {
           badge: "ĐỀ XUẤT HỢP TÁC CHIẾN LƯỢC · 15/10/2026",
-          title: "Đề Xuất Của Chúng Tôi: Chỉ Định BJCS Việt Nam Làm Nhà Phân Phối Độc Quyền HYBIND & FGAA Tại Việt Nam",
+          title: "Đề Xuất Của Chúng Tôi: Chỉ Định BJCS Việt Nam Làm Đối Tác Phân Phối Chiến Lược HYBIND & FGAA Tại Việt Nam",
           subtitle: "Đội ngũ chuyên trách bản địa, quy trình thử nghiệm 3 giai đoạn bài bản và báo cáo tiến độ minh bạch hàng tháng gửi CJ BIO Việt Nam.",
           btnSample: "Yêu Cầu Quy Trình Mẫu Thử",
           btnPdf: "Tải Tài Liệu Họp (PDF)",
@@ -934,7 +934,7 @@ window.APP_DATA = {
       gatekeeper: {
         badge: "대외비 · 경영진 전략 브리핑",
         title: "BJC Specialties Vietnam × CJ BIO",
-        subtitle: "베트남 내 TasteNrich® HYBIND 및 AMINATURE® FGAA 독점 유통 파트너십 제안",
+        subtitle: "베트남 내 TasteNrich® HYBIND 및 AMINATURE® FGAA 전략적 유통 파트너십 제안",
         meta: "2026년 10월 15일 · MS Teams 미팅 · BJC Specialties Vietnam",
         placeholder: "보안 접속 코드를 입력하십시오...",
         unlockBtn: "인증 및 프레젠테이션 입장",
@@ -1295,7 +1295,7 @@ window.APP_DATA = {
             step: "01단계",
             name: "기반 구축 및 인허가",
             period: "2026년 10월 – 12월",
-            summary: "NDA 및 독점 유통 계약 체결, 제품 교육, 인허가 분류 확정",
+            summary: "NDA 및 전략적 유통 계약 체결, 제품 교육, 인허가 분류 확정",
             deliverables: [
               "2026년 10월 15일: CJ BIO 베트남 × BJCS 베트남 상견례 및 전략 미팅.",
               "2026년 10월 30일까지: NDA 체결, 기술 문서(TDS, SDS, COA, Halal/Kosher/Vegan/FSSC) 및 샘플 수령.",
@@ -1358,7 +1358,7 @@ window.APP_DATA = {
         ],
         ctaBox: {
           badge: "전략적 파트너십 제안 · 2026년 10월 15일",
-          title: "우리의 제안: BJCS 베트남을 TasteNrich® HYBIND 및 AMINATURE® FGAA 베트남 독점 유통 파트너로 지정해 주십시오",
+          title: "우리의 제안: BJCS 베트남을 TasteNrich® HYBIND 및 AMINATURE® FGAA 베트남 전략적 유통 파트너로 지정해 주십시오",
           subtitle: "전담 현지 조직, 체계적인 3단계 기술 테스트, 그리고 매월 투명한 파이프라인 보고로 CJ BIO 베트남의 성장을 책임지겠습니다.",
           btnSample: "샘플 및 테스트 프로토콜 요청",
           btnPdf: "미팅 자료 다운로드 (PDF)",
